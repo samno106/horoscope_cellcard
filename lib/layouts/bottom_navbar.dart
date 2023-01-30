@@ -27,7 +27,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
     double arcHeightWithNotch = 67;
 
     if (size.height > 800) {
-      barHeight = 80.0;
+      barHeight = 85.0;
     } else {
       barHeight = size.height * 0.1;
     }
@@ -47,7 +47,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
           children: [HoroscopePage(), HomePage(), PremiumPage()],
         ),
         bottomNavigationBar: Container(
-          height: 80.0,
+          height: 85.0,
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -62,6 +62,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
             barBackgroundColor: Colors.white,
             barHeight: viewPadding.bottom > 0 ? barHeightWithNotch : barHeight,
             arcHeight: viewPadding.bottom > 0 ? arcHeightWithNotch : barHeight,
+            arcWidth: viewPadding.bottom > 0 ? arcHeightWithNotch : barHeight,
             itemTextOff: viewPadding.bottom > 0 ? 0 : 0.3,
             itemTextOn: viewPadding.bottom > 0 ? 0 : 0.3,
             circleOutline: 10.0,
@@ -70,74 +71,15 @@ class _BottomNavbarState extends State<BottomNavbar> {
             blurShadowRadius: 45.0,
             circleColor: primaryColor,
             activeIconColor: Colors.white,
-            inactiveIconColor: Colors.grey,
+            inactiveIconColor: Color(0XFF606060),
+            textColor: Color(0XFF606060),
             tabs: getTabsData(),
             onTabChangedListener: controller.changeTabIndex,
           ),
         ),
-        // bottomNavigationBar: Container(
-        //   height: 120.00,
-        //   decoration: const BoxDecoration(
-        //     color: Colors.white,
-        //     borderRadius: BorderRadius.only(
-        //         topRight: Radius.circular(30.0),
-        //         topLeft: Radius.circular(30.0)),
-        //     boxShadow: [
-        //       BoxShadow(color: Colors.black12, spreadRadius: 2, blurRadius: 5),
-        //     ],
-        //   ),
-        //   child: ClipRRect(
-        //     borderRadius: const BorderRadius.only(
-        //       topLeft: Radius.circular(30.0),
-        //       topRight: Radius.circular(30.0),
-        //     ),
-        //     child: BottomNavigationBar(
-        //         backgroundColor: Colors.white,
-        //         selectedItemColor: Colors.amber,
-        //         selectedLabelStyle:
-        //             const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-        //         unselectedLabelStyle:
-        //             const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-        //         type: BottomNavigationBarType.fixed,
-        //         currentIndex: controller.tapIndex,
-        //         onTap: controller.changeTabIndex,
-        //         items: [
-        //           _bottomBarItem(CupertinoIcons.moon, "Horoscope", 0),
-        //           _bottomBarItem(CupertinoIcons.home, "Home", 1),
-        //           _bottomBarItem(CupertinoIcons.star, "Premium", 2)
-        //         ]),
-        //   ),
-        // ),
       );
     });
   }
-
-  // _bottomBarItem(IconData icon, String lable, int index) {
-  //   return BottomNavigationBarItem(
-  //       icon: index == controller.tapIndex
-  //           ? Container(
-  //               margin: const EdgeInsets.only(bottom: 10),
-  //               decoration: const BoxDecoration(
-  //                 color: Colors.amber,
-  //                 shape: BoxShape.circle,
-  //               ),
-  //               height: 56,
-  //               width: 56,
-  //               child: Icon(
-  //                 icon,
-  //                 color: Colors.white,
-  //                 size: 32,
-  //               ),
-  //             )
-  //           : Padding(
-  //               padding: const EdgeInsets.only(bottom: 10),
-  //               child: Icon(
-  //                 icon,
-  //                 size: 22,
-  //               ),
-  //             ),
-  //       label: lable);
-  // }
 }
 
 List<TabData> getTabsData() {
