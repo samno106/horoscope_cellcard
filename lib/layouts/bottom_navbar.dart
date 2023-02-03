@@ -1,7 +1,9 @@
 import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:horoscope_cellcard/controllers/controller.dart';
 import 'package:get/get.dart';
@@ -23,18 +25,14 @@ class _BottomNavbarState extends State<BottomNavbar> {
     final size = MediaQuery.of(context).size;
     final viewPadding = MediaQuery.of(context).viewPadding;
     double barHeight;
-    double barHeightWithNotch = 67;
-    double arcHeightWithNotch = 67;
+    double barHeightWithNotch = 77;
+    double arcHeightWithNotch = 77;
 
-    if (size.height > 800) {
-      barHeight = 85.0;
-    } else {
-      barHeight = size.height * 0.1;
-    }
+    barHeight = 85.0;
 
     if (viewPadding.bottom > 0) {
-      barHeightWithNotch = (size.height * 0.07) + viewPadding.bottom;
-      arcHeightWithNotch = (size.height * 0.75) + viewPadding.bottom;
+      barHeightWithNotch = (size.height * 0.08) + viewPadding.bottom;
+      arcHeightWithNotch = (size.height * 0.85) + viewPadding.bottom;
     }
 
     Color primaryColor = Theme.of(context).primaryColor;
@@ -107,3 +105,9 @@ List<TabData> getTabsData() {
     ),
   ];
 }
+
+const List<String> iconMenu = <String>[
+  '/images/icons/horoscope.svg',
+  '/images/icons/home.svg',
+  '/images/icons/crown.svg',
+];
