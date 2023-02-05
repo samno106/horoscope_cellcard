@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
             child: Stack(children: [
               Positioned(
                 top: 35,
-                left: MediaQuery.of(context).size.width / 2.1,
+                left: MediaQuery.of(context).size.width / 2.05,
                 child: const SizedBox(
                   height: 17.0,
                   width: 21.0,
