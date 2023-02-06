@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:horoscope_cellcard/pages/auth/index.dart';
 
 class TopNavbar extends StatefulWidget {
   const TopNavbar({super.key});
@@ -30,20 +32,23 @@ class _TopNavbarState extends State<TopNavbar> {
                 padding: const EdgeInsets.only(left: 1.0, right: 1.0),
                 child: Row(
                   children: [
-                    auth
-                        ? CircleAvatar(
-                            radius: 16,
-                            backgroundColor: canvasColor,
-                            child: CircleAvatar(
-                              backgroundColor: primaryColor,
-                              radius: 15,
-                              child: Icon(
-                                CupertinoIcons.person_fill,
-                                color: canvasColor,
+                    GestureDetector(
+                      onTap: () => {Get.toNamed('auth')},
+                      child: auth
+                          ? CircleAvatar(
+                              radius: 16,
+                              backgroundColor: canvasColor,
+                              child: CircleAvatar(
+                                backgroundColor: primaryColor,
+                                radius: 15,
+                                child: Icon(
+                                  CupertinoIcons.person_fill,
+                                  color: canvasColor,
+                                ),
                               ),
-                            ),
-                          )
-                        : SvgPicture.asset(iconHeader[0]),
+                            )
+                          : SvgPicture.asset(iconHeader[0]),
+                    ),
                     const SizedBox(width: 10.0),
                     auth
                         ? Text(
