@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class SignupPage extends StatefulWidget {
   SignupPage({Key? key}) : super(key: key);
@@ -12,12 +13,18 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
   String logo = "/images/carousel/monkey.png";
+
+  TextEditingController _textEditingController = TextEditingController();
+  DateTime selectedDate = DateTime.now();
+  final startDate = DateTime(1969, 1);
+  final lasttDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).primaryColor;
     Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = Color(0XFFF5F6FB);
-    Color textGrey = Color(0XFFABABAB);
+    Color bodyColor = const Color(0XFFF5F6FB);
+    Color textGrey = const Color(0XFFABABAB);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: bodyColor,
@@ -34,9 +41,10 @@ class _SignupPageState extends State<SignupPage> {
         ),
       ),
       backgroundColor: bodyColor,
-      body: SafeArea(
+      body: SingleChildScrollView(
+          child: SafeArea(
         child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.0),
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -51,7 +59,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 30.0),
+                  margin: const EdgeInsets.only(top: 30.0),
                   width: MediaQuery.of(context).size.width,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -84,14 +92,14 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           CupertinoIcons.person_crop_circle,
                           color: Color(0XFFD9328A),
                         ),
                         hintText: "Full Name",
                         enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Color(0XFFC9CCD0), width: 1.0),
+                          borderSide: const BorderSide(
+                              color: Color(0XFFC9CCD0), width: 1.0),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                         focusedBorder: OutlineInputBorder(
@@ -101,10 +109,12 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15.0,
                     ),
                     TextField(
+                      controller: _textEditingController,
+                      onTap: () => _openDatepicker(context),
                       style: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
@@ -112,13 +122,13 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           FeatherIcons.calendar,
                           color: Color(0XFFD9328A),
                         ),
                         hintText: "Date of Birth",
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                                 color: Color(0XFFC9CCD0), width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
@@ -128,7 +138,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15.0,
                     ),
                     TextField(
@@ -139,13 +149,13 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           CupertinoIcons.escape,
                           color: Color(0XFFD9328A),
                         ),
                         hintText: "Gender",
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                                 color: Color(0XFFC9CCD0), width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
@@ -155,7 +165,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15.0,
                     ),
                     TextField(
@@ -166,13 +176,13 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           FeatherIcons.phone,
                           color: Color(0XFFD9328A),
                         ),
                         hintText: "Phone Number",
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                                 color: Color(0XFFC9CCD0), width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
@@ -184,24 +194,24 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ]),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30.0,
                 ),
                 Container(
                   child: Column(children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0XFF008DD4),
+                        primary: const Color(0XFF008DD4),
                         onPrimary: Colors.white,
-                        shadowColor: Color(0XFF008DD4),
+                        shadowColor: const Color(0XFF008DD4),
                         elevation: 5,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0)),
                         minimumSize:
-                            Size(MediaQuery.of(context).size.width, 45),
+                            Size(MediaQuery.of(context).size.width, 50),
                       ),
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         "Send Code",
                         style: TextStyle(
                           fontSize: 14.0,
@@ -209,7 +219,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15.0,
                     ),
                     SizedBox(
@@ -236,36 +246,55 @@ class _SignupPageState extends State<SignupPage> {
                   ]),
                 ),
                 Container(
-                  child: Column(children: [
+                  margin: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Column(children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: const [
+                        Expanded(
+                            child: Divider(
+                          thickness: 1.5,
+                          color: Colors.black26,
+                        )),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text("Or sign up with"),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Expanded(
+                            child: Divider(
+                          thickness: 1.5,
+                          color: Colors.black26,
+                        )),
+                      ],
+                    ),
                     SizedBox(
-                      child: Text("Or sign up with"),
+                      height: 25.0,
                     ),
                     SizedBox(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                            onPressed: () => {},
-                            icon: Icon(
-                              FeatherIcons.facebook,
-                              size: 40.0,
-                            ),
+                            icon: Image.asset('/images/icons/facebook.png'),
+                            iconSize: 50,
+                            onPressed: () {},
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20.0,
                           ),
                           IconButton(
-                            onPressed: () => {},
-                            icon: Icon(
-                              FeatherIcons.chrome,
-                              size: 40.0,
-                            ),
+                            icon: Image.asset('/images/icons/google.png'),
+                            iconSize: 40,
+                            onPressed: () {},
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 40.0,
+                    const SizedBox(
+                      height: 10.0,
                     ),
                     SizedBox(
                       child: TextButton(
@@ -283,7 +312,24 @@ class _SignupPageState extends State<SignupPage> {
                 )
               ],
             )),
-      ),
+      )),
     );
+  }
+
+  _openDatepicker(BuildContext context) async {
+    final DateTime? dob = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: startDate,
+      lastDate: lasttDate,
+    );
+
+    if (dob != null) {
+      setState(() {
+        selectedDate = dob;
+        String formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+        _textEditingController.text = formattedDate;
+      });
+    }
   }
 }

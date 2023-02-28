@@ -20,8 +20,9 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-          child: Column(
+      body: SingleChildScrollView(
+          child: SafeArea(
+              child: Column(
         children: [
           const TopNavbar(),
           Container(
@@ -146,7 +147,7 @@ class _HomePageState extends State<HomePage> {
             ),
           )
         ],
-      )),
+      ))),
     );
   }
 

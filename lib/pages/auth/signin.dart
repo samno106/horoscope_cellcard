@@ -34,7 +34,8 @@ class _SigninPageState extends State<SigninPage> {
         ),
       ),
       backgroundColor: bodyColor,
-      body: SafeArea(
+      body: SingleChildScrollView(
+          child: SafeArea(
         child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
             child: Column(
@@ -156,7 +157,7 @@ class _SigninPageState extends State<SigninPage> {
                 )
               ],
             )),
-      ),
+      )),
     );
   }
 }
