@@ -42,6 +42,7 @@ dependencies:
   curved_carousel: ^0.0.7
   flutter_feather_icons: ^2.0.0+1
   intl: ^0.18.0
+  flutter_verification_code: ^1.1.6
 
 dev_dependencies:
   flutter_test:

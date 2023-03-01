@@ -119,7 +119,7 @@ class _SigninPageState extends State<SigninPage> {
                         minimumSize:
                             Size(MediaQuery.of(context).size.width, 45),
                       ),
-                      onPressed: () {},
+                      onPressed: () => {Get.toNamed('confirm-otp')},
                       child: Text(
                         "Send Code",
                         style: TextStyle(
