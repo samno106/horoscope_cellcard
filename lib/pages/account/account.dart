@@ -129,7 +129,8 @@ class _AccountPageState extends State<AccountPage> {
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             width: double.infinity,
             child: Container(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.only(
+                  left: 20.0, right: 20.0, top: 20.0, bottom: 10.0),
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
@@ -210,7 +211,7 @@ class _AccountPageState extends State<AccountPage> {
                         ],
                       )),
                   SizedBox(
-                    height: 8.0,
+                    height: 5.0,
                   ),
                   Divider(
                     thickness: 1,

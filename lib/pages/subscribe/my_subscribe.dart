@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_cellcard/wegets/subscibe_card.dart';
 
 class MySubscribePage extends StatefulWidget {
   const MySubscribePage({super.key});
@@ -109,17 +110,22 @@ class _MySubscribePageState extends State<MySubscribePage> {
             ),
           ),
           SizedBox(
-            height: 20.0,
+            height: 40.0,
           ),
           Container(
             height: MediaQuery.of(context).size.height * 0.7,
+            width: double.infinity,
             child: ListView(
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 35),
-                  height: 150.0,
-                  width: double.infinity,
-                  child: Text("Item 1"),
+                SubscribeCard(
+                  img: profiles[0],
+                  name: "Master. Khit Samno",
+                  price: "0.50",
+                ),
+                SubscribeCard(
+                  img: profiles[1],
+                  name: "Master. Khit Samno",
+                  price: "0.25",
                 ),
               ],
             ),
@@ -155,3 +161,8 @@ class CurvedBottomClipper extends CustomClipper<Path> {
     return true;
   }
 }
+
+const List<String> profiles = <String>[
+  "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg",
+  "https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg"
+];
