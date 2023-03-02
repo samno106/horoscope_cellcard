@@ -1,18 +1,17 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class MySubscribePage extends StatefulWidget {
+  const MySubscribePage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<MySubscribePage> createState() => _MySubscribePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _MySubscribePageState extends State<MySubscribePage> {
   @override
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).primaryColor;
@@ -25,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
         backgroundColor: primaryColor,
         elevation: 0,
         title: Text(
-          "Profile",
+          "My Subscription",
           style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
@@ -66,67 +65,63 @@ class _ProfilePageState extends State<ProfilePage> {
                     top: 50,
                     left: MediaQuery.of(context).size.width * 0.37,
                     child: Container(
-                      child: Stack(children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(100.0),
-                          child: Image.asset(
-                            "/images/profile/base_profile.png",
-                            height: 100.0,
-                            width: 100.0,
-                            fit: BoxFit.cover,
-                          ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100.0),
+                        child: Image.asset(
+                          "/images/profile/base_profile.png",
+                          height: 100.0,
+                          width: 100.0,
+                          fit: BoxFit.cover,
                         ),
-                        Positioned(
-                            top: 60.0,
-                            right: -20,
-                            child: MaterialButton(
-                              onPressed: () {},
-                              color: Color.fromARGB(203, 255, 255, 255),
-                              textColor: Colors.blue,
-                              elevation: 0.0,
-                              child: Icon(
-                                CupertinoIcons.camera_fill,
-                                size: 18,
-                              ),
-                              padding: EdgeInsets.all(16),
-                              shape: CircleBorder(
-                                  side: BorderSide(
-                                      width: 1.0, color: Colors.blue)),
-                            )),
-                      ]),
+                      ),
                     )),
               ],
             ),
           ),
+          SizedBox(
+            height: 5,
+          ),
           Center(
-            child: TextButton(
-                onPressed: () => {},
-                child: Text(
-                  "Edit Profile",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.w600,
-                      decoration: TextDecoration.underline),
-                )),
+            child: Text(
+              "You do not have any subscription.",
+              style: TextStyle(
+                color: Color(0XFF2C3E50),
+                fontSize: 16.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 50.0),
+            child: Center(
+              child: Text(
+                textAlign: TextAlign.center,
+                "Select any Master below to see details or suscribe to have full access to our Horoscope.",
+                style: TextStyle(
+                    color: Color(0XFF2C3E50),
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w500,
+                    height: 1.5),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20.0,
           ),
           Container(
-            margin: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.1,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
-            width: double.infinity,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              width: double.infinity,
-              height: 325.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Colors.white,
-              ),
-              child: Column(
-                children: [],
-              ),
+            height: MediaQuery.of(context).size.height * 0.7,
+            child: ListView(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 35),
+                  height: 150.0,
+                  width: double.infinity,
+                  child: Text("Item 1"),
+                ),
+              ],
             ),
           )
         ],

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:horoscope_cellcard/layouts/bottom_navbar.dart';
+import 'package:horoscope_cellcard/pages/account/account.dart';
 import 'package:horoscope_cellcard/pages/auth/account_created.dart';
 import 'package:horoscope_cellcard/pages/auth/index.dart';
 import 'package:horoscope_cellcard/pages/auth/signin.dart';
@@ -7,7 +8,8 @@ import 'package:horoscope_cellcard/pages/auth/signup.dart';
 import 'package:horoscope_cellcard/pages/home/home.dart';
 import 'package:horoscope_cellcard/pages/horoscope/horoscope.dart';
 import 'package:horoscope_cellcard/pages/premium/premium.dart';
-import 'package:horoscope_cellcard/pages/profile/profile.dart';
+import 'package:horoscope_cellcard/pages/account/profile.dart';
+import 'package:horoscope_cellcard/pages/subscribe/my_subscribe.dart';
 
 import '../pages/auth/otp.dart';
 
@@ -25,7 +27,9 @@ class AppPage {
     GetPage(name: accountCreated, page: () => AccountCreatedPage()),
 
     //account setting
+    GetPage(name: account, page: () => AccountPage()),
     GetPage(name: profile, page: () => ProfilePage()),
+    GetPage(name: mySubscribe, page: () => MySubscribePage()),
   ];
   static getbottomNavbar() => bottomNavbar;
   static gethoroscope() => horoscope;
@@ -38,7 +42,9 @@ class AppPage {
   static getConfirmOtp() => confirmOtp;
   static getAccountCreated() => accountCreated;
   //account setting
+  static getAccount() => account;
   static getProfile() => profile;
+  static getMySubscribe() => mySubscribe;
 
   static String bottomNavbar = "/";
   static String horoscope = "/horoscope";
@@ -51,5 +57,7 @@ class AppPage {
   static String confirmOtp = "/confirm-otp";
   static String accountCreated = "/account-created";
   //account setting
+  static String account = "/account";
   static String profile = "/profile";
+  static String mySubscribe = "/my-subscribe";
 }
