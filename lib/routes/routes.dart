@@ -10,6 +10,7 @@ import 'package:horoscope_cellcard/pages/horoscope/horoscope.dart';
 import 'package:horoscope_cellcard/pages/premium/premium.dart';
 import 'package:horoscope_cellcard/pages/account/profile.dart';
 import 'package:horoscope_cellcard/pages/subscribe/my_subscribe.dart';
+import 'package:horoscope_cellcard/pages/subscribe/subscribe_complted.dart';
 
 import '../pages/auth/otp.dart';
 
@@ -30,6 +31,8 @@ class AppPage {
     GetPage(name: account, page: () => AccountPage()),
     GetPage(name: profile, page: () => ProfilePage()),
     GetPage(name: mySubscribe, page: () => MySubscribePage()),
+    //subscribe action
+    GetPage(name: subscribeCompleted, page: () => SubscribeCompletedPage()),
   ];
   static getbottomNavbar() => bottomNavbar;
   static gethoroscope() => horoscope;
@@ -46,6 +49,9 @@ class AppPage {
   static getProfile() => profile;
   static getMySubscribe() => mySubscribe;
 
+  //subscribe action
+  static getSubscribeCompleted() => subscribeCompleted;
+
   static String bottomNavbar = "/";
   static String horoscope = "/horoscope";
   static String home = "/home";
@@ -60,4 +66,6 @@ class AppPage {
   static String account = "/account";
   static String profile = "/profile";
   static String mySubscribe = "/my-subscribe";
+  //subscribe action
+  static String subscribeCompleted = "/subscribe-completed";
 }

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_cellcard/wegets/subscribe_modal_bottom.dart';
+import 'package:intl/intl.dart';
 
 class SubscribeCard extends StatelessWidget {
   const SubscribeCard(
       {Key? key, required this.img, required this.name, required this.price})
       : super(key: key);
 
-  final String img, name, price;
+  final String img, name;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-      margin: EdgeInsets.symmetric(vertical: 10.0),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
+      decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(
             top: BorderSide(color: Color.fromARGB(255, 119, 210, 255)),
@@ -36,7 +39,7 @@ class SubscribeCard extends StatelessWidget {
               image: NetworkImage(img),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20.0,
           ),
           Expanded(
@@ -50,15 +53,17 @@ class SubscribeCard extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Color(0XFF2C3E50),
                           fontSize: 14.0,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       Text(
-                        price,
-                        style: TextStyle(
+                        NumberFormat.simpleCurrency(
+                                locale: 'en-US', decimalDigits: 2)
+                            .format(price),
+                        style: const TextStyle(
                           color: Color(0XFFD9328A),
                           fontSize: 18.0,
                           fontWeight: FontWeight.w500,
@@ -67,11 +72,11 @@ class SubscribeCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Divider(
+                const Divider(
                   color: Color.fromARGB(255, 150, 220, 255),
                   thickness: 1,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Container(
@@ -83,7 +88,7 @@ class SubscribeCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              children: [
+                              children: const [
                                 Icon(
                                   FeatherIcons.disc,
                                   size: 8.0,
@@ -102,11 +107,11 @@ class SubscribeCard extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10.0,
                             ),
                             Row(
-                              children: [
+                              children: const [
                                 Icon(
                                   FeatherIcons.disc,
                                   size: 8.0,
@@ -131,16 +136,33 @@ class SubscribeCard extends StatelessWidget {
                           children: [
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Color(0XFF008DD4),
+                                primary: const Color(0XFF008DD4),
                                 onPrimary: Colors.white,
-                                shadowColor: Color(0XFF008DD4),
+                                shadowColor: const Color(0XFF008DD4),
                                 elevation: 5,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6.0)),
-                                minimumSize: Size(80.0, 35.0),
+                                minimumSize: const Size(80.0, 35.0),
                               ),
-                              onPressed: () => {},
-                              child: Text(
+                              onPressed: () => {
+                                showModalBottomSheet(
+                                    context: context,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20.0),
+                                        topRight: Radius.circular(20.0),
+                                      ),
+                                    ),
+                                    backgroundColor: Colors.white,
+                                    builder: ((context) {
+                                      return SubscribeModalBottom(
+                                        img: img,
+                                        name: name,
+                                        price: price,
+                                      );
+                                    }))
+                              },
+                              child: const Text(
                                 "Subscribe",
                                 style: TextStyle(
                                   fontSize: 12.0,
