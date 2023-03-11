@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
+import '../../constants/colors.dart';
+
 class AccountCreatedPage extends StatefulWidget {
   const AccountCreatedPage({super.key});
 
@@ -12,12 +14,8 @@ class AccountCreatedPage extends StatefulWidget {
 class _AccountCreatedPageState extends State<AccountCreatedPage> {
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = Color(0XFFF5F6FB);
-    Color textGrey = Color(0XFFABABAB);
     return Scaffold(
-      backgroundColor: bodyColor,
+      backgroundColor: backgroundColor,
       body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 0.0),
           height: MediaQuery.of(context).size.height,
@@ -44,7 +42,7 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
-                            color: Color(0XFF2C3E50)),
+                            color: textDarkColor),
                       ),
                     ),
                   ),
@@ -60,7 +58,7 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
-                            color: Color(0XFF2C3E50)),
+                            color: textDarkColor),
                       ),
                     ),
                   ),
@@ -71,9 +69,9 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: const Color(0XFF008DD4),
+                  primary: buttonPrimaryColor,
                   onPrimary: Colors.white,
-                  shadowColor: const Color(0XFF008DD4),
+                  shadowColor: blueColor,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0.0)),

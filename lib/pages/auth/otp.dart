@@ -5,6 +5,8 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:get/get.dart';
 
+import '../../constants/colors.dart';
+
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});
 
@@ -43,14 +45,9 @@ class _OtpPageState extends State<OtpPage> {
 
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = Color(0XFFF5F6FB);
-    Color textGrey = Color(0XFFABABAB);
-
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: bodyColor,
+        backgroundColor: backgroundColor,
         elevation: 0,
         leading: IconButton(
           icon: Icon(
@@ -63,7 +60,7 @@ class _OtpPageState extends State<OtpPage> {
           },
         ),
       ),
-      backgroundColor: bodyColor,
+      backgroundColor: backgroundColor,
       body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 0.0),
           height: MediaQuery.of(context).size.height,
@@ -86,7 +83,7 @@ class _OtpPageState extends State<OtpPage> {
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
-                                color: Color(0XFF2C3E50)),
+                                color: textDarkColor),
                           ),
                         ),
                       ),
@@ -100,7 +97,7 @@ class _OtpPageState extends State<OtpPage> {
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
-                                color: Color(0XFF2C3E50)),
+                                color: textDarkColor),
                           ),
                         ),
                       ),
@@ -111,9 +108,9 @@ class _OtpPageState extends State<OtpPage> {
                         length: 6,
                         textStyle: TextStyle(
                           fontSize: 22.0,
-                          color: Color(0XFF2C3E50),
+                          color: textDarkColor,
                         ),
-                        underlineColor: Color(0XFF2C3E50),
+                        underlineColor: textDarkColor,
                         keyboardType: TextInputType.number,
                         underlineWidth: 2.0,
                         margin: EdgeInsets.symmetric(horizontal: 10.0),
@@ -139,7 +136,7 @@ class _OtpPageState extends State<OtpPage> {
                       Text(
                         "Resend code in " + _start.toString(),
                         style: TextStyle(
-                          color: Color(0XFF2C3E50),
+                          color: textDarkColor,
                           fontSize: 12.0,
                         ),
                       ),
@@ -150,10 +147,10 @@ class _OtpPageState extends State<OtpPage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  disabledBackgroundColor: Colors.grey,
-                  primary: const Color(0XFF008DD4),
+                  disabledBackgroundColor: textGreyColor,
+                  primary: buttonPrimaryColor,
                   onPrimary: Colors.white,
-                  shadowColor: const Color(0XFF008DD4),
+                  shadowColor: blueColor,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0.0)),

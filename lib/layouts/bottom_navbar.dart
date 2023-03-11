@@ -1,8 +1,6 @@
 import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
-import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:horoscope_cellcard/constants/colors.dart';
 
 import 'package:horoscope_cellcard/controllers/controller.dart';
 import 'package:get/get.dart';
@@ -10,8 +8,10 @@ import 'package:horoscope_cellcard/pages/home/home.dart';
 import 'package:horoscope_cellcard/pages/horoscope/horoscope.dart';
 import 'package:horoscope_cellcard/pages/premium/premium.dart';
 
+import '../constants/navbar_property.dart';
+
 class BottomNavbar extends StatefulWidget {
-  BottomNavbar({Key? key}) : super(key: key);
+  const BottomNavbar({Key? key}) : super(key: key);
 
   @override
   State<BottomNavbar> createState() => _BottomNavbarState();
@@ -34,8 +34,6 @@ class _BottomNavbarState extends State<BottomNavbar> {
       arcHeightWithNotch = (size.height * 0.85) + viewPadding.bottom;
     }
 
-    Color primaryColor = Theme.of(context).primaryColor;
-
     return GetBuilder<BottomNavbarController>(builder: (context) {
       return Scaffold(
         backgroundColor: Colors.white,
@@ -45,13 +43,13 @@ class _BottomNavbarState extends State<BottomNavbar> {
         ),
         bottomNavigationBar: Container(
           height: 85.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(24.0),
                 topLeft: Radius.circular(24.0)),
             boxShadow: [
-              BoxShadow(color: Colors.black12, spreadRadius: 2, blurRadius: 5),
+              BoxShadow(color: textBlackColor, spreadRadius: 2, blurRadius: 5),
             ],
           ),
           child: CircleBottomNavigationBar(
@@ -68,8 +66,8 @@ class _BottomNavbarState extends State<BottomNavbar> {
             blurShadowRadius: 45.0,
             circleColor: primaryColor,
             activeIconColor: Colors.white,
-            inactiveIconColor: Color(0XFF606060),
-            textColor: Color(0XFF606060),
+            inactiveIconColor: textDarkGreyColor,
+            textColor: textDarkGreyColor,
             tabs: getTabsData(),
             onTabChangedListener: controller.changeTabIndex,
           ),
@@ -78,35 +76,3 @@ class _BottomNavbarState extends State<BottomNavbar> {
     });
   }
 }
-
-List<TabData> getTabsData() {
-  return [
-    TabData(
-      icon: CupertinoIcons.moon,
-      iconSize: 25.0,
-      title: 'Horoscope',
-      fontSize: 12,
-      fontWeight: FontWeight.bold,
-    ),
-    TabData(
-      icon: CupertinoIcons.home,
-      iconSize: 25,
-      title: 'Home',
-      fontSize: 12,
-      fontWeight: FontWeight.bold,
-    ),
-    TabData(
-      icon: CupertinoIcons.star,
-      iconSize: 25,
-      title: 'Premium',
-      fontSize: 12,
-      fontWeight: FontWeight.bold,
-    ),
-  ];
-}
-
-const List<String> iconMenu = <String>[
-  '/images/icons/horoscope.svg',
-  '/images/icons/home.svg',
-  '/images/icons/crown.svg',
-];

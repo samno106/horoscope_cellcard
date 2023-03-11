@@ -3,6 +3,8 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../constants/colors.dart';
+
 class SubscribeModalBottom extends StatelessWidget {
   const SubscribeModalBottom(
       {super.key, required this.img, required this.name, required this.price});
@@ -36,8 +38,8 @@ class SubscribeModalBottom extends StatelessWidget {
             Center(
               child: Text(
                 name,
-                style: const TextStyle(
-                  color: Color(0XFF2C3E50),
+                style: TextStyle(
+                  color: textDarkColor,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                 ),
@@ -46,11 +48,11 @@ class SubscribeModalBottom extends StatelessWidget {
             const SizedBox(
               height: 15.0,
             ),
-            const Text(
+            Text(
               textAlign: TextAlign.left,
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget leo quam suspendisse tempor curabitur enim. Rhoncus, est dolor, massa elementum risus. Donec aenean non vitae diam et nisl vitae ementum risus. Donec aenean non vitae diam et nisl vitae ",
               style: TextStyle(
-                  color: Color(0XFF2C3E50),
+                  color: textDarkColor,
                   fontSize: 12.0,
                   fontWeight: FontWeight.w500,
                   height: 1.5),
@@ -58,8 +60,8 @@ class SubscribeModalBottom extends StatelessWidget {
             const SizedBox(
               height: 10.0,
             ),
-            const Divider(
-              color: Color.fromARGB(255, 150, 220, 255),
+            Divider(
+              color: lightBlueBorderColor,
               thickness: 1,
             ),
             const SizedBox(
@@ -75,10 +77,10 @@ class SubscribeModalBottom extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Icon(
+                            Icon(
                               FeatherIcons.disc,
                               size: 8.0,
-                              color: Color(0XFFF6A000),
+                              color: iconColor,
                             ),
                             const SizedBox(
                               width: 10.0,
@@ -87,8 +89,8 @@ class SubscribeModalBottom extends StatelessWidget {
                               NumberFormat.simpleCurrency(
                                       locale: 'en-US', decimalDigits: 2)
                                   .format(price),
-                              style: const TextStyle(
-                                color: Color(0XFFD9328A),
+                              style: TextStyle(
+                                color: iconColor,
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -96,10 +98,10 @@ class SubscribeModalBottom extends StatelessWidget {
                             const SizedBox(
                               width: 5.0,
                             ),
-                            const Text(
+                            Text(
                               "Valid for 1 day",
                               style: TextStyle(
-                                color: Color(0XFF2C3E50),
+                                color: textDarkColor,
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -110,19 +112,19 @@ class SubscribeModalBottom extends StatelessWidget {
                           height: 10.0,
                         ),
                         Row(
-                          children: const [
+                          children: [
                             Icon(
                               FeatherIcons.disc,
                               size: 8.0,
-                              color: Color(0XFFF6A000),
+                              color: iconColor,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             Text(
                               "Auto renewal",
                               style: TextStyle(
-                                color: Color(0XFF2C3E50),
+                                color: textDarkColor,
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -135,9 +137,9 @@ class SubscribeModalBottom extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: const Color(0XFF008DD4),
+                            primary: buttonPrimaryColor,
                             onPrimary: Colors.white,
-                            shadowColor: const Color(0XFF008DD4),
+                            shadowColor: blueColor,
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(6.0)),
@@ -205,17 +207,17 @@ class CustomDialogWidget extends StatelessWidget {
                   "You are subscribing to Horoscope by $name with ${NumberFormat.simpleCurrency(locale: 'en-US', decimalDigits: 2).format(price)} per day.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color(0XFF606060),
+                    color: textDarkGreyColor,
                     fontSize: 12.0,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
-              const Divider(
-                color: Color.fromARGB(255, 150, 220, 255),
+              Divider(
+                color: lightBlueBorderColor,
                 thickness: 1,
               ),
               IntrinsicHeight(
@@ -223,7 +225,7 @@ class CustomDialogWidget extends StatelessWidget {
                   children: [
                     Expanded(
                         child: Padding(
-                      padding: EdgeInsets.only(bottom: 8.0),
+                      padding: const EdgeInsets.only(bottom: 8.0),
                       child: TextButton(
                         onPressed: () => {},
                         child: const Text(
@@ -235,13 +237,13 @@ class CustomDialogWidget extends StatelessWidget {
                         ),
                       ),
                     )),
-                    const VerticalDivider(
-                      color: Color.fromARGB(255, 150, 220, 255),
+                    VerticalDivider(
+                      color: lightBlueBorderColor,
                       thickness: 1,
                     ),
                     Expanded(
                         child: Padding(
-                      padding: EdgeInsets.only(bottom: 8.0),
+                      padding: const EdgeInsets.only(bottom: 8.0),
                       child: TextButton(
                         onPressed: () => {Get.toNamed('subscribe-completed')},
                         child: const Text(

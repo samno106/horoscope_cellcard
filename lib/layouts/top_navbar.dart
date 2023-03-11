@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_cellcard/pages/auth/index.dart';
+
+import '../constants/colors.dart';
+import '../constants/navbar_property.dart';
 
 class TopNavbar extends StatefulWidget {
   const TopNavbar({super.key});
@@ -14,8 +16,6 @@ class TopNavbar extends StatefulWidget {
 class _TopNavbarState extends State<TopNavbar> {
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
     bool auth = false;
 
     return Container(
@@ -71,7 +71,7 @@ class _TopNavbarState extends State<TopNavbar> {
                     child: Container(
                       padding: const EdgeInsets.all(1),
                       decoration: BoxDecoration(
-                        color: Color(0XFFD9328A),
+                        color: iconColor,
                         borderRadius: BorderRadius.circular(6),
                       ),
                       constraints: const BoxConstraints(
@@ -95,8 +95,3 @@ class _TopNavbarState extends State<TopNavbar> {
     );
   }
 }
-
-const List<String> iconHeader = <String>[
-  '/images/icons/avatar.svg',
-  '/images/icons/notify.svg',
-];

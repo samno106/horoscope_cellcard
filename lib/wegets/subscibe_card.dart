@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:horoscope_cellcard/wegets/subscribe_modal_bottom.dart';
 import 'package:intl/intl.dart';
 
+import '../constants/colors.dart';
+
 class SubscribeCard extends StatelessWidget {
   const SubscribeCard(
       {Key? key, required this.img, required this.name, required this.price})
@@ -17,13 +19,13 @@ class SubscribeCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
       margin: const EdgeInsets.symmetric(vertical: 10.0),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
         border: Border(
-            top: BorderSide(color: Color.fromARGB(255, 119, 210, 255)),
-            bottom: BorderSide(color: Color.fromARGB(255, 119, 210, 255))),
+            top: BorderSide(color: lightBlueBorderColor),
+            bottom: BorderSide(color: lightBlueBorderColor)),
         boxShadow: [
-          BoxShadow(color: Colors.black12, spreadRadius: 2, blurRadius: 5),
+          BoxShadow(color: textBlackColor, spreadRadius: 2, blurRadius: 5),
         ],
       ),
       child: Row(
@@ -53,8 +55,8 @@ class SubscribeCard extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: const TextStyle(
-                          color: Color(0XFF2C3E50),
+                        style: TextStyle(
+                          color: textDarkColor,
                           fontSize: 14.0,
                           fontWeight: FontWeight.w600,
                         ),
@@ -63,8 +65,8 @@ class SubscribeCard extends StatelessWidget {
                         NumberFormat.simpleCurrency(
                                 locale: 'en-US', decimalDigits: 2)
                             .format(price),
-                        style: const TextStyle(
-                          color: Color(0XFFD9328A),
+                        style: TextStyle(
+                          color: iconColor,
                           fontSize: 18.0,
                           fontWeight: FontWeight.w500,
                         ),
@@ -72,8 +74,8 @@ class SubscribeCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Divider(
-                  color: Color.fromARGB(255, 150, 220, 255),
+                Divider(
+                  color: lightBlueBorderColor,
                   thickness: 1,
                 ),
                 const SizedBox(
@@ -88,19 +90,19 @@ class SubscribeCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 Icon(
                                   FeatherIcons.disc,
                                   size: 8.0,
-                                  color: Color(0XFFF6A000),
+                                  color: iconColor,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10.0,
                                 ),
                                 Text(
                                   "Valid for 1 day",
                                   style: TextStyle(
-                                    color: Color(0XFF2C3E50),
+                                    color: textDarkColor,
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -111,19 +113,19 @@ class SubscribeCard extends StatelessWidget {
                               height: 10.0,
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 Icon(
                                   FeatherIcons.disc,
                                   size: 8.0,
-                                  color: Color(0XFFF6A000),
+                                  color: iconColor,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10.0,
                                 ),
                                 Text(
                                   "Auto renewal",
                                   style: TextStyle(
-                                    color: Color(0XFF2C3E50),
+                                    color: textDarkColor,
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -136,9 +138,9 @@ class SubscribeCard extends StatelessWidget {
                           children: [
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: const Color(0XFF008DD4),
+                                primary: buttonPrimaryColor,
                                 onPrimary: Colors.white,
-                                shadowColor: const Color(0XFF008DD4),
+                                shadowColor: blueColor,
                                 elevation: 5,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6.0)),

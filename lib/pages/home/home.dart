@@ -1,7 +1,10 @@
 import 'dart:math';
 import 'package:curved_carousel/curved_carousel.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import '../../constants/carousel_property.dart';
+import '../../constants/colors.dart';
+import '../../constants/language.dart';
 import '../../layouts/top_navbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,9 +18,6 @@ class _HomePageState extends State<HomePage> {
   int selectedYearName = 2;
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -38,10 +38,11 @@ class _HomePageState extends State<HomePage> {
                       child: Column(children: [
                         Text(
                           listYearName[selectedYearName],
-                          style: const TextStyle(
-                            fontSize: 16,
+                          style: GoogleFonts.notoSerifKhmer(
+                              textStyle: const TextStyle(
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
-                          ),
+                          )),
                         ),
                       ]),
                     )),
@@ -96,10 +97,14 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
-                    'Today',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                    languages[12].kh,
+                    style: GoogleFonts.notoSerifKhmer(
+                        textStyle: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    )),
                   ),
                   Image(image: AssetImage('/images/vector/line1.png'))
                 ],
@@ -116,10 +121,10 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     content,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
-                      color: Color(0XFF2C3E50),
+                      color: textDarkColor,
                       height: 2,
                     ),
                   ),
@@ -128,9 +133,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0XFF008DD4),
+                      primary: buttonPrimaryColor,
                       onPrimary: Colors.white,
-                      shadowColor: Color(0XFF008DD4),
+                      shadowColor: buttonPrimaryColor,
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6.0)),
@@ -138,13 +143,19 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      "Find out more",
-                      style: TextStyle(fontSize: 14.0),
+                      languages[13].kh,
+                      style: GoogleFonts.notoSerifKhmer(
+                          textStyle: const TextStyle(
+                        fontSize: 14,
+                      )),
                     ),
                   ),
                 ],
               ),
             ),
+          ),
+          SizedBox(
+            height: 50.0,
           )
         ],
       ))),
@@ -195,7 +206,7 @@ class PathPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Color(0XFF008DD4)
+      ..color = blueColor
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3.0;
 
@@ -205,36 +216,3 @@ class PathPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
-
-const List<String> carouselList = <String>[
-  '/images/carousel/snake.png',
-  '/images/carousel/horse.png',
-  '/images/carousel/pig.png',
-  '/images/carousel/rat.png',
-  '/images/carousel/cow.png',
-  '/images/carousel/monkey.png',
-  '/images/carousel/dragon.png',
-  '/images/carousel/chicken.png',
-  '/images/carousel/goat.png',
-  '/images/carousel/rabbit.png',
-  '/images/carousel/tiger.png',
-  '/images/carousel/dog.png',
-];
-
-const List<String> listYearName = <String>[
-  'Snake',
-  'Horse',
-  'Pig',
-  'Rat',
-  'Cow',
-  'Monkey',
-  'Dragon',
-  'Chicken',
-  'Goat',
-  'Rabbit',
-  'Tiger',
-  'Dog',
-];
-
-String content =
-    'Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim. Venenatis mauris augue mauris volutpat ac velit senectus a. Quis duis pulvinar ipsum in ornare. Rhoncus venenatis enim amet sed condimentum enim convallis. Quis enim diam massa gravida tellus cursus. A vel erat dictumst egestas et interdum sit sem id. Mauris lacus amet orci eget odio justo dui nislauris lacus amet orci eget odio jusnisl.  orci eget odio justo dui nislauris lacuictumst egestas et interdum sit sem id. Mauris lacus amet orci eget odio justo dui nislauris lacus amet orci eget odio jusnisl. ';

@@ -5,6 +5,9 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:horoscope_cellcard/wegets/subscibe_card.dart';
 
+import '../../constants/colors.dart';
+import '../../constants/profile_lists.dart';
+
 class MySubscribePage extends StatefulWidget {
   const MySubscribePage({super.key});
 
@@ -15,11 +18,6 @@ class MySubscribePage extends StatefulWidget {
 class _MySubscribePageState extends State<MySubscribePage> {
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = Color(0XFFF5F6FB);
-    Color textGrey = Color(0XFFABABAB);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -27,9 +25,7 @@ class _MySubscribePageState extends State<MySubscribePage> {
         title: Text(
           "My Subscription",
           style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Color(0XFF2C3E50)),
+              fontSize: 16, fontWeight: FontWeight.w500, color: textDarkColor),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -43,7 +39,7 @@ class _MySubscribePageState extends State<MySubscribePage> {
           },
         ),
       ),
-      backgroundColor: bodyColor,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
@@ -86,7 +82,7 @@ class _MySubscribePageState extends State<MySubscribePage> {
             child: Text(
               "You do not have any subscription.",
               style: TextStyle(
-                color: Color(0XFF2C3E50),
+                color: textDarkColor,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500,
               ),
@@ -102,7 +98,7 @@ class _MySubscribePageState extends State<MySubscribePage> {
                 textAlign: TextAlign.center,
                 "Select any Master below to see details or suscribe to have full access to our Horoscope.",
                 style: TextStyle(
-                    color: Color(0XFF2C3E50),
+                    color: textDarkColor,
                     fontSize: 12.0,
                     fontWeight: FontWeight.w500,
                     height: 1.5),
@@ -161,8 +157,3 @@ class CurvedBottomClipper extends CustomClipper<Path> {
     return true;
   }
 }
-
-const List<String> profiles = <String>[
-  "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsynwv-5qtogtOwJbIjaPFJUmHpzhxgqIAug&usqp=CAU"
-];

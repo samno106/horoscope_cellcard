@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
+import '../../constants/colors.dart';
+import '../../constants/profile_lists.dart';
 import '../../wegets/subscibe_card.dart';
 
 class PremiumPage extends StatefulWidget {
@@ -16,11 +18,6 @@ class PremiumPage extends StatefulWidget {
 class _PremiumPageState extends State<PremiumPage> {
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = Color(0XFFF5F6FB);
-    Color textGrey = Color(0XFFABABAB);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -28,13 +25,11 @@ class _PremiumPageState extends State<PremiumPage> {
         title: Text(
           "Premium",
           style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Color(0XFF2C3E50)),
+              fontSize: 16, fontWeight: FontWeight.w500, color: textDarkColor),
         ),
         centerTitle: true,
       ),
-      backgroundColor: bodyColor,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
@@ -42,19 +37,19 @@ class _PremiumPageState extends State<PremiumPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            height: 150.0,
+            height: 140.0,
             child: Stack(
               children: <Widget>[
                 ClipPath(
                     clipper: CurvedBottomClipper(),
                     child: Container(
                       color: primaryColor,
-                      height: 120.0,
+                      height: 110.0,
                       width: MediaQuery.of(context).size.width,
                       child: null,
                     )),
                 Positioned(
-                    top: 50,
+                    top: 35,
                     left: MediaQuery.of(context).size.width * 0.37,
                     child: Container(
                       child: ClipRRect(
@@ -70,13 +65,11 @@ class _PremiumPageState extends State<PremiumPage> {
               ],
             ),
           ),
-          SizedBox(
-            height: 30.0,
-          ),
           Container(
             height: MediaQuery.of(context).size.height * 0.7,
             width: double.infinity,
             child: ListView(
+              padding: const EdgeInsets.only(top: 20.0, bottom: 100.0),
               shrinkWrap: true,
               children: [
                 SubscribeCard(
@@ -101,7 +94,10 @@ class _PremiumPageState extends State<PremiumPage> {
                 ),
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 30.0,
+          ),
         ],
       ))),
     );
@@ -133,8 +129,3 @@ class CurvedBottomClipper extends CustomClipper<Path> {
     return true;
   }
 }
-
-const List<String> profiles = <String>[
-  "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsynwv-5qtogtOwJbIjaPFJUmHpzhxgqIAug&usqp=CAU"
-];

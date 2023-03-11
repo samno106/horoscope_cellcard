@@ -6,6 +6,8 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../constants/colors.dart';
+
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
 
@@ -16,11 +18,6 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = Color(0XFFF5F6FB);
-    Color textGrey = Color(0XFFABABAB);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -28,9 +25,7 @@ class _AccountPageState extends State<AccountPage> {
         title: Text(
           "Account",
           style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Color(0XFF2C3E50)),
+              fontSize: 16, fontWeight: FontWeight.w500, color: textDarkColor),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -44,7 +39,7 @@ class _AccountPageState extends State<AccountPage> {
           },
         ),
       ),
-      backgroundColor: bodyColor,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
@@ -82,8 +77,8 @@ class _AccountPageState extends State<AccountPage> {
                             right: -20,
                             child: MaterialButton(
                               onPressed: () {},
-                              color: Color.fromARGB(203, 255, 255, 255),
-                              textColor: Colors.blue,
+                              color: grayColor,
+                              textColor: blueColor,
                               elevation: 0.0,
                               child: Icon(
                                 CupertinoIcons.camera_fill,
@@ -91,8 +86,8 @@ class _AccountPageState extends State<AccountPage> {
                               ),
                               padding: EdgeInsets.all(16),
                               shape: CircleBorder(
-                                  side: BorderSide(
-                                      width: 1.0, color: Colors.blue)),
+                                  side:
+                                      BorderSide(width: 1.0, color: blueColor)),
                             )),
                       ]),
                     )),
@@ -103,7 +98,7 @@ class _AccountPageState extends State<AccountPage> {
             child: Text(
               "Khit Samno",
               style: TextStyle(
-                color: Color(0XFF2C3E50),
+                color: textDarkColor,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w700,
               ),
@@ -116,7 +111,7 @@ class _AccountPageState extends State<AccountPage> {
             child: Text(
               "012 999 987",
               style: TextStyle(
-                color: Color(0XFF2C3E50),
+                color: textDarkColor,
                 fontSize: 12.0,
                 fontWeight: FontWeight.w500,
               ),
@@ -165,7 +160,7 @@ class _AccountPageState extends State<AccountPage> {
                           Icon(
                             FeatherIcons.chevronRight,
                             size: 18.0,
-                            color: Colors.blue,
+                            color: blueColor,
                           )
                         ],
                       )),
@@ -174,7 +169,7 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   Divider(
                     thickness: 1,
-                    color: Color.fromARGB(255, 220, 243, 255),
+                    color: lightBlueColor,
                   ),
                   SizedBox(
                     height: 8.0,
@@ -206,7 +201,7 @@ class _AccountPageState extends State<AccountPage> {
                           Icon(
                             FeatherIcons.chevronRight,
                             size: 18.0,
-                            color: Colors.blue,
+                            color: blueColor,
                           )
                         ],
                       )),
@@ -215,7 +210,7 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   Divider(
                     thickness: 1,
-                    color: Color.fromARGB(255, 220, 243, 255),
+                    color: lightBlueColor,
                   ),
                   Center(
                     child: TextButton(
@@ -223,7 +218,7 @@ class _AccountPageState extends State<AccountPage> {
                         child: Text(
                           "Log Out",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: blueColor,
                             fontSize: 12.0,
                             fontWeight: FontWeight.w500,
                           ),

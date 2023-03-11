@@ -4,6 +4,8 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../constants/colors.dart';
+
 class SignupPage extends StatefulWidget {
   SignupPage({Key? key}) : super(key: key);
 
@@ -20,14 +22,9 @@ class _SignupPageState extends State<SignupPage> {
   final lasttDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = const Color(0XFFF5F6FB);
-    Color textGrey = const Color(0XFFABABAB);
-
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: bodyColor,
+        backgroundColor: backgroundColor,
         elevation: 0,
         leading: IconButton(
           icon: Icon(
@@ -40,7 +37,7 @@ class _SignupPageState extends State<SignupPage> {
           },
         ),
       ),
-      backgroundColor: bodyColor,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
         child: Padding(
@@ -92,14 +89,14 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           CupertinoIcons.person_crop_circle,
-                          color: Color(0XFFD9328A),
+                          color: iconColor,
                         ),
                         hintText: "Full Name",
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              color: Color(0XFFC9CCD0), width: 1.0),
+                          borderSide:
+                              BorderSide(color: borderColor, width: 1.0),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                         focusedBorder: OutlineInputBorder(
@@ -122,14 +119,14 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           FeatherIcons.calendar,
-                          color: Color(0XFFD9328A),
+                          color: iconColor,
                         ),
                         hintText: "Date of Birth",
                         enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0XFFC9CCD0), width: 1.0),
+                            borderSide:
+                                BorderSide(color: borderColor, width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
@@ -149,14 +146,14 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           CupertinoIcons.escape,
-                          color: Color(0XFFD9328A),
+                          color: iconColor,
                         ),
                         hintText: "Gender",
                         enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0XFFC9CCD0), width: 1.0),
+                            borderSide:
+                                BorderSide(color: borderColor, width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
@@ -176,14 +173,14 @@ class _SignupPageState extends State<SignupPage> {
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           FeatherIcons.phone,
-                          color: Color(0XFFD9328A),
+                          color: iconColor,
                         ),
                         hintText: "Phone Number",
                         enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color(0XFFC9CCD0), width: 1.0),
+                            borderSide:
+                                BorderSide(color: borderColor, width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
@@ -201,9 +198,9 @@ class _SignupPageState extends State<SignupPage> {
                   child: Column(children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: const Color(0XFF008DD4),
+                        primary: buttonPrimaryColor,
                         onPrimary: Colors.white,
-                        shadowColor: const Color(0XFF008DD4),
+                        shadowColor: blueColor,
                         elevation: 5,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0)),
@@ -232,7 +229,7 @@ class _SignupPageState extends State<SignupPage> {
                               style: TextStyle(
                                   fontSize: 11.0,
                                   fontWeight: FontWeight.w400,
-                                  color: textGrey),
+                                  color: textGreyColor),
                             ),
                             Text(
                               "Terms & Conditions.",
@@ -250,27 +247,27 @@ class _SignupPageState extends State<SignupPage> {
                   child: Column(children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
+                      children: [
                         Expanded(
                             child: Divider(
                           thickness: 1.5,
-                          color: Colors.black26,
+                          color: textBlackColor,
                         )),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
-                        Text("Or sign up with"),
-                        SizedBox(
+                        const Text("Or sign up with"),
+                        const SizedBox(
                           width: 5,
                         ),
-                        Expanded(
+                        const Expanded(
                             child: Divider(
                           thickness: 1.5,
                           color: Colors.black26,
                         )),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 25.0,
                     ),
                     SizedBox(

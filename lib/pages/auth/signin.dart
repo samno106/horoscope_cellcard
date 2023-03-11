@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
+import '../../constants/colors.dart';
+
 class SigninPage extends StatefulWidget {
   SigninPage({Key? key}) : super(key: key);
 
@@ -14,13 +16,9 @@ class _SigninPageState extends State<SigninPage> {
   String logo = "/images/carousel/monkey.png";
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = Color(0XFFF5F6FB);
-    Color textGrey = Color(0XFFABABAB);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: bodyColor,
+        backgroundColor: backgroundColor,
         elevation: 0,
         leading: IconButton(
           icon: Icon(
@@ -33,11 +31,11 @@ class _SigninPageState extends State<SigninPage> {
           },
         ),
       ),
-      backgroundColor: bodyColor,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
         child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.0),
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -52,7 +50,7 @@ class _SigninPageState extends State<SigninPage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 80.0),
+                  margin: const EdgeInsets.only(top: 80.0),
                   width: MediaQuery.of(context).size.width,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -87,12 +85,12 @@ class _SigninPageState extends State<SigninPage> {
                         fillColor: Colors.white,
                         prefixIcon: Icon(
                           FeatherIcons.phone,
-                          color: Color(0XFFD9328A),
+                          color: iconColor,
                         ),
                         hintText: "Enter Phone Number",
                         enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color(0XFFC9CCD0), width: 1.0),
+                            borderSide:
+                                BorderSide(color: textGreyColor, width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
@@ -103,16 +101,16 @@ class _SigninPageState extends State<SigninPage> {
                     ),
                   ]),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30.0,
                 ),
                 Container(
                   child: Column(children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0XFF008DD4),
+                        primary: buttonPrimaryColor,
                         onPrimary: Colors.white,
-                        shadowColor: Color(0XFF008DD4),
+                        shadowColor: blueColor,
                         elevation: 5,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0)),
@@ -120,7 +118,7 @@ class _SigninPageState extends State<SigninPage> {
                             Size(MediaQuery.of(context).size.width, 45),
                       ),
                       onPressed: () => {Get.toNamed('confirm-otp')},
-                      child: Text(
+                      child: const Text(
                         "Send Code",
                         style: TextStyle(
                           fontSize: 14.0,
@@ -128,17 +126,17 @@ class _SigninPageState extends State<SigninPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 25.0,
                     ),
                   ]),
                 ),
                 Container(
                   child: Column(children: [
-                    SizedBox(
+                    const SizedBox(
                       child: Text("Or"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40.0,
                     ),
                     SizedBox(

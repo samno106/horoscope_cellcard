@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:horoscope_cellcard/constants/colors.dart';
 
 class HoroscopeCard extends StatelessWidget {
   const HoroscopeCard({Key? key, required this.img, required this.name})
@@ -12,11 +13,11 @@ class HoroscopeCard extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       margin: const EdgeInsets.all(5.0),
       height: 135.0,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(6.0)),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(6.0)),
         color: Colors.white,
         boxShadow: [
-          BoxShadow(color: Colors.black12, spreadRadius: 2, blurRadius: 5),
+          BoxShadow(color: textBlackColor, spreadRadius: 2, blurRadius: 5),
         ],
       ),
       child: Column(
@@ -35,7 +36,7 @@ class HoroscopeCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 12.0,
               fontWeight: FontWeight.w600,
-              color: Color(0XFF2C3E50),
+              color: textDarkColor,
             ),
           )
         ],

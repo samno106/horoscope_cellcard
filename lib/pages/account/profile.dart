@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
+import '../../constants/colors.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -15,11 +17,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = Theme.of(context).primaryColor;
-    Color canvasColor = Theme.of(context).canvasColor;
-    Color bodyColor = Color(0XFFF5F6FB);
-    Color textGrey = Color(0XFFABABAB);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -27,9 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
         title: Text(
           "Profile",
           style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Color(0XFF2C3E50)),
+              fontSize: 16, fontWeight: FontWeight.w500, color: textDarkColor),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -43,7 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
           },
         ),
       ),
-      backgroundColor: bodyColor,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
@@ -81,8 +76,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             right: -20,
                             child: MaterialButton(
                               onPressed: () {},
-                              color: Color.fromARGB(203, 255, 255, 255),
-                              textColor: Colors.blue,
+                              color: grayColor,
+                              textColor: blueColor,
                               elevation: 0.0,
                               child: Icon(
                                 CupertinoIcons.camera_fill,
@@ -90,8 +85,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                               padding: EdgeInsets.all(16),
                               shape: CircleBorder(
-                                  side: BorderSide(
-                                      width: 1.0, color: Colors.blue)),
+                                  side:
+                                      BorderSide(width: 1.0, color: blueColor)),
                             )),
                       ]),
                     )),
@@ -104,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Text(
                   "Edit Profile",
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: blueColor,
                       fontSize: 12.0,
                       fontWeight: FontWeight.w600,
                       decoration: TextDecoration.underline),
@@ -135,8 +130,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           Text(
                             "Name",
-                            style: TextStyle(
-                                color: Color(0XFF2C3E50), fontSize: 12),
+                            style:
+                                TextStyle(color: textDarkColor, fontSize: 12),
                           ),
                           SizedBox(
                             height: 10.0,
@@ -144,7 +139,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           Text(
                             "Khit Samno",
                             style: TextStyle(
-                              color: Color(0XFF2C3E50),
+                              color: textDarkColor,
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                             ),
@@ -156,7 +151,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Divider(
                     thickness: 1,
-                    color: Color.fromARGB(255, 220, 243, 255),
+                    color: lightBlueColor,
                   ),
                   SizedBox(
                     height: 10.0,
@@ -168,8 +163,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           Text(
                             "Date of Birth",
-                            style: TextStyle(
-                                color: Color(0XFF2C3E50), fontSize: 12),
+                            style:
+                                TextStyle(color: textDarkColor, fontSize: 12),
                           ),
                           SizedBox(
                             height: 10.0,
@@ -177,7 +172,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           Text(
                             "23 - 04 - 2023",
                             style: TextStyle(
-                              color: Color(0XFF2C3E50),
+                              color: textDarkColor,
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                             ),
@@ -189,7 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Divider(
                     thickness: 1,
-                    color: Color.fromARGB(255, 220, 243, 255),
+                    color: lightBlueColor,
                   ),
                   SizedBox(
                     height: 10.0,
@@ -201,8 +196,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           Text(
                             "Gender",
-                            style: TextStyle(
-                                color: Color(0XFF2C3E50), fontSize: 12),
+                            style:
+                                TextStyle(color: textDarkColor, fontSize: 12),
                           ),
                           SizedBox(
                             height: 10.0,
@@ -210,7 +205,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           Text(
                             "Male",
                             style: TextStyle(
-                              color: Color(0XFF2C3E50),
+                              color: textDarkColor,
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                             ),
@@ -222,7 +217,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Divider(
                     thickness: 1,
-                    color: Color.fromARGB(255, 220, 243, 255),
+                    color: lightBlueColor,
                   ),
                   SizedBox(
                     height: 10.0,
@@ -234,8 +229,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           Text(
                             "Phone Number",
-                            style: TextStyle(
-                                color: Color(0XFF2C3E50), fontSize: 12),
+                            style:
+                                TextStyle(color: textDarkColor, fontSize: 12),
                           ),
                           SizedBox(
                             height: 10.0,
@@ -243,7 +238,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           Text(
                             "012 999 988",
                             style: TextStyle(
-                              color: Color(0XFF2C3E50),
+                              color: textDarkColor,
                               fontSize: 14,
                               fontWeight: FontWeight.w700,
                             ),
