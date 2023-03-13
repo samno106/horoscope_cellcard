@@ -6,6 +6,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
 import '../../constants/colors.dart';
+import '../../wegets/curved_bottom_clipper.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -252,31 +253,5 @@ class _ProfilePageState extends State<ProfilePage> {
         ],
       ))),
     );
-  }
-}
-
-class CurvedBottomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final roundingHeight = size.height * 3 / 4;
-
-    final filledRectangle =
-        Rect.fromLTRB(0, 0, size.width, size.height - roundingHeight);
-
-    final roundingRectangle = Rect.fromLTRB(
-        -4, size.height - roundingHeight * 2, size.width + 4, size.height);
-
-    final path = Path();
-    path.addRect(filledRectangle);
-
-    path.arcTo(roundingRectangle, pi, -pi, true);
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return true;
   }
 }

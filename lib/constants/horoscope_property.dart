@@ -17,3 +17,13 @@ const List<String> horoscopeIcons = <String>[
   "/images/horoscope_icons/flat_number.png",
   "/images/horoscope_icons/ch_calendar.png"
 ];
+
+const List<String> horoscopeRoute = <String>[
+  "daily-horoscope",
+  "dialy-horoscope",
+  "dialy-horoscope",
+  "dialy-horoscope",
+  "dialy-horoscope",
+  "dialy-horoscope",
+  "dialy-horoscope"
+];

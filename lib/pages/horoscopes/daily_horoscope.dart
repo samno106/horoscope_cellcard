@@ -1,32 +1,65 @@
-import 'dart:math';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:curved_carousel/curved_carousel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
 import '../../constants/language.dart';
-import '../../layouts/top_navbar.dart';
+
 import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/path_painter.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+class DailyHoroscopePage extends StatefulWidget {
+  DailyHoroscopePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<DailyHoroscopePage> createState() => _DailyHoroscopePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
   int selectedYearName = 0;
+
+  AudioPlayer audioPlayer = new AudioPlayer();
+  late Source audioUrl;
+  Duration duration = new Duration();
+  Duration position = new Duration();
+
+  bool playing = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+        elevation: 0,
+        title: Text(
+          languages[26].kh,
+          style: GoogleFonts.notoSerifKhmer(
+              textStyle: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: textDarkColor)),
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(
+            FeatherIcons.chevronLeft,
+            size: 30.0,
+            color: canvasColor,
+          ),
+          onPressed: () {
+            Get.back();
+          },
+        ),
+      ),
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
         children: [
-          const TopNavbar(),
           Container(
             height: 130.0,
             child: Stack(
@@ -42,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                           listYearName[selectedYearName],
                           style: GoogleFonts.notoSerifKhmer(
                               textStyle: const TextStyle(
-                            fontSize: 18,
+                            fontSize: 14,
                             fontWeight: FontWeight.bold,
                           )),
                         ),
@@ -53,11 +86,13 @@ class _HomePageState extends State<HomePage> {
                     left: 0,
                     right: 0,
                     child: CurvedCarousel(
-                      itemBuilder: (_, i) {
+                      itemBuilder: (_, selectedYearName) {
                         return SizedBox(
                           height: 50.0,
                           width: 50.0,
-                          child: Image(image: AssetImage(carouselList[i])),
+                          child: Image(
+                              image:
+                                  AssetImage(carouselList[selectedYearName])),
                         );
                       },
                       itemCount: 12,
@@ -122,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    content,
+                    content2,
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
@@ -133,35 +168,94 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 40.0,
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: buttonPrimaryColor,
-                      onPrimary: Colors.white,
-                      shadowColor: buttonPrimaryColor,
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6.0)),
-                      minimumSize: Size(MediaQuery.of(context).size.width, 50),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      languages[13].kh,
-                      style: GoogleFonts.notoSerifKhmer(
-                          textStyle: const TextStyle(
-                        fontSize: 14,
-                      )),
-                    ),
-                  ),
                 ],
               ),
             ),
           ),
           SizedBox(
+            height: 20.0,
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 30.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: getAudio,
+                  child: playing == false
+                      ? Icon(FeatherIcons.play, color: blueColor)
+                      : Icon(FeatherIcons.pause, color: primaryColor),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.65,
+                  child: Slider(
+                    min: 0.0,
+                    thumbColor: primaryColor,
+                    activeColor: primaryColor,
+                    inactiveColor: Color.fromARGB(255, 255, 225, 169),
+                    value: position.inSeconds.toDouble(),
+                    max: duration.inSeconds.toDouble(),
+                    onChanged: (double value) => {
+                      setState(() => {
+                            audioPlayer
+                                .seek(new Duration(seconds: value.toInt()))
+                          })
+                    },
+                  ),
+                ),
+                InkWell(
+                  onTap: getAudio,
+                  child: Icon(
+                    FeatherIcons.share2,
+                    color: blueColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
             height: 50.0,
-          )
+          ),
         ],
       ))),
     );
+  }
+
+  void getAudio() async {
+    // audioUrl = UrlSource(
+    //     'http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3');
+
+    audioUrl = UrlSource("http://localhost:51613/assets/sounds/audio1.mp3");
+
+    if (playing) {
+      await audioPlayer.pause();
+      setState(() {
+        playing = false;
+      });
+    } else {
+      // await audioPlayer.play(audioUrl);
+
+      await audioPlayer.play(audioUrl);
+
+      setState(() {
+        playing = true;
+      });
+    }
+
+    audioPlayer.onDurationChanged.listen((Duration dd) {
+      setState(() {
+        duration = dd;
+      });
+    });
+    audioPlayer.onPositionChanged.listen((Duration dd) {
+      setState(() {
+        position = dd;
+      });
+    });
   }
 
   Path drawPath() {

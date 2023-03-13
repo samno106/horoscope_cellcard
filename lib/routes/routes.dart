@@ -13,6 +13,7 @@ import 'package:horoscope_cellcard/pages/subscribe/my_subscribe.dart';
 import 'package:horoscope_cellcard/pages/subscribe/subscribe_complted.dart';
 
 import '../pages/auth/otp.dart';
+import '../pages/horoscopes/daily_horoscope.dart';
 
 class AppPage {
   static List<GetPage> routes = [
@@ -33,6 +34,9 @@ class AppPage {
     GetPage(name: mySubscribe, page: () => MySubscribePage()),
     //subscribe action
     GetPage(name: subscribeCompleted, page: () => SubscribeCompletedPage()),
+
+    //horoscopes
+    GetPage(name: dialyHoroscope, page: () => DailyHoroscopePage()),
   ];
   static getbottomNavbar() => bottomNavbar;
   static gethoroscope() => horoscope;
@@ -52,6 +56,9 @@ class AppPage {
   //subscribe action
   static getSubscribeCompleted() => subscribeCompleted;
 
+  //horoscopes
+  static getDialyHoroscope() => dialyHoroscope;
+
   static String bottomNavbar = "/";
   static String horoscope = "/horoscope";
   static String home = "/home";
@@ -68,4 +75,7 @@ class AppPage {
   static String mySubscribe = "/my-subscribe";
   //subscribe action
   static String subscribeCompleted = "/subscribe-completed";
+
+  //horoscopes
+  static String dialyHoroscope = "/daily-horoscope";
 }
