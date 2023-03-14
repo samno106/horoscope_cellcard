@@ -119,7 +119,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
             child: Stack(children: [
               Positioned(
                 top: 35,
-                left: MediaQuery.of(context).size.width / 2.05,
+                left: MediaQuery.of(context).size.width / 2.1,
                 child: const SizedBox(
                   height: 17.0,
                   width: 21.0,
@@ -229,7 +229,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
     // audioUrl = UrlSource(
     //     'http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3');
 
-    audioUrl = UrlSource("http://localhost:58637/assets/sounds/audio1.mp3");
+    audioUrl = UrlSource("http://localhost:51613/assets/sounds/audio1.mp3");
 
     if (playing) {
       await audioPlayer.pause();

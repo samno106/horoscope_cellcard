@@ -29,6 +29,7 @@ class HoroscopeCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image(
+                fit: BoxFit.contain,
                 image: AssetImage(img),
               ),
               SizedBox(

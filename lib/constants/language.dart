@@ -39,5 +39,13 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'ជ្រើសរើសថ្ងៃ', en: 'Select Date'), //29
   Languages(kh: 'ជ្រើសរើសខែ', en: 'Select Month'), //30
   Languages(kh: 'ជ្រើសរើសឆ្នាំ', en: 'Select Year'), //31
+  Languages(kh: 'ហោរាសាស្ត្រគូរព្រេង', en: 'Couple Horoscope'), //32
+  Languages(kh: 'ប្រុស', en: 'Boy'), //33
+  Languages(kh: 'ស្រី', en: 'Girl'), //34
+  Languages(kh: 'ថ្ងៃ', en: 'Date'), //35
+  Languages(kh: 'ខែ', en: 'Month'), //36
+  Languages(kh: 'ឆ្នាំ', en: 'Year'), //37
+  Languages(kh: 'លទ្ធផល', en: 'Result'), //38
+
   //30
 ];

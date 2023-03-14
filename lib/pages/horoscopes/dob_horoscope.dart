@@ -64,7 +64,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                       mainAxisSpacing: 4.0),
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 10.0),
                       child: Text(
                         (index + 1).toString(),
@@ -220,7 +220,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
             child: Stack(children: [
               Positioned(
                 top: 35,
-                left: MediaQuery.of(context).size.width / 2.0,
+                left: MediaQuery.of(context).size.width / 2.1,
                 child: const SizedBox(
                   height: 17.0,
                   width: 21.0,
@@ -247,7 +247,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                             fontWeight: FontWeight.w600,
                             color: textDarkColor)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20.0,
                   ),
                   Row(
@@ -255,35 +255,39 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: TextField(
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            color: canvasColor,
-                          ),
-                          onTap: () {
-                            selectDate(context);
-                          },
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 5.0),
-                            filled: true,
-                            fillColor: Colors.white,
-                            suffixIcon: Icon(
-                              FeatherIcons.chevronDown,
-                              color: primaryColor,
-                              size: 20.0,
+                        child: SizedBox(
+                          height: 40.0,
+                          child: TextField(
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: canvasColor,
                             ),
-                            suffixIconConstraints:
-                                BoxConstraints(maxHeight: 50.0, minWidth: 20.0),
-                            hintText: "Date",
-                            enabledBorder: OutlineInputBorder(
+                            onTap: () {
+                              selectDate(context);
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 5.0),
+                              filled: true,
+                              fillColor: Colors.white,
+                              suffixIcon: Icon(
+                                FeatherIcons.chevronDown,
+                                color: primaryColor,
+                                size: 20.0,
+                              ),
+                              suffixIconConstraints: const BoxConstraints(
+                                maxHeight: 50.0,
+                              ),
+                              hintText: "Date",
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: borderColor, width: 1.0),
+                                  borderRadius: BorderRadius.circular(6.0)),
+                              focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: borderColor, width: 1.0),
-                                borderRadius: BorderRadius.circular(6.0)),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: primaryColor, width: 1.0),
-                              borderRadius: BorderRadius.circular(6.0),
+                                    BorderSide(color: primaryColor, width: 1.0),
+                                borderRadius: BorderRadius.circular(6.0),
+                              ),
                             ),
                           ),
                         ),
@@ -292,35 +296,38 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                         width: 8.0,
                       ),
                       Expanded(
-                        child: TextField(
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            color: canvasColor,
-                          ),
-                          onTap: () {
-                            selectMonth(context);
-                          },
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 5.0),
-                            filled: true,
-                            fillColor: Colors.white,
-                            suffixIcon: Icon(
-                              FeatherIcons.chevronDown,
-                              color: primaryColor,
-                              size: 20.0,
+                        child: SizedBox(
+                          height: 40.0,
+                          child: TextField(
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: canvasColor,
                             ),
-                            suffixIconConstraints:
-                                const BoxConstraints(maxHeight: 50.0),
-                            hintText: "Month",
-                            enabledBorder: OutlineInputBorder(
+                            onTap: () {
+                              selectMonth(context);
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 5.0),
+                              filled: true,
+                              fillColor: Colors.white,
+                              suffixIcon: Icon(
+                                FeatherIcons.chevronDown,
+                                color: primaryColor,
+                                size: 20.0,
+                              ),
+                              suffixIconConstraints:
+                                  const BoxConstraints(maxHeight: 50.0),
+                              hintText: "Month",
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: borderColor, width: 1.0),
+                                  borderRadius: BorderRadius.circular(6.0)),
+                              focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: borderColor, width: 1.0),
-                                borderRadius: BorderRadius.circular(6.0)),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: primaryColor, width: 1.0),
-                              borderRadius: BorderRadius.circular(6.0),
+                                    BorderSide(color: primaryColor, width: 1.0),
+                                borderRadius: BorderRadius.circular(6.0),
+                              ),
                             ),
                           ),
                         ),
@@ -329,35 +336,38 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                         width: 8.0,
                       ),
                       Expanded(
-                        child: TextField(
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            color: canvasColor,
-                          ),
-                          onTap: () {
-                            selectYear(context);
-                          },
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 5.0),
-                            filled: true,
-                            fillColor: Colors.white,
-                            suffixIcon: Icon(
-                              FeatherIcons.chevronDown,
-                              color: primaryColor,
-                              size: 20.0,
+                        child: SizedBox(
+                          height: 40.0,
+                          child: TextField(
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: canvasColor,
                             ),
-                            suffixIconConstraints:
-                                const BoxConstraints(maxHeight: 50.0),
-                            hintText: "Year",
-                            enabledBorder: OutlineInputBorder(
+                            onTap: () {
+                              selectYear(context);
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 5.0),
+                              filled: true,
+                              fillColor: Colors.white,
+                              suffixIcon: Icon(
+                                FeatherIcons.chevronDown,
+                                color: primaryColor,
+                                size: 20.0,
+                              ),
+                              suffixIconConstraints:
+                                  const BoxConstraints(maxHeight: 50.0),
+                              hintText: "Year",
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: borderColor, width: 1.0),
+                                  borderRadius: BorderRadius.circular(6.0)),
+                              focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(color: borderColor, width: 1.0),
-                                borderRadius: BorderRadius.circular(6.0)),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: primaryColor, width: 1.0),
-                              borderRadius: BorderRadius.circular(6.0),
+                                    BorderSide(color: primaryColor, width: 1.0),
+                                borderRadius: BorderRadius.circular(6.0),
+                              ),
                             ),
                           ),
                         ),
@@ -374,7 +384,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(6.0)),
-                            minimumSize: Size(65.0, 55.0),
+                            minimumSize: Size(40.0, 47.0),
                           ),
                           onPressed: () {},
                           child: const Text(
@@ -409,14 +419,14 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                       height: 2,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40.0,
                   ),
                 ],
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
           Container(
@@ -444,10 +454,8 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                     value: position.inSeconds.toDouble(),
                     max: duration.inSeconds.toDouble(),
                     onChanged: (double value) => {
-                      setState(() => {
-                            audioPlayer
-                                .seek(new Duration(seconds: value.toInt()))
-                          })
+                      setState(() =>
+                          {audioPlayer.seek(Duration(seconds: value.toInt()))})
                     },
                   ),
                 ),
@@ -461,7 +469,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50.0,
           ),
         ],

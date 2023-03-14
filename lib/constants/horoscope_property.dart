@@ -21,7 +21,7 @@ const List<String> horoscopeIcons = <String>[
 const List<String> horoscopeRoute = <String>[
   "daily-horoscope",
   "dob-horoscope",
-  "dialy-horoscope",
+  "couple-horoscope",
   "dialy-horoscope",
   "dialy-horoscope",
   "dialy-horoscope",
