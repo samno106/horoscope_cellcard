@@ -33,5 +33,11 @@ List<Languages> languages = <Languages>[
   //horoscope
   Languages(kh: 'ហោរាសាស្ត្រ', en: 'Horoscope'), //25
   Languages(kh: 'ហោរាសាស្ត្រប្រចាំថ្ងៃ', en: 'Dialy Horoscope'), //26
-  Languages(kh: 'ងហ', en: 'Date of Birth Horoscope'),
+  Languages(
+      kh: 'ហោរាសាស្ត្រថ្ងៃខែឆ្នាំកំណើត', en: 'Date of Birth Horoscope'), //27
+  Languages(kh: 'បញ្ចូលថ្ងៃខែឆ្នាំកំណើត', en: 'Input Date of Birth'), //28
+  Languages(kh: 'ជ្រើសរើសថ្ងៃ', en: 'Select Date'), //29
+  Languages(kh: 'ជ្រើសរើសខែ', en: 'Select Month'), //30
+  Languages(kh: 'ជ្រើសរើសឆ្នាំ', en: 'Select Year'), //31
+  //30
 ];

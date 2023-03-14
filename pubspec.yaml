@@ -45,6 +45,8 @@ dependencies:
   flutter_verification_code: ^1.1.6
   google_fonts: ^4.0.3
   audioplayers: ^3.0.1
+  numberpicker: ^2.1.1
+  drop_down_list: ^0.0.4
 
 dev_dependencies:
   flutter_test:

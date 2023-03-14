@@ -7,6 +7,7 @@ import 'package:horoscope_cellcard/pages/auth/signin.dart';
 import 'package:horoscope_cellcard/pages/auth/signup.dart';
 import 'package:horoscope_cellcard/pages/home/home.dart';
 import 'package:horoscope_cellcard/pages/horoscope/horoscope.dart';
+import 'package:horoscope_cellcard/pages/horoscopes/dob_horoscope.dart';
 import 'package:horoscope_cellcard/pages/premium/premium.dart';
 import 'package:horoscope_cellcard/pages/account/profile.dart';
 import 'package:horoscope_cellcard/pages/subscribe/my_subscribe.dart';
@@ -37,6 +38,7 @@ class AppPage {
 
     //horoscopes
     GetPage(name: dialyHoroscope, page: () => DailyHoroscopePage()),
+    GetPage(name: dobHoroscope, page: () => DobHoroscopePage()),
   ];
   static getbottomNavbar() => bottomNavbar;
   static gethoroscope() => horoscope;
@@ -58,6 +60,7 @@ class AppPage {
 
   //horoscopes
   static getDialyHoroscope() => dialyHoroscope;
+  static getDobHoroscope() => dobHoroscope;
 
   static String bottomNavbar = "/";
   static String horoscope = "/horoscope";
@@ -78,4 +81,5 @@ class AppPage {
 
   //horoscopes
   static String dialyHoroscope = "/daily-horoscope";
+  static String dobHoroscope = "/dob-horoscope";
 }
