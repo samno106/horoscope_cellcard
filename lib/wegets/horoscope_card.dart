@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:horoscope_cellcard/constants/colors.dart';
+import 'package:horoscope_cellcard/wegets/select_subscibe_list.dart';
 
 class HoroscopeCard extends StatelessWidget {
   const HoroscopeCard(
@@ -12,7 +13,22 @@ class HoroscopeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () => {Get.toNamed(route)},
+        // onTap: () => {Get.toNamed(route)},
+        onTap: () => {
+              showModalBottomSheet(
+                  isScrollControlled: true,
+                  context: context,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0),
+                    ),
+                  ),
+                  backgroundColor: Colors.white,
+                  builder: ((context) {
+                    return SelectSubscibeList();
+                  })),
+            },
         child: Container(
           padding: const EdgeInsets.all(20.0),
           margin: const EdgeInsets.all(5.0),
@@ -39,7 +55,7 @@ class HoroscopeCard extends StatelessWidget {
                 name,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 12.0,
+                  fontSize: 14.0,
                   fontWeight: FontWeight.w600,
                   color: textDarkColor,
                 ),

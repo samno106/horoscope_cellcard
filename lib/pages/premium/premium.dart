@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_cellcard/constants/language.dart';
+import 'package:horoscope_cellcard/layouts/premium_navbar.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/profile_lists.dart';
@@ -20,16 +22,6 @@ class _PremiumPageState extends State<PremiumPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        elevation: 0,
-        title: Text(
-          "Premium",
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w500, color: textDarkColor),
-        ),
-        centerTitle: true,
-      ),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
@@ -37,6 +29,7 @@ class _PremiumPageState extends State<PremiumPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          PremiumNavbar(title: languages[23].kh),
           Container(
             height: 140.0,
             child: Stack(
@@ -67,11 +60,12 @@ class _PremiumPageState extends State<PremiumPage> {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.7,
+            height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: ListView(
-              padding: const EdgeInsets.only(top: 20.0, bottom: 100.0),
-              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
+              shrinkWrap: false,
               children: [
                 SubscribeCard(
                   img: profiles[0],
@@ -95,9 +89,6 @@ class _PremiumPageState extends State<PremiumPage> {
                 ),
               ],
             ),
-          ),
-          SizedBox(
-            height: 30.0,
           ),
         ],
       ))),

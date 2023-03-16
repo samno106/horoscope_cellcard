@@ -213,17 +213,23 @@ class _AccountPageState extends State<AccountPage> {
                     thickness: 1,
                     color: lightBlueColor,
                   ),
-                  Center(
-                    child: TextButton(
-                        onPressed: () => {},
-                        child: Text(
-                          "Log Out",
-                          style: TextStyle(
-                            color: blueColor,
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        )),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 35.0,
+                    child: Center(
+                      child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed('my-subscribe');
+                          },
+                          child: Text(
+                            "Log Out",
+                            style: TextStyle(
+                              color: blueColor,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          )),
+                    ),
                   )
                 ],
               ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ class SubscribeModalBottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20.0),
-      height: 400.0,
+      height: MediaQuery.of(context).size.height * 0.45,
       child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,87 +180,48 @@ class CustomDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.only(top: 20.0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
+    return CupertinoAlertDialog(
+      title: Text(
+        "Confirmation",
+        style: TextStyle(
+          fontSize: 14.0,
+          fontWeight: FontWeight.w600,
         ),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text(
-                "Confirmation",
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                child: Text(
-                  "You are subscribing to Horoscope by $name with ${NumberFormat.simpleCurrency(locale: 'en-US', decimalDigits: 2).format(price)} per day.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: textDarkGreyColor,
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              Divider(
-                color: lightBlueBorderColor,
-                thickness: 1,
-              ),
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: TextButton(
-                        onPressed: () => {},
-                        child: const Text(
-                          'Cancel',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    )),
-                    VerticalDivider(
-                      color: lightBlueBorderColor,
-                      thickness: 1,
-                    ),
-                    Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: TextButton(
-                        onPressed: () => {Get.toNamed('subscribe-completed')},
-                        child: const Text(
-                          'Confirm',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    )),
-                  ],
-                ),
-              ),
-            ]),
       ),
+      content: Padding(
+        padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 10.0),
+        child: Text(
+          "You are subscribing to Horoscope by $name with ${NumberFormat.simpleCurrency(locale: 'en-US', decimalDigits: 2).format(price)} per day.",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: textDarkGreyColor,
+            fontSize: 14.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+      actions: [
+        CupertinoDialogAction(
+          child: Text(
+            "Cancel",
+            style: TextStyle(
+              color: blueColor,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        CupertinoDialogAction(
+          child: Text(
+            "Confirm",
+            style: TextStyle(
+              color: blueColor,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        )
+      ],
     );
   }
 }

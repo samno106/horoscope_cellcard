@@ -52,7 +52,7 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'អាន', en: 'Read'), //42
   Languages(kh: 'ហោរាសាស្ត្រលេខធនាគារ', en: 'Bank Number Horoscope'), //43
   Languages(kh: 'បញ្ចូលលេខធនាគារ', en: 'Input Bank number'), //44
-  Languages(kh: 'ហោរាសាស្ត្រ លេខផ្លាកលេខ', en: 'Plate Number Horoscope'), //45
+  Languages(kh: 'ហោរាសាស្ត្រផ្លាកលេខ', en: 'Plate Number Horoscope'), //45
   Languages(
       kh: 'បញ្ចូលលេខផ្លាកលេខរថយន្ត', en: 'Input Vehicle Plate Number'), //46
   Languages(
@@ -60,6 +60,5 @@ List<Languages> languages = <Languages>[
   Languages(
       kh: 'បញ្ចូលកាលបរិច្ឆេទដែលអ្នកចង់ឃើញ',
       en: 'Input the date you wish to see'), //48
-
-  //30
+  Languages(kh: 'ជ្រើសរើសគ្រូ', en: 'Select Master'), //49
 ];

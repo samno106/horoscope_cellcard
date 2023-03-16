@@ -1,11 +1,13 @@
-const List<String> horoscopeTitle = <String>[
-  "Daily Horoscope",
-  "Date of Birth Horoscope",
-  "Couple Horoscope",
-  "Phone Number Horoscope",
-  "Bank Account Number Horoscope",
-  "Plate Number Horoscope",
-  "Chinese Calendar Horoscope"
+import 'package:horoscope_cellcard/constants/language.dart';
+
+List<String> horoscopeTitle = <String>[
+  languages[26].kh,
+  languages[27].kh,
+  languages[32].kh,
+  languages[39].kh,
+  languages[43].kh,
+  languages[45].kh,
+  languages[47].kh,
 ];
 
 const List<String> horoscopeIcons = <String>[

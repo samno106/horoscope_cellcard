@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
 import '../../constants/language.dart';
+import '../../layouts/base_navbar.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/path_painter.dart';
 
@@ -133,34 +134,14 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        elevation: 0,
-        title: Text(
-          languages[27].kh,
-          style: GoogleFonts.notoSerifKhmer(
-              textStyle: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: textDarkColor)),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(
-            FeatherIcons.chevronLeft,
-            size: 30.0,
-            color: canvasColor,
-          ),
-          onPressed: () {
-            Get.back();
-          },
-        ),
-      ),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
         children: [
+          BaseNavbar(
+            title: languages[27].kh,
+          ),
           Container(
             height: 130.0,
             child: Stack(
