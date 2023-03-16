@@ -226,9 +226,6 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
   }
 
   void getAudio() async {
-    // audioUrl = UrlSource(
-    //     'http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3');
-
     audioUrl = UrlSource("http://localhost:51613/assets/sounds/audio1.mp3");
 
     if (playing) {

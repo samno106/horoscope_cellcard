@@ -46,6 +46,20 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'ខែ', en: 'Month'), //36
   Languages(kh: 'ឆ្នាំ', en: 'Year'), //37
   Languages(kh: 'លទ្ធផល', en: 'Result'), //38
+  Languages(kh: 'ហោរាសាស្ត្រ លេខទូរស័ព្ទ', en: 'Phone Number Horoscope'), //39
+  Languages(kh: 'បញ្ចូលលេខទូរស័ព្ទ', en: 'Input Phone number'), //40
+  Languages(kh: 'វាយ​បញ្ចូល​នៅ​ទីនេះ', en: 'Type here'), //41
+  Languages(kh: 'អាន', en: 'Read'), //42
+  Languages(kh: 'ហោរាសាស្ត្រលេខធនាគារ', en: 'Bank Number Horoscope'), //43
+  Languages(kh: 'បញ្ចូលលេខធនាគារ', en: 'Input Bank number'), //44
+  Languages(kh: 'ហោរាសាស្ត្រ លេខផ្លាកលេខ', en: 'Plate Number Horoscope'), //45
+  Languages(
+      kh: 'បញ្ចូលលេខផ្លាកលេខរថយន្ត', en: 'Input Vehicle Plate Number'), //46
+  Languages(
+      kh: 'ហោរាសាស្ត្រ ប្រតិទិនចិន', en: 'Chinese Calendar Horoscope'), //47
+  Languages(
+      kh: 'បញ្ចូលកាលបរិច្ឆេទដែលអ្នកចង់ឃើញ',
+      en: 'Input the date you wish to see'), //48
 
   //30
 ];

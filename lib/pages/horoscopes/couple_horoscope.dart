@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
@@ -30,6 +31,13 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
   bool playing = false;
 
   bool isResult = false;
+
+  TextEditingController _textBoyEditingController = TextEditingController();
+  TextEditingController _textGirlEditingController = TextEditingController();
+  DateTime selectedBoyDate = DateTime.now();
+  DateTime selectedGirlDate = DateTime.now();
+  final startDate = DateTime(1969, 1);
+  final lasttDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +161,8 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                 fontSize: 14.0,
                                 color: canvasColor,
                               ),
-                              onTap: () {},
+                              controller: _textBoyEditingController,
+                              onTap: () => _openBoyDatepicker(context),
                               decoration: InputDecoration(
                                 contentPadding: const EdgeInsets.symmetric(
                                     horizontal: 10.0, vertical: 5.0),
@@ -204,7 +213,8 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                 fontSize: 14.0,
                                 color: canvasColor,
                               ),
-                              onTap: () {},
+                              controller: _textGirlEditingController,
+                              onTap: () => _openGirlDatepicker(context),
                               decoration: InputDecoration(
                                 contentPadding: const EdgeInsets.symmetric(
                                     horizontal: 10.0, vertical: 5.0),
@@ -380,55 +390,45 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                   visible: isResult,
                 ),
               ),
-              SizedBox(
-                height: !isResult
-                    ? MediaQuery.of(context).size.height / (210 / 100)
-                    : 0,
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Visibility(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        disabledBackgroundColor: textGreyColor,
-                        primary: primaryColor,
-                        onPrimary: Colors.white,
-                        shadowColor: blueColor,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0.0)),
-                        minimumSize: Size(double.infinity, 45),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          isResult = !isResult;
-                        });
-                      },
-                      child: const Text(
-                        "Log In",
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    maintainSize: !isResult,
-                    maintainAnimation: true,
-                    maintainState: true,
-                    visible: !isResult,
-                  ),
-                ),
-              ),
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: Visibility(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            disabledBackgroundColor: textGreyColor,
+            primary: primaryColor,
+            onPrimary: Colors.white,
+            shadowColor: blueColor,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(0.0)),
+            minimumSize: Size(double.infinity, 45),
+          ),
+          onPressed: () {
+            setState(() {
+              isResult = !isResult;
+            });
+          },
+          child: Text(
+            languages[42].kh,
+            style: GoogleFonts.notoSerifKhmer(
+                textStyle: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white)),
+          ),
+        ),
+        maintainSize: !isResult,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: !isResult,
       ),
     );
   }
 
   void getAudio() async {
-    // audioUrl = UrlSource(
-    //     'http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3');
-
     audioUrl = UrlSource("http://localhost:51613/assets/sounds/audio1.mp3");
 
     if (playing) {
@@ -465,5 +465,40 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
     path.quadraticBezierTo(
         size.width / 2, size.height, size.width, size.height / 2);
     return path;
+  }
+
+  _openBoyDatepicker(BuildContext context) async {
+    final DateTime? dob = await showDatePicker(
+      context: context,
+      initialDate: selectedBoyDate,
+      firstDate: startDate,
+      lastDate: lasttDate,
+    );
+
+    if (dob != null) {
+      setState(() {
+        selectedBoyDate = dob;
+        String formattedDate = DateFormat('dd/MM/yyyy').format(selectedBoyDate);
+        _textBoyEditingController.text = formattedDate;
+      });
+    }
+  }
+
+  _openGirlDatepicker(BuildContext context) async {
+    final DateTime? dob = await showDatePicker(
+      context: context,
+      initialDate: selectedGirlDate,
+      firstDate: startDate,
+      lastDate: lasttDate,
+    );
+
+    if (dob != null) {
+      setState(() {
+        selectedGirlDate = dob;
+        String formattedDate =
+            DateFormat('dd/MM/yyyy').format(selectedGirlDate);
+        _textGirlEditingController.text = formattedDate;
+      });
+    }
   }
 }

@@ -7,8 +7,12 @@ import 'package:horoscope_cellcard/pages/auth/signin.dart';
 import 'package:horoscope_cellcard/pages/auth/signup.dart';
 import 'package:horoscope_cellcard/pages/home/home.dart';
 import 'package:horoscope_cellcard/pages/horoscope/horoscope.dart';
+import 'package:horoscope_cellcard/pages/horoscopes/bank_number_horoscope.dart';
+import 'package:horoscope_cellcard/pages/horoscopes/chinese_calendar_horoscope.dart';
 import 'package:horoscope_cellcard/pages/horoscopes/couple_horoscope.dart';
 import 'package:horoscope_cellcard/pages/horoscopes/dob_horoscope.dart';
+import 'package:horoscope_cellcard/pages/horoscopes/phone_number_horoscope.dart';
+import 'package:horoscope_cellcard/pages/horoscopes/plate_number_horoscope.dart';
 import 'package:horoscope_cellcard/pages/premium/premium.dart';
 import 'package:horoscope_cellcard/pages/account/profile.dart';
 import 'package:horoscope_cellcard/pages/subscribe/my_subscribe.dart';
@@ -41,6 +45,10 @@ class AppPage {
     GetPage(name: dialyHoroscope, page: () => DailyHoroscopePage()),
     GetPage(name: dobHoroscope, page: () => DobHoroscopePage()),
     GetPage(name: coupleHoroscope, page: () => CoupleHoroscopePage()),
+    GetPage(name: phoneHoroscope, page: () => PhoneNumberHoroscopePage()),
+    GetPage(name: bankHoroscope, page: () => BankNumberHoroscopePage()),
+    GetPage(name: plateHoroscope, page: () => PlateNumberHoroscopePage()),
+    GetPage(name: chCalendarHoroscope, page: () => ChCalendarHoroscopePage()),
   ];
   static getbottomNavbar() => bottomNavbar;
   static gethoroscope() => horoscope;
@@ -64,6 +72,10 @@ class AppPage {
   static getDialyHoroscope() => dialyHoroscope;
   static getDobHoroscope() => dobHoroscope;
   static getCoupleHoroscope() => coupleHoroscope;
+  static getPhoneHoroscope() => phoneHoroscope;
+  static getBankHoroscope() => bankHoroscope;
+  static getPlateHoroscope() => plateHoroscope;
+  static getChCalendarHoroscope() => chCalendarHoroscope;
 
   static String bottomNavbar = "/";
   static String horoscope = "/horoscope";
@@ -86,4 +98,8 @@ class AppPage {
   static String dialyHoroscope = "/daily-horoscope";
   static String dobHoroscope = "/dob-horoscope";
   static String coupleHoroscope = "/couple-horoscope";
+  static String phoneHoroscope = "/phone-horoscope";
+  static String bankHoroscope = "/bank-horoscope";
+  static String plateHoroscope = "/plate-horoscope";
+  static String chCalendarHoroscope = "/chinese-horoscope";
 }

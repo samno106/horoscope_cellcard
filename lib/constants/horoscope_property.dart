@@ -22,8 +22,8 @@ const List<String> horoscopeRoute = <String>[
   "daily-horoscope",
   "dob-horoscope",
   "couple-horoscope",
-  "dialy-horoscope",
-  "dialy-horoscope",
-  "dialy-horoscope",
-  "dialy-horoscope"
+  "phone-horoscope",
+  "bank-horoscope",
+  "plate-horoscope",
+  "chinese-horoscope"
 ];
