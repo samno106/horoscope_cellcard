@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/constants/language.dart';
-import 'package:horoscope_cellcard/wegets/subscibe_card.dart';
-
+import 'package:horoscope_cellcard/wegets/selected_subscribe_card.dart';
 import '../constants/colors.dart';
+import '../constants/profile_lists.dart';
 
 class SelectSubscibeList extends StatelessWidget {
-  const SelectSubscibeList({Key? key}) : super(key: key);
-
-  get profiles => null;
-
+  const SelectSubscibeList({Key? key, required this.route}) : super(key: key);
+  final String route;
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(0.0),
       height: MediaQuery.of(context).size.height * 0.65,
+      width: MediaQuery.of(context).size.width,
       child: Column(children: [
         Container(
           padding:
@@ -59,18 +58,44 @@ class SelectSubscibeList extends StatelessWidget {
             )
           ]),
         ),
-        SizedBox(
-          height: 10.0,
-        ),
         Container(
-          height: 300.0,
+          height: MediaQuery.of(context).size.height * 0.55,
           width: double.infinity,
           child: ListView(
-            padding: const EdgeInsets.only(top: 0.0, bottom: 0.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
             shrinkWrap: false,
-            children: [],
+            children: [
+              SelectedSubscribeCard(
+                name: "Master Khit Samno",
+                img: profiles[0],
+                price: 1.5,
+                contents:
+                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
+                isSubscribed: true,
+                route: this.route,
+              ),
+              SelectedSubscribeCard(
+                name: "Master Khit Samno",
+                img: profiles[1],
+                price: 0.50,
+                contents:
+                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
+                isSubscribed: false,
+                route: this.route,
+              ),
+              SelectedSubscribeCard(
+                name: "Master Khit Samno",
+                img: profiles[0],
+                price: 2.40,
+                contents:
+                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
+                isSubscribed: false,
+                route: this.route,
+              ),
+            ],
           ),
-        )
+        ),
       ]),
     );
   }

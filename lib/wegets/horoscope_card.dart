@@ -26,7 +26,9 @@ class HoroscopeCard extends StatelessWidget {
                   ),
                   backgroundColor: Colors.white,
                   builder: ((context) {
-                    return SelectSubscibeList();
+                    return SelectSubscibeList(
+                      route: this.route,
+                    );
                   })),
             },
         child: Container(
