@@ -1,13 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../constants/colors.dart';
-import '../constants/language.dart';
-import '../constants/navbar_property.dart';
 
 class BaseNavbar extends StatelessWidget {
   const BaseNavbar({Key? key, required this.title}) : super(key: key);
@@ -15,12 +10,10 @@ class BaseNavbar extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    bool auth = false;
-
     return Container(
       color: primaryColor,
       child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 15.0,
             vertical: 20.0,
           ),
@@ -45,14 +38,14 @@ class BaseNavbar extends StatelessWidget {
                 ),
               ),
               Text(
-                this.title,
+                title,
                 style: GoogleFonts.notoSerifKhmer(
                     textStyle: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: textDarkColor)),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10.0,
               )
             ],

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/constants/colors.dart';
@@ -11,7 +9,7 @@ import '../../layouts/top_navbar.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 
 class HoroscopePage extends StatefulWidget {
-  HoroscopePage({Key? key}) : super(key: key);
+  const HoroscopePage({Key? key}) : super(key: key);
 
   @override
   State<HoroscopePage> createState() => _HoroscopePageState();
@@ -26,9 +24,11 @@ class _HoroscopePageState extends State<HoroscopePage> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
           const TopNavbar(),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 110.0,
             child: Stack(
               children: <Widget>[
@@ -59,7 +59,7 @@ class _HoroscopePageState extends State<HoroscopePage> {
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 padding: const EdgeInsets.only(top: 20.0, bottom: 80.0),
                 itemCount: horoscopeIcons.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

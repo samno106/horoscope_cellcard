@@ -35,6 +35,7 @@ class _TopNavbarState extends State<TopNavbar> {
                     GestureDetector(
                       onTap: () => {Get.toNamed('auth')},
                       child: auth
+                          // ignore: dead_code
                           ? CircleAvatar(
                               radius: 16,
                               backgroundColor: canvasColor,
@@ -51,6 +52,7 @@ class _TopNavbarState extends State<TopNavbar> {
                     ),
                     const SizedBox(width: 10.0),
                     auth
+                        // ignore: dead_code
                         ? Text(
                             'Jonh Dio',
                             style: TextStyle(
@@ -59,7 +61,7 @@ class _TopNavbarState extends State<TopNavbar> {
                               fontWeight: FontWeight.bold,
                             ),
                           )
-                        : Text("")
+                        : const Text("")
                   ],
                 ),
               ),

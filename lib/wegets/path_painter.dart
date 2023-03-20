@@ -14,7 +14,7 @@ class PathPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3.0;
 
-    canvas.drawPath(this.path, paint);
+    canvas.drawPath(path, paint);
   }
 
   @override

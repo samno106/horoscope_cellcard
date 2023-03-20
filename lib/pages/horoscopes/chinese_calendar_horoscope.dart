@@ -1,8 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:curved_carousel/curved_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../constants/carousel_property.dart';
@@ -23,21 +22,21 @@ class ChCalendarHoroscopePage extends StatefulWidget {
 class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
   int selectedYearName = 0;
 
-  AudioPlayer audioPlayer = new AudioPlayer();
+  AudioPlayer audioPlayer = AudioPlayer();
   late Source audioUrl;
-  Duration duration = new Duration();
-  Duration position = new Duration();
+  Duration duration = const Duration();
+  Duration position = const Duration();
 
   bool playing = false;
   bool isResult = false;
 
   //show date
   String showDate = '';
-  DateTime _selectedDate = DateTime.now();
+  // final DateTime _selectedDate = DateTime.now();
 
   //show month
   String showMonth = '';
-  DateTime _selectedMonth = DateTime.now();
+  // DateTime _selectedMonth = DateTime.now();
 
   //show year
   String showYear = '';
@@ -145,6 +144,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
             title: languages[48].kh,
           ),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 215.0,
             child: Stack(
               children: <Widget>[
@@ -162,7 +162,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                     painter: PathPainter(drawPath()),
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   top: 20,
                   left: 0,
                   right: 0,
@@ -325,13 +325,13 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                       Expanded(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: buttonPrimaryColor,
-                            onPrimary: Colors.white,
+                            foregroundColor: Colors.white,
+                            backgroundColor: buttonPrimaryColor,
                             shadowColor: blueColor,
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(6.0)),
-                            minimumSize: Size(40.0, 47.0),
+                            minimumSize: const Size(40.0, 47.0),
                           ),
                           onPressed: () {
                             setState(() {
@@ -355,11 +355,15 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
           ),
           SizedBox(
             child: Visibility(
+              maintainSize: isResult,
+              maintainAnimation: true,
+              maintainState: true,
+              visible: isResult,
               child: Container(
-                margin: EdgeInsets.only(top: 10.0),
+                margin: const EdgeInsets.only(top: 10.0),
                 child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 35.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 35.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -372,7 +376,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                               color: primaryColor),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20.0,
                       ),
                       Text(
@@ -384,7 +388,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                           height: 2,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40.0,
                       ),
                       Container(
@@ -404,18 +408,19 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                                       color: primaryColor),
                             ),
                             Container(
+                              padding: const EdgeInsets.all(0.0),
                               child: Slider(
                                 min: 0.0,
                                 thumbColor: primaryColor,
                                 activeColor: primaryColor,
                                 inactiveColor:
-                                    Color.fromARGB(255, 255, 225, 169),
+                                    const Color.fromARGB(255, 255, 225, 169),
                                 value: position.inSeconds.toDouble(),
                                 max: duration.inSeconds.toDouble(),
                                 onChanged: (double value) => {
                                   setState(() => {
-                                        audioPlayer.seek(new Duration(
-                                            seconds: value.toInt()))
+                                        audioPlayer.seek(
+                                            Duration(seconds: value.toInt()))
                                       })
                                 },
                               ),
@@ -430,17 +435,13 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30.0,
                       )
                     ],
                   ),
                 ),
               ),
-              maintainSize: isResult,
-              maintainAnimation: true,
-              maintainState: true,
-              visible: isResult,
             ),
           ),
         ],

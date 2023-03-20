@@ -1,8 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
+
 import 'package:horoscope_cellcard/constants/language.dart';
 import 'package:horoscope_cellcard/layouts/premium_navbar.dart';
 
@@ -12,7 +9,7 @@ import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/subscibe_card.dart';
 
 class PremiumPage extends StatefulWidget {
-  PremiumPage({Key? key}) : super(key: key);
+  const PremiumPage({Key? key}) : super(key: key);
 
   @override
   State<PremiumPage> createState() => _PremiumPageState();
@@ -31,6 +28,7 @@ class _PremiumPageState extends State<PremiumPage> {
         children: [
           PremiumNavbar(title: languages[23].kh),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 140.0,
             child: Stack(
               children: <Widget>[
@@ -46,6 +44,7 @@ class _PremiumPageState extends State<PremiumPage> {
                     top: 35,
                     left: MediaQuery.of(context).size.width * 0.37,
                     child: Container(
+                      padding: const EdgeInsets.all(0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100.0),
                         child: Image.asset(
@@ -60,10 +59,11 @@ class _PremiumPageState extends State<PremiumPage> {
             ),
           ),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: ListView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
               shrinkWrap: false,
               children: [

@@ -23,32 +23,34 @@ import '../pages/horoscopes/daily_horoscope.dart';
 
 class AppPage {
   static List<GetPage> routes = [
-    GetPage(name: bottomNavbar, page: () => BottomNavbar()),
-    GetPage(name: horoscope, page: () => HoroscopePage()),
-    GetPage(name: home, page: () => HomePage()),
-    GetPage(name: premium, page: () => PremiumPage()),
+    GetPage(name: bottomNavbar, page: () => const BottomNavbar()),
+    GetPage(name: horoscope, page: () => const HoroscopePage()),
+    GetPage(name: home, page: () => const HomePage()),
+    GetPage(name: premium, page: () => const PremiumPage()),
     //auth
-    GetPage(name: auth, page: () => AuthPage()),
-    GetPage(name: signup, page: () => SignupPage()),
-    GetPage(name: signin, page: () => SigninPage()),
-    GetPage(name: confirmOtp, page: () => OtpPage()),
-    GetPage(name: accountCreated, page: () => AccountCreatedPage()),
+    GetPage(name: auth, page: () => const AuthPage()),
+    GetPage(name: signup, page: () => const SignupPage()),
+    GetPage(name: signin, page: () => const SigninPage()),
+    GetPage(name: confirmOtp, page: () => const OtpPage()),
+    GetPage(name: accountCreated, page: () => const AccountCreatedPage()),
 
     //account setting
-    GetPage(name: account, page: () => AccountPage()),
-    GetPage(name: profile, page: () => ProfilePage()),
-    GetPage(name: mySubscribe, page: () => MySubscribePage()),
+    GetPage(name: account, page: () => const AccountPage()),
+    GetPage(name: profile, page: () => const ProfilePage()),
+    GetPage(name: mySubscribe, page: () => const MySubscribePage()),
     //subscribe action
-    GetPage(name: subscribeCompleted, page: () => SubscribeCompletedPage()),
+    GetPage(
+        name: subscribeCompleted, page: () => const SubscribeCompletedPage()),
 
     //horoscopes
-    GetPage(name: dialyHoroscope, page: () => DailyHoroscopePage()),
-    GetPage(name: dobHoroscope, page: () => DobHoroscopePage()),
-    GetPage(name: coupleHoroscope, page: () => CoupleHoroscopePage()),
-    GetPage(name: phoneHoroscope, page: () => PhoneNumberHoroscopePage()),
-    GetPage(name: bankHoroscope, page: () => BankNumberHoroscopePage()),
-    GetPage(name: plateHoroscope, page: () => PlateNumberHoroscopePage()),
-    GetPage(name: chCalendarHoroscope, page: () => ChCalendarHoroscopePage()),
+    GetPage(name: dialyHoroscope, page: () => const DailyHoroscopePage()),
+    GetPage(name: dobHoroscope, page: () => const DobHoroscopePage()),
+    GetPage(name: coupleHoroscope, page: () => const CoupleHoroscopePage()),
+    GetPage(name: phoneHoroscope, page: () => const PhoneNumberHoroscopePage()),
+    GetPage(name: bankHoroscope, page: () => const BankNumberHoroscopePage()),
+    GetPage(name: plateHoroscope, page: () => const PlateNumberHoroscopePage()),
+    GetPage(
+        name: chCalendarHoroscope, page: () => const ChCalendarHoroscopePage()),
   ];
   static getbottomNavbar() => bottomNavbar;
   static gethoroscope() => horoscope;

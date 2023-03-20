@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -47,6 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 160.0,
             child: Stack(
               children: <Widget>[
@@ -62,6 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     top: 50,
                     left: MediaQuery.of(context).size.width * 0.37,
                     child: Container(
+                      padding: const EdgeInsets.all(0.0),
                       child: Stack(children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(100.0),
@@ -80,14 +80,14 @@ class _ProfilePageState extends State<ProfilePage> {
                               color: grayColor,
                               textColor: blueColor,
                               elevation: 0.0,
-                              child: Icon(
-                                CupertinoIcons.camera_fill,
-                                size: 18,
-                              ),
-                              padding: EdgeInsets.all(16),
+                              padding: const EdgeInsets.all(16),
                               shape: CircleBorder(
                                   side:
                                       BorderSide(width: 1.0, color: blueColor)),
+                              child: const Icon(
+                                CupertinoIcons.camera_fill,
+                                size: 18,
+                              ),
                             )),
                       ]),
                     )),
@@ -125,6 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,7 +135,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style:
                                 TextStyle(color: textDarkColor, fontSize: 12),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10.0,
                           ),
                           Text(
@@ -147,17 +148,18 @@ class _ProfilePageState extends State<ProfilePage> {
                           )
                         ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Divider(
                     thickness: 1,
                     color: lightBlueColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Container(
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +169,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style:
                                 TextStyle(color: textDarkColor, fontSize: 12),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10.0,
                           ),
                           Text(
@@ -180,17 +182,18 @@ class _ProfilePageState extends State<ProfilePage> {
                           )
                         ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Divider(
                     thickness: 1,
                     color: lightBlueColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Container(
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -200,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style:
                                 TextStyle(color: textDarkColor, fontSize: 12),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10.0,
                           ),
                           Text(
@@ -213,17 +216,18 @@ class _ProfilePageState extends State<ProfilePage> {
                           )
                         ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Divider(
                     thickness: 1,
                     color: lightBlueColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Container(
+                    padding: const EdgeInsets.all(0.0),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,7 +237,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             style:
                                 TextStyle(color: textDarkColor, fontSize: 12),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10.0,
                           ),
                           Text(

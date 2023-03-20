@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/colors.dart';
@@ -10,12 +8,10 @@ class PremiumNavbar extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    bool auth = false;
-
     return Container(
       color: primaryColor,
       child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 15.0,
             vertical: 20.0,
           ),
@@ -23,7 +19,7 @@ class PremiumNavbar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                this.title,
+                title,
                 style: GoogleFonts.notoSerifKhmer(
                     textStyle: TextStyle(
                         fontSize: 18,

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../constants/colors.dart';
@@ -69,6 +68,7 @@ class SubscribeModalBottom extends StatelessWidget {
               height: 10.0,
             ),
             Container(
+              padding: const EdgeInsets.all(0.0),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -138,8 +138,8 @@ class SubscribeModalBottom extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: buttonPrimaryColor,
-                            onPrimary: Colors.white,
+                            foregroundColor: Colors.white,
+                            backgroundColor: buttonPrimaryColor,
                             shadowColor: blueColor,
                             elevation: 5,
                             shape: RoundedRectangleBorder(
@@ -181,7 +181,7 @@ class CustomDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoAlertDialog(
-      title: Text(
+      title: const Text(
         "Confirmation",
         style: TextStyle(
           fontSize: 14.0,

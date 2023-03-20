@@ -1,7 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../constants/carousel_property.dart';
@@ -20,10 +19,10 @@ class PlateNumberHoroscopePage extends StatefulWidget {
 }
 
 class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
-  AudioPlayer audioPlayer = new AudioPlayer();
+  AudioPlayer audioPlayer = AudioPlayer();
   late Source audioUrl;
-  Duration duration = new Duration();
-  Duration position = new Duration();
+  Duration duration = const Duration();
+  Duration position = const Duration();
 
   bool playing = false;
 
@@ -41,6 +40,7 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                 title: languages[45].kh,
               ),
               Container(
+                padding: const EdgeInsets.all(0.0),
                 height: 215.0,
                 child: Stack(
                   children: <Widget>[
@@ -58,7 +58,7 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                         painter: PathPainter(drawPath()),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       top: 20,
                       left: 0,
                       right: 0,
@@ -125,10 +125,14 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
               ),
               SizedBox(
                 child: Visibility(
+                  maintainSize: isResult,
+                  maintainAnimation: true,
+                  maintainState: true,
+                  visible: isResult,
                   child: Container(
-                    margin: EdgeInsets.only(top: 10.0),
+                    margin: const EdgeInsets.only(top: 10.0),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           vertical: 10.0, horizontal: 35.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -142,7 +146,7 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                                   color: primaryColor),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20.0,
                           ),
                           Text(
@@ -154,7 +158,7 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                               height: 2,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 40.0,
                           ),
                           Container(
@@ -176,17 +180,18 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                                           color: primaryColor),
                                 ),
                                 Container(
+                                  padding: const EdgeInsets.all(0.0),
                                   child: Slider(
                                     min: 0.0,
                                     thumbColor: primaryColor,
                                     activeColor: primaryColor,
-                                    inactiveColor:
-                                        Color.fromARGB(255, 255, 225, 169),
+                                    inactiveColor: const Color.fromARGB(
+                                        255, 255, 225, 169),
                                     value: position.inSeconds.toDouble(),
                                     max: duration.inSeconds.toDouble(),
                                     onChanged: (double value) => {
                                       setState(() => {
-                                            audioPlayer.seek(new Duration(
+                                            audioPlayer.seek(Duration(
                                                 seconds: value.toInt()))
                                           })
                                     },
@@ -206,10 +211,6 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                       ),
                     ),
                   ),
-                  maintainSize: isResult,
-                  maintainAnimation: true,
-                  maintainState: true,
-                  visible: isResult,
                 ),
               ),
             ],

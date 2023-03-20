@@ -25,7 +25,7 @@ class _OtpPageState extends State<OtpPage> {
 
   void resendCode() {
     const oneSec = Duration(seconds: 1);
-    _timer = new Timer.periodic(oneSec, (timer) {
+    _timer = Timer.periodic(oneSec, (timer) {
       setState(() {
         if (_start == 0) {
           _start = 0;
@@ -77,6 +77,7 @@ class _OtpPageState extends State<OtpPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
+                        padding: const EdgeInsets.all(0.0),
                         child: Center(
                           child: Text(
                             "Enter the 6-digits code we sent to",
@@ -87,10 +88,11 @@ class _OtpPageState extends State<OtpPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Container(
+                        padding: const EdgeInsets.all(0.0),
                         child: Center(
                           child: Text(
                             phoneNumber,
@@ -101,7 +103,7 @@ class _OtpPageState extends State<OtpPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       VerificationCode(
@@ -113,7 +115,7 @@ class _OtpPageState extends State<OtpPage> {
                         underlineColor: textDarkColor,
                         keyboardType: TextInputType.number,
                         underlineWidth: 2.0,
-                        margin: EdgeInsets.symmetric(horizontal: 10.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 10.0),
                         itemSize: 35.0,
                         digitsOnly: true,
                         autofocus: true,
@@ -130,11 +132,11 @@ class _OtpPageState extends State<OtpPage> {
                           if (!_onEditing) FocusScope.of(context).unfocus();
                         },
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Text(
-                        "Resend code in " + _start.toString(),
+                        "Resend code in $_start",
                         style: TextStyle(
                           color: textDarkColor,
                           fontSize: 12.0,
@@ -142,19 +144,19 @@ class _OtpPageState extends State<OtpPage> {
                       ),
                     ]),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50.0,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: buttonPrimaryColor,
                   disabledBackgroundColor: textGreyColor,
-                  primary: buttonPrimaryColor,
-                  onPrimary: Colors.white,
                   shadowColor: blueColor,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0.0)),
-                  minimumSize: Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity, 50),
                 ),
                 onPressed: _code.length < 6
                     ? null

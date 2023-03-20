@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
@@ -48,6 +46,7 @@ class _MySubscribePageState extends State<MySubscribePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 160.0,
             child: Stack(
               children: <Widget>[
@@ -63,6 +62,7 @@ class _MySubscribePageState extends State<MySubscribePage> {
                     top: 50,
                     left: MediaQuery.of(context).size.width * 0.37,
                     child: Container(
+                      padding: const EdgeInsets.all(0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100.0),
                         child: Image.asset(
@@ -76,7 +76,7 @@ class _MySubscribePageState extends State<MySubscribePage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Center(
@@ -89,11 +89,11 @@ class _MySubscribePageState extends State<MySubscribePage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 50.0),
+            padding: const EdgeInsets.symmetric(horizontal: 50.0),
             child: Center(
               child: Text(
                 textAlign: TextAlign.center,
@@ -106,10 +106,11 @@ class _MySubscribePageState extends State<MySubscribePage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40.0,
           ),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: MediaQuery.of(context).size.height * 0.7,
             width: double.infinity,
             child: ListView(

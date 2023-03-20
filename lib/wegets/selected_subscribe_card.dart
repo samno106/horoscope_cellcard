@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
@@ -24,7 +23,7 @@ class SelectedSubscribeCard extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(15.0),
-      margin: EdgeInsets.symmetric(vertical: 10.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
@@ -37,16 +36,16 @@ class SelectedSubscribeCard extends StatelessWidget {
         children: [
           SizedBox(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(8), // Image border
+              borderRadius: BorderRadius.circular(8),
               child: Image(
                 fit: BoxFit.cover,
                 width: 68.0,
                 height: 68.0,
-                image: NetworkImage(this.img),
+                image: NetworkImage(img),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 20.0,
           ),
           Expanded(
@@ -55,7 +54,7 @@ class SelectedSubscribeCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  this.name,
+                  name,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14.0,
@@ -77,8 +76,8 @@ class SelectedSubscribeCard extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          this.contents,
-                          style: TextStyle(fontSize: 12.0),
+                          contents,
+                          style: const TextStyle(fontSize: 12.0),
                           textAlign: TextAlign.left,
                           softWrap: true,
                         ),
@@ -99,10 +98,10 @@ class SelectedSubscribeCard extends StatelessWidget {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: this.isSubscribed == false
+                    foregroundColor: Colors.white,
+                    backgroundColor: isSubscribed == false
                         ? buttonPrimaryColor
                         : primaryColor,
-                    onPrimary: Colors.white,
                     shadowColor: blueColor,
                     elevation: 5,
                     shape: RoundedRectangleBorder(
@@ -110,7 +109,7 @@ class SelectedSubscribeCard extends StatelessWidget {
                     minimumSize: const Size(100.0, 35.0),
                   ),
                   onPressed: () => {
-                    if (this.isSubscribed)
+                    if (isSubscribed)
                       {Get.toNamed(route)}
                     else
                       {
@@ -118,12 +117,12 @@ class SelectedSubscribeCard extends StatelessWidget {
                             context: context,
                             builder: (context) => CustomDialogWidget(
                                   name: name,
-                                  price: this.price,
+                                  price: price,
                                 ))
                       }
                   },
                   child: Text(
-                    !this.isSubscribed ? "Subscribe" : "Read",
+                    !isSubscribed ? "Subscribe" : "Read",
                     style: const TextStyle(
                       fontSize: 12.0,
                       fontWeight: FontWeight.w500,
@@ -148,38 +147,148 @@ class CustomDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoAlertDialog(
-      title: Text(
-        "Confirmation",
-        style: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w600,
-        ),
+    return Dialog(
+      elevation: 0,
+      backgroundColor: const Color(0xffffffff),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
       ),
-      content: Padding(
-        padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 10.0),
-        child: Text(
-          "You are subscribing to Horoscope by $name with ${NumberFormat.simpleCurrency(locale: 'en-US', decimalDigits: 2).format(price)} per day.",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: textDarkGreyColor,
-            fontSize: 14.0,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-      actions: [
-        CupertinoDialogAction(
-          child: Text(
-            "Ok",
-            style: TextStyle(
-              color: blueColor,
-              fontSize: 14.0,
-              fontWeight: FontWeight.w500,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: 25.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).pop(),
+                    child: Icon(
+                      FeatherIcons.x,
+                      size: 18.0,
+                      color: textBlackColor,
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-        )
-      ],
+            const Text(
+              "Subscribe to",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(
+              height: 5.0,
+            ),
+            Text(
+              name,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: Row(
+                  children: [
+                    Icon(
+                      FeatherIcons.disc,
+                      size: 8.0,
+                      color: iconColor,
+                    ),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
+                    Text(
+                      NumberFormat.simpleCurrency(
+                              locale: 'en-US', decimalDigits: 2)
+                          .format(price),
+                      style: TextStyle(
+                        color: iconColor,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
+                    const Text(
+                      "per day",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: Row(
+                  children: [
+                    Icon(
+                      FeatherIcons.disc,
+                      size: 8.0,
+                      color: iconColor,
+                    ),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
+                    const Text(
+                      "Auto renewal everyday",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Flexible(
+              child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0, vertical: 20.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: buttonPrimaryColor,
+                      shadowColor: blueColor,
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6.0)),
+                      minimumSize: Size(MediaQuery.of(context).size.width, 45),
+                    ),
+                    onPressed: () => {Get.toNamed('confirm-otp')},
+                    child: const Text(
+                      "Subscibe",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  )),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

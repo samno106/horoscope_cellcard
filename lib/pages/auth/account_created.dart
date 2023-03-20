@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
 import '../../constants/colors.dart';
@@ -29,13 +28,15 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                     top: MediaQuery.of(context).size.height * 0.3),
                 child: Column(children: [
                   Container(
-                    child:
-                        Image(image: AssetImage("/images/icons/checked.png")),
+                    padding: const EdgeInsets.all(0.0),
+                    child: const Image(
+                        image: AssetImage("/images/icons/checked.png")),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Container(
+                    padding: const EdgeInsets.all(0.0),
                     child: Center(
                       child: Text(
                         "Account has been created!",
@@ -46,10 +47,11 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
+                    padding: const EdgeInsets.all(0.0),
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: Center(
                       child: Text(
@@ -62,20 +64,20 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50.0,
                   ),
                 ]),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: buttonPrimaryColor,
-                  onPrimary: Colors.white,
+                  foregroundColor: Colors.white,
+                  backgroundColor: buttonPrimaryColor,
                   shadowColor: blueColor,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0.0)),
-                  minimumSize: Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity, 50),
                 ),
                 onPressed: () {
                   Get.toNamed('home');

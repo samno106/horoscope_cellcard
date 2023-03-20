@@ -1,21 +1,21 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:curved_carousel/curved_carousel.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
-import '../../constants/horoscope_property.dart';
+
 import '../../constants/language.dart';
 import '../../layouts/base_navbar.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/path_painter.dart';
 
 class CoupleHoroscopePage extends StatefulWidget {
-  CoupleHoroscopePage({Key? key}) : super(key: key);
+  const CoupleHoroscopePage({Key? key}) : super(key: key);
 
   @override
   State<CoupleHoroscopePage> createState() => _CoupleHoroscopePageState();
@@ -24,17 +24,19 @@ class CoupleHoroscopePage extends StatefulWidget {
 class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
   int selectedYearName = 0;
 
-  AudioPlayer audioPlayer = new AudioPlayer();
+  AudioPlayer audioPlayer = AudioPlayer();
   late Source audioUrl;
-  Duration duration = new Duration();
-  Duration position = new Duration();
+  Duration duration = const Duration();
+  Duration position = const Duration();
 
   bool playing = false;
 
   bool isResult = false;
 
-  TextEditingController _textBoyEditingController = TextEditingController();
-  TextEditingController _textGirlEditingController = TextEditingController();
+  final TextEditingController _textBoyEditingController =
+      TextEditingController();
+  final TextEditingController _textGirlEditingController =
+      TextEditingController();
   DateTime selectedBoyDate = DateTime.now();
   DateTime selectedGirlDate = DateTime.now();
   final startDate = DateTime(1969, 1);
@@ -52,6 +54,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                 title: languages[32].kh,
               ),
               Container(
+                padding: const EdgeInsets.all(0.0),
                 height: 215.0,
                 child: Stack(
                   children: <Widget>[
@@ -69,7 +72,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                         painter: PathPainter(drawPath()),
                       ),
                     ),
-                    Positioned(
+                    const Positioned(
                       top: 20,
                       left: 0,
                       right: 0,
@@ -131,7 +134,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                       color: textDarkColor)),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20.0,
                           ),
                           Expanded(
@@ -165,7 +168,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                           ))
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
                       Row(
@@ -183,7 +186,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                       color: textDarkColor)),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20.0,
                           ),
                           Expanded(
@@ -221,10 +224,14 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
               ),
               SizedBox(
                 child: Visibility(
+                  maintainSize: isResult,
+                  maintainAnimation: true,
+                  maintainState: true,
+                  visible: isResult,
                   child: Container(
-                    margin: EdgeInsets.only(top: 10.0),
+                    margin: const EdgeInsets.only(top: 10.0),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           vertical: 10.0, horizontal: 35.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -238,7 +245,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                   color: primaryColor),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20.0,
                           ),
                           Row(
@@ -248,12 +255,12 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                               Expanded(
                                 child: Column(
                                   children: [
-                                    Image(
+                                    const Image(
                                       fit: BoxFit.contain,
                                       image: AssetImage(
                                           '/images/vector_year/dragon.png'),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10.0,
                                     ),
                                     Text(
@@ -268,7 +275,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                   ],
                                 ),
                               ),
-                              Expanded(
+                              const Expanded(
                                 child: Image(
                                     fit: BoxFit.contain,
                                     width: 39.0,
@@ -279,12 +286,12 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                               Expanded(
                                 child: Column(
                                   children: [
-                                    Image(
+                                    const Image(
                                       fit: BoxFit.contain,
                                       image: AssetImage(
                                           '/images/vector_year/pig.png'),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10.0,
                                     ),
                                     Text(
@@ -301,7 +308,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                               )
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20.0,
                           ),
                           Text(
@@ -313,7 +320,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                               height: 2,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 40.0,
                           ),
                           Container(
@@ -335,17 +342,18 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                           color: primaryColor),
                                 ),
                                 Container(
+                                  padding: const EdgeInsets.all(0.0),
                                   child: Slider(
                                     min: 0.0,
                                     thumbColor: primaryColor,
                                     activeColor: primaryColor,
-                                    inactiveColor:
-                                        Color.fromARGB(255, 255, 225, 169),
+                                    inactiveColor: const Color.fromARGB(
+                                        255, 255, 225, 169),
                                     value: position.inSeconds.toDouble(),
                                     max: duration.inSeconds.toDouble(),
                                     onChanged: (double value) => {
                                       setState(() => {
-                                            audioPlayer.seek(new Duration(
+                                            audioPlayer.seek(Duration(
                                                 seconds: value.toInt()))
                                           })
                                     },
@@ -365,10 +373,6 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                       ),
                     ),
                   ),
-                  maintainSize: isResult,
-                  maintainAnimation: true,
-                  maintainState: true,
-                  visible: isResult,
                 ),
               ),
             ],
@@ -376,16 +380,20 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
         ),
       ),
       bottomNavigationBar: Visibility(
+        maintainSize: !isResult,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: !isResult,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.white,
+            backgroundColor: primaryColor,
             disabledBackgroundColor: textGreyColor,
-            primary: primaryColor,
-            onPrimary: Colors.white,
             shadowColor: blueColor,
             elevation: 0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0.0)),
-            minimumSize: Size(double.infinity, 45),
+            minimumSize: const Size(double.infinity, 45),
           ),
           onPressed: () {
             setState(() {
@@ -395,16 +403,12 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
           child: Text(
             languages[42].kh,
             style: GoogleFonts.notoSerifKhmer(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                     color: Colors.white)),
           ),
         ),
-        maintainSize: !isResult,
-        maintainAnimation: true,
-        maintainState: true,
-        visible: !isResult,
       ),
     );
   }

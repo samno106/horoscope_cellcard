@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import '../../constants/colors.dart';
 
 class SignupPage extends StatefulWidget {
-  SignupPage({Key? key}) : super(key: key);
+  const SignupPage({Key? key}) : super(key: key);
 
   @override
   State<SignupPage> createState() => _SignupPageState();
@@ -16,7 +16,7 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   String logo = "/images/carousel/monkey.png";
 
-  TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
   DateTime selectedDate = DateTime.now();
   final startDate = DateTime(1969, 1);
   final lasttDate = DateTime.now();
@@ -80,6 +80,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ),
                 Container(
+                  padding: const EdgeInsets.all(0.0),
                   child: Column(children: [
                     TextField(
                       style: TextStyle(
@@ -195,11 +196,12 @@ class _SignupPageState extends State<SignupPage> {
                   height: 30.0,
                 ),
                 Container(
+                  padding: const EdgeInsets.all(0.0),
                   child: Column(children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: buttonPrimaryColor,
-                        onPrimary: Colors.white,
+                        foregroundColor: Colors.white,
+                        backgroundColor: buttonPrimaryColor,
                         shadowColor: blueColor,
                         elevation: 5,
                         shape: RoundedRectangleBorder(

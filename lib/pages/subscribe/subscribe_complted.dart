@@ -28,13 +28,15 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                     top: MediaQuery.of(context).size.height * 0.3),
                 child: Column(children: [
                   Container(
-                    child:
-                        Image(image: AssetImage("/images/icons/checked.png")),
+                    padding: const EdgeInsets.all(0.0),
+                    child: const Image(
+                        image: AssetImage("/images/icons/checked.png")),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   Container(
+                    padding: const EdgeInsets.all(0.0),
                     child: Center(
                       child: Text(
                         "Subscribed Successfully!",
@@ -45,10 +47,11 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
+                    padding: const EdgeInsets.all(0.0),
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: Center(
                       child: Text(
@@ -61,18 +64,18 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50.0,
                   ),
                 ]),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 30.0),
-                padding: EdgeInsets.symmetric(horizontal: 30.0),
+                margin: const EdgeInsets.only(bottom: 30.0),
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: buttonPrimaryColor,
-                    onPrimary: Colors.white,
+                    foregroundColor: Colors.white,
+                    backgroundColor: buttonPrimaryColor,
                     shadowColor: blueColor,
                     elevation: 5,
                     shape: RoundedRectangleBorder(
@@ -80,7 +83,7 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                     minimumSize: Size(MediaQuery.of(context).size.width, 45),
                   ),
                   onPressed: () => {Get.toNamed('home')},
-                  child: Text(
+                  child: const Text(
                     "Ok",
                     style: TextStyle(
                       fontSize: 14.0,

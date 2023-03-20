@@ -2,7 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:curved_carousel/curved_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/layouts/base_navbar.dart';
 
@@ -10,12 +10,11 @@ import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
 import '../../constants/language.dart';
 
-import '../../layouts/top_navbar.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/path_painter.dart';
 
 class DailyHoroscopePage extends StatefulWidget {
-  DailyHoroscopePage({Key? key}) : super(key: key);
+  const DailyHoroscopePage({Key? key}) : super(key: key);
 
   @override
   State<DailyHoroscopePage> createState() => _DailyHoroscopePageState();
@@ -24,10 +23,10 @@ class DailyHoroscopePage extends StatefulWidget {
 class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
   int selectedYearName = 0;
 
-  AudioPlayer audioPlayer = new AudioPlayer();
+  AudioPlayer audioPlayer = AudioPlayer();
   late Source audioUrl;
-  Duration duration = new Duration();
-  Duration position = new Duration();
+  Duration duration = const Duration();
+  Duration position = const Duration();
 
   bool playing = false;
 
@@ -43,6 +42,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
             title: languages[26].kh,
           ),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 130.0,
             child: Stack(
               children: <Widget>[
@@ -97,6 +97,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
             ),
           ),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 55,
             child: Stack(children: [
               Positioned(
@@ -125,7 +126,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
                       fontWeight: FontWeight.w600,
                     )),
                   ),
-                  Image(image: AssetImage('/images/vector/line1.png'))
+                  const Image(image: AssetImage('/images/vector/line1.png'))
                 ],
               ),
             ),
@@ -147,14 +148,14 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
                       height: 2,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40.0,
                   ),
                 ],
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
           Container(
@@ -173,19 +174,18 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
                       : Icon(FeatherIcons.pause, color: primaryColor),
                 ),
                 Container(
+                  padding: const EdgeInsets.all(0.0),
                   width: MediaQuery.of(context).size.width * 0.65,
                   child: Slider(
                     min: 0.0,
                     thumbColor: primaryColor,
                     activeColor: primaryColor,
-                    inactiveColor: Color.fromARGB(255, 255, 225, 169),
+                    inactiveColor: const Color.fromARGB(255, 255, 225, 169),
                     value: position.inSeconds.toDouble(),
                     max: duration.inSeconds.toDouble(),
                     onChanged: (double value) => {
-                      setState(() => {
-                            audioPlayer
-                                .seek(new Duration(seconds: value.toInt()))
-                          })
+                      setState(() =>
+                          {audioPlayer.seek(Duration(seconds: value.toInt()))})
                     },
                   ),
                 ),
@@ -199,7 +199,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50.0,
           ),
         ],

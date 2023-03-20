@@ -1,16 +1,16 @@
-import 'dart:math';
 import 'package:curved_carousel/curved_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
+
 import '../../constants/language.dart';
 import '../../layouts/top_navbar.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/path_painter.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           const TopNavbar(),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 130.0,
             child: Stack(
               children: <Widget>[
@@ -80,6 +81,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 55,
             child: Stack(children: [
               Positioned(
@@ -108,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.w600,
                     )),
                   ),
-                  Image(image: AssetImage('/images/vector/line1.png'))
+                  const Image(image: AssetImage('/images/vector/line1.png'))
                 ],
               ),
             ),
@@ -130,13 +132,13 @@ class _HomePageState extends State<HomePage> {
                       height: 2,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40.0,
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: buttonPrimaryColor,
-                      onPrimary: Colors.white,
+                      foregroundColor: Colors.white,
+                      backgroundColor: buttonPrimaryColor,
                       shadowColor: buttonPrimaryColor,
                       elevation: 5,
                       shape: RoundedRectangleBorder(
@@ -156,7 +158,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50.0,
           )
         ],

@@ -17,8 +17,8 @@ class SelectSubscibeList extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: Column(children: [
         Container(
-          padding:
-              EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0, bottom: 30.0),
+          padding: const EdgeInsets.only(
+              left: 20.0, right: 20.0, top: 10.0, bottom: 30.0),
           decoration: BoxDecoration(
             color: iconColor,
             borderRadius: const BorderRadius.only(
@@ -34,7 +34,7 @@ class SelectSubscibeList extends StatelessWidget {
                 GestureDetector(
                   onTap: () =>
                       Navigator.of(context).pop(), // Closing the sheet.
-                  child: Icon(
+                  child: const Icon(
                     FeatherIcons.x,
                     size: 18.0,
                     color: Colors.white,
@@ -59,6 +59,7 @@ class SelectSubscibeList extends StatelessWidget {
           ]),
         ),
         Container(
+          padding: const EdgeInsets.all(0.0),
           height: MediaQuery.of(context).size.height * 0.55,
           width: double.infinity,
           child: ListView(
@@ -73,7 +74,7 @@ class SelectSubscibeList extends StatelessWidget {
                 contents:
                     "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
                 isSubscribed: true,
-                route: this.route,
+                route: route,
               ),
               SelectedSubscribeCard(
                 name: "Master Khit Samno",
@@ -82,7 +83,7 @@ class SelectSubscibeList extends StatelessWidget {
                 contents:
                     "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
                 isSubscribed: false,
-                route: this.route,
+                route: route,
               ),
               SelectedSubscribeCard(
                 name: "Master Khit Samno",
@@ -91,7 +92,7 @@ class SelectSubscibeList extends StatelessWidget {
                 contents:
                     "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
                 isSubscribed: false,
-                route: this.route,
+                route: route,
               ),
             ],
           ),

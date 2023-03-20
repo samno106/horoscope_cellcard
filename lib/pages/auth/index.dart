@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
 
 import '../../constants/colors.dart';
 
 class AuthPage extends StatefulWidget {
-  AuthPage({Key? key}) : super(key: key);
+  const AuthPage({Key? key}) : super(key: key);
 
   @override
   State<AuthPage> createState() => _AuthPageState();
@@ -87,8 +86,8 @@ class _AuthPageState extends State<AuthPage> {
             child: Column(children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: buttonPrimaryColor,
-                  onPrimary: Colors.white,
+                  foregroundColor: Colors.white,
+                  backgroundColor: buttonPrimaryColor,
                   shadowColor: blueColor,
                   elevation: 5,
                   shape: RoundedRectangleBorder(
@@ -110,15 +109,8 @@ class _AuthPageState extends State<AuthPage> {
                 height: 15.0,
               ),
               OutlinedButton(
-                child: Text(
-                  "Log In",
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
                 style: OutlinedButton.styleFrom(
-                  primary: blueColor,
+                  foregroundColor: blueColor,
                   backgroundColor: backgroundColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6.0)),
@@ -128,6 +120,13 @@ class _AuthPageState extends State<AuthPage> {
                 onPressed: () {
                   Get.toNamed('signin');
                 },
+                child: const Text(
+                  "Log In",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               )
             ]),
           )

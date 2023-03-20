@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:get/get.dart';
 import 'package:horoscope_cellcard/wegets/subscribe_modal_bottom.dart';
 import 'package:intl/intl.dart';
 
@@ -50,6 +49,7 @@ class SubscribeCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
+                  padding: const EdgeInsets.all(0.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -82,6 +82,7 @@ class SubscribeCard extends StatelessWidget {
                   height: 15.0,
                 ),
                 Container(
+                  padding: const EdgeInsets.all(0.0),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -138,8 +139,8 @@ class SubscribeCard extends StatelessWidget {
                           children: [
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: buttonPrimaryColor,
-                                onPrimary: Colors.white,
+                                foregroundColor: Colors.white,
+                                backgroundColor: buttonPrimaryColor,
                                 shadowColor: blueColor,
                                 elevation: 5,
                                 shape: RoundedRectangleBorder(

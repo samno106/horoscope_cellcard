@@ -87,16 +87,20 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Roboto
+    - family: HoroIcon
       fonts:
-        - asset: assets/fonts/Roboto-Regular.ttf
-        - asset: assets/fonts/Roboto-Bold.ttf
-          weight: 700
+        - asset: assets/fonts/HoroIcon.ttf
+    # - family: Roboto
+    #   fonts:
+    #     - asset: assets/fonts/Roboto-Regular.ttf
+    #     - asset: assets/fonts/Roboto-Bold.ttf
+    #       weight: 700
+    # - family: Raleway
+    #   fonts:
+    #     - asset: assets/fonts/Raleway-Regular.ttf
+    #     - asset: assets/fonts/Raleway-Bold.ttf
 
-    - family: Raleway
-      fonts:
-        - asset: assets/fonts/Raleway-Regular.ttf
-        - asset: assets/fonts/Raleway-Bold.ttf
+    
   # fonts:
   #   - family: Schyler
   #     fonts:

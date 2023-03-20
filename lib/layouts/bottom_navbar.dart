@@ -39,7 +39,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         backgroundColor: Colors.white,
         body: IndexedStack(
           index: controller.tapIndex,
-          children: [HoroscopePage(), HomePage(), PremiumPage()],
+          children: const [HoroscopePage(), HomePage(), PremiumPage()],
         ),
         bottomNavigationBar: Container(
           height: 85.0,

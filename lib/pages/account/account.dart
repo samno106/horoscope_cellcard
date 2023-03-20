@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:get/get.dart';
 
 import '../../constants/colors.dart';
@@ -48,6 +46,7 @@ class _AccountPageState extends State<AccountPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
+            padding: const EdgeInsets.all(0.0),
             height: 160.0,
             child: Stack(
               children: <Widget>[
@@ -63,6 +62,7 @@ class _AccountPageState extends State<AccountPage> {
                     top: 50,
                     left: MediaQuery.of(context).size.width * 0.37,
                     child: Container(
+                      padding: const EdgeInsets.all(0.0),
                       child: Stack(children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(100.0),
@@ -74,22 +74,22 @@ class _AccountPageState extends State<AccountPage> {
                           ),
                         ),
                         Positioned(
-                            top: 60.0,
-                            right: -20,
-                            child: MaterialButton(
-                              onPressed: () {},
-                              color: grayColor,
-                              textColor: blueColor,
-                              elevation: 0.0,
-                              child: Icon(
-                                CupertinoIcons.camera_fill,
-                                size: 18,
-                              ),
-                              padding: EdgeInsets.all(16),
-                              shape: CircleBorder(
-                                  side:
-                                      BorderSide(width: 1.0, color: blueColor)),
-                            )),
+                          top: 60.0,
+                          right: -20,
+                          child: MaterialButton(
+                            padding: const EdgeInsets.all(16),
+                            onPressed: () {},
+                            color: grayColor,
+                            textColor: blueColor,
+                            elevation: 0.0,
+                            shape: CircleBorder(
+                                side: BorderSide(width: 1.0, color: blueColor)),
+                            child: const Icon(
+                              CupertinoIcons.camera_fill,
+                              size: 18.0,
+                            ),
+                          ),
+                        ),
                       ]),
                     )),
               ],
@@ -105,7 +105,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5.0,
           ),
           Center(
@@ -142,15 +142,16 @@ class _AccountPageState extends State<AccountPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
+                            padding: const EdgeInsets.all(0.0),
                             child: Row(children: [
                               Image(
                                   width: 24,
                                   height: 24,
                                   image: AssetImage(iconPack[0])),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10.0,
                               ),
-                              Text(
+                              const Text(
                                 "My Profile",
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -165,14 +166,14 @@ class _AccountPageState extends State<AccountPage> {
                           )
                         ],
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   ),
                   Divider(
                     thickness: 1,
                     color: lightBlueColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   ),
                   GestureDetector(
@@ -183,15 +184,16 @@ class _AccountPageState extends State<AccountPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
+                            padding: const EdgeInsets.all(0.0),
                             child: Row(children: [
                               Image(
                                   width: 24,
                                   height: 24,
                                   image: AssetImage(iconPack[1])),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10.0,
                               ),
-                              Text(
+                              const Text(
                                 "My Subscription",
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -206,7 +208,7 @@ class _AccountPageState extends State<AccountPage> {
                           )
                         ],
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 5.0,
                   ),
                   Divider(
