@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
@@ -18,6 +19,7 @@ class SelectedSubscribeCard extends StatelessWidget {
   final String name, img, contents, route;
   final double price;
   final bool isSubscribed;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -110,15 +112,20 @@ class SelectedSubscribeCard extends StatelessWidget {
                   ),
                   onPressed: () => {
                     if (isSubscribed)
-                      {Get.toNamed(route)}
+                      {
+                        Navigator.of(context).pop(),
+                        Get.toNamed(route),
+                      }
                     else
                       {
+                        Navigator.of(context).pop(),
                         showDialog(
-                            context: context,
-                            builder: (context) => CustomDialogWidget(
-                                  name: name,
-                                  price: price,
-                                ))
+                          context: context,
+                          builder: (context) => CustomDialogWidget(
+                            name: name,
+                            price: price,
+                          ),
+                        ),
                       }
                   },
                   child: Text(
@@ -144,6 +151,7 @@ class CustomDialogWidget extends StatelessWidget {
 
   final String name;
   final double price;
+  final bool isSuccess = true;
 
   @override
   Widget build(BuildContext context) {
@@ -276,7 +284,22 @@ class CustomDialogWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(6.0)),
                       minimumSize: Size(MediaQuery.of(context).size.width, 45),
                     ),
-                    onPressed: () => {Get.toNamed('confirm-otp')},
+                    onPressed: () => {
+                      if (isSuccess == false)
+                        {
+                          Navigator.of(context).pop(),
+                          showDialog(
+                            context: context,
+                            builder: (context) => const ConfirmDialogWidget(
+                              title: "Inactive Account!",
+                              content:
+                                  "Your account is inactive. Please top-up to subscribe.",
+                            ),
+                          ),
+                        }
+                      else
+                        {Get.toNamed('subscribe-completed')}
+                    },
                     child: const Text(
                       "Subscibe",
                       style: TextStyle(
@@ -289,6 +312,52 @@ class CustomDialogWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ConfirmDialogWidget extends StatelessWidget {
+  const ConfirmDialogWidget(
+      {super.key, required this.title, required this.content});
+
+  final String title, content;
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoAlertDialog(
+      title: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 14.0,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      content: Padding(
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 15.0),
+        child: Text(
+          content,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: textDarkGreyColor,
+            fontSize: 14.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+      actions: [
+        CupertinoDialogAction(
+          isDefaultAction: true,
+          onPressed: () => {Navigator.of(context).pop()},
+          child: Text(
+            "Ok",
+            style: TextStyle(
+              color: blueColor,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

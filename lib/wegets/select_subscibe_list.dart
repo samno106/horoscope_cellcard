@@ -32,8 +32,7 @@ class SelectSubscibeList extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () =>
-                      Navigator.of(context).pop(), // Closing the sheet.
+                  onTap: () => Navigator.of(context).pop(),
                   child: const Icon(
                     FeatherIcons.x,
                     size: 18.0,

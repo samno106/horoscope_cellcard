@@ -18,6 +18,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedYearName = 0;
+  int selectedYearContent = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +44,8 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           listYearName[selectedYearName],
                           style: GoogleFonts.notoSerifKhmer(
-                              textStyle: const TextStyle(
+                              textStyle: TextStyle(
+                            color: textDarkColor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           )),
@@ -68,6 +71,7 @@ class _HomePageState extends State<HomePage> {
                       onChangeEnd: ((index, automatic) {
                         setState(() {
                           selectedYearName = index;
+                          selectedYearContent = index;
                         });
                       }),
                     )),
@@ -105,7 +109,8 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     languages[12].kh,
                     style: GoogleFonts.notoSerifKhmer(
-                        textStyle: const TextStyle(
+                        textStyle: TextStyle(
+                      color: textDarkColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                     )),
@@ -124,13 +129,14 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    content,
-                    style: TextStyle(
-                      fontSize: 12,
+                    listYearContent[selectedYearContent],
+                    style: GoogleFonts.notoSerifKhmer(
+                        textStyle: TextStyle(
+                      height: 2.0,
+                      color: textDarkGreyColor,
+                      fontSize: 13,
                       fontWeight: FontWeight.w500,
-                      color: textDarkColor,
-                      height: 2,
-                    ),
+                    )),
                   ),
                   const SizedBox(
                     height: 40.0,

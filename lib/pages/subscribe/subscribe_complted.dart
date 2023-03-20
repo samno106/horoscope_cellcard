@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../../constants/colors.dart';
 
@@ -50,17 +51,75 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(0.0),
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    child: Center(
-                      child: Text(
-                        "You have successfully subscribed to Horoscope by Master. Long Bora with 0.15 per day.",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: textDarkColor),
+                  SizedBox(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "You have successfully subscribed to ",
+                            style: TextStyle(
+                              color: textDarkGreyColor,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          Text(
+                            "Horoscope by Master. Long Bora ",
+                            style: TextStyle(
+                              color: textDarkGreyColor,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          SizedBox(
+                              child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "with",
+                                style: TextStyle(
+                                  color: textDarkGreyColor,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5.0,
+                              ),
+                              Text(
+                                NumberFormat.simpleCurrency(
+                                        locale: 'en-US', decimalDigits: 2)
+                                    .format(0.15),
+                                style: TextStyle(
+                                  color: iconColor,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5.0,
+                              ),
+                              Text(
+                                " per day.",
+                                style: TextStyle(
+                                  color: textDarkGreyColor,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ))
+                        ],
                       ),
                     ),
                   ),

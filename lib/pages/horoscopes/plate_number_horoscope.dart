@@ -71,7 +71,7 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                       ),
                     ),
                     Positioned(
-                      top: MediaQuery.of(context).size.height / 4.9,
+                      top: MediaQuery.of(context).size.height / 5.1,
                       left: MediaQuery.of(context).size.width / 2.1,
                       child: const SizedBox(
                         height: 17.0,
