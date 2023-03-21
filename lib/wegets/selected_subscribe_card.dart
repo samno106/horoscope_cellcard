@@ -298,7 +298,7 @@ class CustomDialogWidget extends StatelessWidget {
                           ),
                         }
                       else
-                        {Get.toNamed('subscribe-completed')}
+                        {Get.toNamed('/subscribe-completed')}
                     },
                     child: const Text(
                       "Subscibe",

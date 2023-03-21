@@ -161,7 +161,7 @@ class _OtpPageState extends State<OtpPage> {
                 onPressed: _code.length < 6
                     ? null
                     : () {
-                        Get.toNamed('account-created');
+                        Get.toNamed('/account-created');
                       },
                 child: const Text(
                   "Log In",

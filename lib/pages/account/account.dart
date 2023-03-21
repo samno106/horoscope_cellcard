@@ -137,7 +137,7 @@ class _AccountPageState extends State<AccountPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   GestureDetector(
-                      onTap: () => {Get.toNamed('profile')},
+                      onTap: () => {Get.toNamed('/profile')},
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -178,7 +178,7 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   GestureDetector(
                       onTap: () {
-                        Get.toNamed('my-subscribe');
+                        Get.toNamed('/my-subscribe');
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -221,7 +221,7 @@ class _AccountPageState extends State<AccountPage> {
                     child: Center(
                       child: GestureDetector(
                           onTap: () {
-                            Get.toNamed('my-subscribe');
+                            Get.toNamed('/my-subscribe');
                           },
                           child: Text(
                             "Log Out",

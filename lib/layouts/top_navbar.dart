@@ -33,7 +33,7 @@ class _TopNavbarState extends State<TopNavbar> {
                 child: Row(
                   children: [
                     GestureDetector(
-                      onTap: () => {Get.toNamed('auth')},
+                      onTap: () => {Get.toNamed('/auth')},
                       child: auth
                           // ignore: dead_code
                           ? CircleAvatar(

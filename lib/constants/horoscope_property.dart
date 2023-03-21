@@ -21,11 +21,11 @@ const List<String> horoscopeIcons = <String>[
 ];
 
 const List<String> horoscopeRoute = <String>[
-  "daily-horoscope",
-  "dob-horoscope",
-  "couple-horoscope",
-  "phone-horoscope",
-  "bank-horoscope",
-  "plate-horoscope",
-  "chinese-horoscope"
+  "/daily-horoscope",
+  "/dob-horoscope",
+  "/couple-horoscope",
+  "/phone-horoscope",
+  "/bank-horoscope",
+  "/plate-horoscope",
+  "/chinese-horoscope"
 ];

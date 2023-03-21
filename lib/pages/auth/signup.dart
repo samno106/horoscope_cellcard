@@ -16,10 +16,16 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   String logo = "/images/carousel/monkey.png";
 
-  final TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textFullName = TextEditingController();
+  final TextEditingController _textDOB = TextEditingController();
+  final TextEditingController _textPhoneNumber = TextEditingController();
+
   DateTime selectedDate = DateTime.now();
   final startDate = DateTime(1969, 1);
   final lasttDate = DateTime.now();
+
+  String _genderValue = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +89,7 @@ class _SignupPageState extends State<SignupPage> {
                   padding: const EdgeInsets.all(0.0),
                   child: Column(children: [
                     TextField(
+                      controller: _textFullName,
                       style: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
@@ -111,7 +118,7 @@ class _SignupPageState extends State<SignupPage> {
                       height: 15.0,
                     ),
                     TextField(
-                      controller: _textEditingController,
+                      controller: _textDOB,
                       onTap: () => _openDatepicker(context),
                       style: TextStyle(
                         fontSize: 14.0,
@@ -139,19 +146,16 @@ class _SignupPageState extends State<SignupPage> {
                     const SizedBox(
                       height: 15.0,
                     ),
-                    TextField(
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        color: canvasColor,
-                      ),
+                    DropdownButtonFormField(
                       decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.only(
+                            top: 0, bottom: 0, right: 5.0),
                         filled: true,
                         fillColor: Colors.white,
                         prefixIcon: Icon(
                           CupertinoIcons.escape,
                           color: iconColor,
                         ),
-                        hintText: "Gender",
                         enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: borderColor, width: 1.0),
@@ -162,11 +166,49 @@ class _SignupPageState extends State<SignupPage> {
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                       ),
+                      iconEnabledColor: blueColor,
+                      hint: _genderValue == ""
+                          ? const Text('Gender')
+                          : Text(
+                              _genderValue,
+                              style: TextStyle(
+                                color: textDarkColor,
+                                fontSize: 14.0,
+                              ),
+                            ),
+                      isExpanded: true,
+                      isDense: true,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: canvasColor,
+                      ),
+                      items: ['Male', 'Female'].map(
+                        (val) {
+                          return DropdownMenuItem<String>(
+                            value: val,
+                            child: Text(
+                              val,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: canvasColor,
+                              ),
+                            ),
+                          );
+                        },
+                      ).toList(),
+                      onChanged: (val) {
+                        setState(
+                          () {
+                            _genderValue = val!;
+                          },
+                        );
+                      },
                     ),
                     const SizedBox(
                       height: 15.0,
                     ),
                     TextField(
+                      controller: _textPhoneNumber,
                       style: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
@@ -209,7 +251,7 @@ class _SignupPageState extends State<SignupPage> {
                         minimumSize:
                             Size(MediaQuery.of(context).size.width, 50),
                       ),
-                      onPressed: () {},
+                      onPressed: () => {Get.toNamed('/confirm-otp')},
                       child: const Text(
                         "Send Code",
                         style: TextStyle(
@@ -297,7 +339,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     SizedBox(
                       child: TextButton(
-                          onPressed: () => {},
+                          onPressed: () => {Get.toNamed('/')},
                           child: Text(
                             "SKIP",
                             style: TextStyle(
@@ -327,7 +369,7 @@ class _SignupPageState extends State<SignupPage> {
       setState(() {
         selectedDate = dob;
         String formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
-        _textEditingController.text = formattedDate;
+        _textDOB.text = formattedDate;
       });
     }
   }

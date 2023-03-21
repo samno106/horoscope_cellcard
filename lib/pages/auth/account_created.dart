@@ -80,7 +80,7 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                   minimumSize: const Size(double.infinity, 50),
                 ),
                 onPressed: () {
-                  Get.toNamed('home');
+                  Get.toNamed('/');
                 },
                 child: const Text(
                   "OK",

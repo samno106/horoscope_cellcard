@@ -118,7 +118,7 @@ class _SigninPageState extends State<SigninPage> {
                         minimumSize:
                             Size(MediaQuery.of(context).size.width, 45),
                       ),
-                      onPressed: () => {Get.toNamed('confirm-otp')},
+                      onPressed: () => {Get.toNamed('/confirm-otp')},
                       child: const Text(
                         "Send Code",
                         style: TextStyle(
@@ -143,7 +143,7 @@ class _SigninPageState extends State<SigninPage> {
                     ),
                     SizedBox(
                       child: TextButton(
-                          onPressed: () => {},
+                          onPressed: () => {Get.toNamed('/')},
                           child: Text(
                             "SKIP",
                             style: TextStyle(

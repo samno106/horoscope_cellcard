@@ -141,7 +141,7 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                         borderRadius: BorderRadius.circular(6.0)),
                     minimumSize: Size(MediaQuery.of(context).size.width, 45),
                   ),
-                  onPressed: () => {Get.toNamed('home')},
+                  onPressed: () => {Get.toNamed('/')},
                   child: const Text(
                     "Ok",
                     style: TextStyle(

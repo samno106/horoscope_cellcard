@@ -95,7 +95,7 @@ class _AuthPageState extends State<AuthPage> {
                   minimumSize: Size(MediaQuery.of(context).size.width, 45),
                 ),
                 onPressed: () {
-                  Get.toNamed('signup');
+                  Get.toNamed('/signup');
                 },
                 child: const Text(
                   "Sign up",
@@ -118,7 +118,7 @@ class _AuthPageState extends State<AuthPage> {
                   side: BorderSide(width: 1.0, color: blueColor),
                 ),
                 onPressed: () {
-                  Get.toNamed('signin');
+                  Get.toNamed('/signin');
                 },
                 child: const Text(
                   "Log In",
