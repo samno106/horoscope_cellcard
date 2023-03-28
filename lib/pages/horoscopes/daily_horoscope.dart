@@ -55,7 +55,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
                       child: Column(children: [
                         Text(
                           listYearName[selectedYearName],
-                          style: GoogleFonts.notoSerifKhmer(
+                          style: GoogleFonts.notoSans(
                               textStyle: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
@@ -120,7 +120,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
                 children: [
                   Text(
                     languages[12].kh,
-                    style: GoogleFonts.notoSerifKhmer(
+                    style: GoogleFonts.notoSans(
                         textStyle: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,

@@ -102,7 +102,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                       Text(
                         languages[28].kh,
                         textAlign: TextAlign.left,
-                        style: GoogleFonts.notoSerifKhmer(
+                        style: GoogleFonts.notoSans(
                             textStyle: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -127,7 +127,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                             child: Text(
                               languages[33].kh,
                               textAlign: TextAlign.left,
-                              style: GoogleFonts.notoSerifKhmer(
+                              style: GoogleFonts.notoSans(
                                   textStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
@@ -179,7 +179,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                             child: Text(
                               languages[34].kh,
                               textAlign: TextAlign.left,
-                              style: GoogleFonts.notoSerifKhmer(
+                              style: GoogleFonts.notoSans(
                                   textStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
@@ -238,7 +238,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                         children: [
                           Text(
                             languages[38].kh,
-                            style: GoogleFonts.notoSerifKhmer(
+                            style: GoogleFonts.notoSans(
                               textStyle: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
@@ -265,7 +265,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                     ),
                                     Text(
                                       listYearName[4],
-                                      style: GoogleFonts.notoSerifKhmer(
+                                      style: GoogleFonts.notoSans(
                                         textStyle: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
@@ -296,7 +296,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                     ),
                                     Text(
                                       listYearName[11],
-                                      style: GoogleFonts.notoSerifKhmer(
+                                      style: GoogleFonts.notoSans(
                                         textStyle: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
@@ -402,7 +402,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
           },
           child: Text(
             languages[42].kh,
-            style: GoogleFonts.notoSerifKhmer(
+            style: GoogleFonts.notoSans(
                 textStyle: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,

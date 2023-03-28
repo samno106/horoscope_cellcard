@@ -43,10 +43,10 @@ class _HomePageState extends State<HomePage> {
                       child: Column(children: [
                         Text(
                           listYearName[selectedYearName],
-                          style: GoogleFonts.notoSerifKhmer(
+                          style: GoogleFonts.notoSans(
                               textStyle: TextStyle(
                             color: textDarkColor,
-                            fontSize: 18,
+                            fontSize: 22.0,
                             fontWeight: FontWeight.bold,
                           )),
                         ),
@@ -108,10 +108,10 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     languages[12].kh,
-                    style: GoogleFonts.notoSerifKhmer(
+                    style: GoogleFonts.notoSans(
                         textStyle: TextStyle(
                       color: textDarkColor,
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
                     )),
                   ),
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {},
                     child: Text(
                       languages[13].kh,
-                      style: GoogleFonts.notoSerifKhmer(
+                      style: GoogleFonts.notoSans(
                           textStyle: const TextStyle(
                         fontSize: 14,
                       )),

@@ -48,7 +48,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[29].kh,
-              style: GoogleFonts.notoSerifKhmer(
+              style: GoogleFonts.notoSans(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -85,7 +85,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[30].kh,
-              style: GoogleFonts.notoSerifKhmer(
+              style: GoogleFonts.notoSans(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[31].kh,
-              style: GoogleFonts.notoSerifKhmer(
+              style: GoogleFonts.notoSans(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -156,7 +156,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                       child: Column(children: [
                         Text(
                           listYearName[selectedYearName],
-                          style: GoogleFonts.notoSerifKhmer(
+                          style: GoogleFonts.notoSans(
                               textStyle: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
@@ -224,7 +224,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                 children: [
                   Text(
                     languages[28].kh,
-                    style: GoogleFonts.notoSerifKhmer(
+                    style: GoogleFonts.notoSans(
                         textStyle: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,

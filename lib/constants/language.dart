@@ -61,4 +61,5 @@ List<Languages> languages = <Languages>[
       kh: 'បញ្ចូលកាលបរិច្ឆេទដែលអ្នកចង់ឃើញ',
       en: 'Input the date you wish to see'), //48
   Languages(kh: 'ជ្រើសរើសគ្រូ', en: 'Select Master'), //49
+  Languages(kh: 'គណនី', en: 'Account'), //50
 ];

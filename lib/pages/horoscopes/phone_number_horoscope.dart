@@ -89,7 +89,7 @@ class _PhoneNumberHoroscopePageState extends State<PhoneNumberHoroscopePage> {
               Text(
                 languages[40].kh,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.notoSerifKhmer(
+                style: GoogleFonts.notoSans(
                     textStyle: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -139,7 +139,7 @@ class _PhoneNumberHoroscopePageState extends State<PhoneNumberHoroscopePage> {
                         children: [
                           Text(
                             languages[38].kh,
-                            style: GoogleFonts.notoSerifKhmer(
+                            style: GoogleFonts.notoSans(
                               textStyle: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,

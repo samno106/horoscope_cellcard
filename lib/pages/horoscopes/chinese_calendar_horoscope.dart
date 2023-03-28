@@ -49,7 +49,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[29].kh,
-              style: GoogleFonts.notoSerifKhmer(
+              style: GoogleFonts.notoSans(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[30].kh,
-              style: GoogleFonts.notoSerifKhmer(
+              style: GoogleFonts.notoSans(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -108,7 +108,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[31].kh,
-              style: GoogleFonts.notoSerifKhmer(
+              style: GoogleFonts.notoSans(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -188,7 +188,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                 children: [
                   Text(
                     languages[48].kh,
-                    style: GoogleFonts.notoSerifKhmer(
+                    style: GoogleFonts.notoSans(
                         textStyle: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -369,7 +369,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                     children: [
                       Text(
                         languages[38].kh,
-                        style: GoogleFonts.notoSerifKhmer(
+                        style: GoogleFonts.notoSans(
                           textStyle: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w700,

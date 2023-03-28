@@ -89,7 +89,7 @@ class _BankNumberHoroscopePageState extends State<BankNumberHoroscopePage> {
               Text(
                 languages[44].kh,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.notoSerifKhmer(
+                style: GoogleFonts.notoSans(
                     textStyle: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -139,7 +139,7 @@ class _BankNumberHoroscopePageState extends State<BankNumberHoroscopePage> {
                         children: [
                           Text(
                             languages[38].kh,
-                            style: GoogleFonts.notoSerifKhmer(
+                            style: GoogleFonts.notoSans(
                               textStyle: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,

@@ -41,7 +41,7 @@ class _HoroscopePageState extends State<HoroscopePage> {
                       child: Column(children: [
                         Text(
                           languages[21].kh,
-                          style: GoogleFonts.moulpali(
+                          style: GoogleFonts.koulen(
                               textStyle: TextStyle(
                             color: textDarkColor,
                             fontSize: 36,

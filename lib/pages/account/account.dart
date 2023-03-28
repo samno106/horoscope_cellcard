@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/constants/language.dart';
 
 import '../../constants/colors.dart';
 import '../../wegets/curved_bottom_clipper.dart';
@@ -22,9 +24,13 @@ class _AccountPageState extends State<AccountPage> {
         backgroundColor: primaryColor,
         elevation: 0,
         title: Text(
-          "Account",
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w500, color: textDarkColor),
+          languages[50].kh,
+          style: GoogleFonts.koulen(
+            textStyle: TextStyle(
+                fontSize: 22.0,
+                fontWeight: FontWeight.w600,
+                color: textDarkColor),
+          ),
         ),
         centerTitle: true,
         leading: IconButton(
