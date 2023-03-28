@@ -16,7 +16,7 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'កុរ', en: 'Pig'), //11
   Languages(kh: 'ថ្ងៃនេះ', en: 'Today'), //12
   //button
-  Languages(kh: 'ស្វែងយល់​បន្ថែម', en: 'Find out more'), //13
+  Languages(kh: 'ស្វែងយល់បន្ថែម', en: 'Find out more'), //13
   Languages(kh: 'ចុះ​ឈ្មោះ', en: 'Sign up'), //14
   Languages(kh: 'ចូល', en: 'Log in'), //15
   Languages(kh: 'ផ្ញើលេខកូដ', en: 'Send Code'), //16
@@ -27,7 +27,7 @@ List<Languages> languages = <Languages>[
   //bottom navbar
   Languages(kh: 'ហោរាសាស្ត្រ', en: 'Horoscope'), //21
   Languages(kh: 'ទំព័រដើម', en: 'Home'), //22
-  Languages(kh: 'បុព្វលាភ', en: 'Premium'), //23
+  Languages(kh: 'គម្រោង', en: 'Premium'), //23
   //button v1
   Languages(kh: 'ជាវ', en: 'Subscribe'), //24
   //horoscope
@@ -62,4 +62,11 @@ List<Languages> languages = <Languages>[
       en: 'Input the date you wish to see'), //48
   Languages(kh: 'ជ្រើសរើសគ្រូ', en: 'Select Master'), //49
   Languages(kh: 'គណនី', en: 'Account'), //50
+  Languages(kh: 'ភ្ជាប់គម្រោង', en: 'Subscribe'), //51
+  Languages(kh: 'ផ្តាច់គម្រោង', en: 'Unsubscribe'), //52
+  Languages(kh: 'មានសុពលភាព 1 ថ្ងៃ', en: 'Valid for 1 day'), //53
+  Languages(kh: 'ការបន្តដោយស្វ័យប្រវត្តិ', en: 'Auto renewal'), //54
+  Languages(kh: 'ការបញ្ជាក់', en: 'Confirmation'), //55
+  Languages(kh: 'បោះបង់', en: 'Cancel'), //56
+  Languages(kh: 'បញ្ជាក់', en: 'Confirm'), //57
 ];

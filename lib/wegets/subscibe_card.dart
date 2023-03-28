@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/constants/language.dart';
 import 'package:horoscope_cellcard/wegets/subscribe_modal_bottom.dart';
 import 'package:intl/intl.dart';
 
@@ -101,11 +103,13 @@ class SubscribeCard extends StatelessWidget {
                                   width: 10.0,
                                 ),
                                 Text(
-                                  "Valid for 1 day",
-                                  style: TextStyle(
-                                    color: textDarkColor,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w500,
+                                  languages[54].kh,
+                                  style: GoogleFonts.notoSansKhmer(
+                                    textStyle: TextStyle(
+                                      color: textDarkColor,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -124,11 +128,13 @@ class SubscribeCard extends StatelessWidget {
                                   width: 10.0,
                                 ),
                                 Text(
-                                  "Auto renewal",
-                                  style: TextStyle(
-                                    color: textDarkColor,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w500,
+                                  languages[54].kh,
+                                  style: GoogleFonts.notoSansKhmer(
+                                    textStyle: TextStyle(
+                                      color: textDarkColor,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -145,7 +151,7 @@ class SubscribeCard extends StatelessWidget {
                                 elevation: 5,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6.0)),
-                                minimumSize: const Size(80.0, 35.0),
+                                minimumSize: const Size(80.0, 40.0),
                               ),
                               onPressed: () => {
                                 showModalBottomSheet(
@@ -165,11 +171,13 @@ class SubscribeCard extends StatelessWidget {
                                       );
                                     }))
                               },
-                              child: const Text(
-                                "Subscribe",
-                                style: TextStyle(
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w500,
+                              child: Text(
+                                languages[51].kh,
+                                style: GoogleFonts.notoSansKhmer(
+                                  textStyle: const TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),

@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../constants/colors.dart';
+import '../constants/language.dart';
 
 class SubscribeModalBottom extends StatelessWidget {
   const SubscribeModalBottom(
@@ -16,7 +18,7 @@ class SubscribeModalBottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(20.0),
-      height: MediaQuery.of(context).size.height * 0.45,
+      height: MediaQuery.of(context).size.height * 0.60,
       child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,11 +102,13 @@ class SubscribeModalBottom extends StatelessWidget {
                               width: 5.0,
                             ),
                             Text(
-                              "Valid for 1 day",
-                              style: TextStyle(
-                                color: textDarkColor,
-                                fontSize: 12.0,
-                                fontWeight: FontWeight.w500,
+                              languages[53].kh,
+                              style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
+                                  color: textDarkColor,
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],
@@ -123,11 +127,13 @@ class SubscribeModalBottom extends StatelessWidget {
                               width: 10.0,
                             ),
                             Text(
-                              "Auto renewal",
-                              style: TextStyle(
-                                color: textDarkColor,
-                                fontSize: 12.0,
-                                fontWeight: FontWeight.w500,
+                              languages[54].kh,
+                              style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
+                                  color: textDarkColor,
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],
@@ -144,7 +150,7 @@ class SubscribeModalBottom extends StatelessWidget {
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(6.0)),
-                            minimumSize: const Size(110.0, 45.0),
+                            minimumSize: const Size(110.0, 40.0),
                           ),
                           onPressed: () => {
                             showDialog(
@@ -154,11 +160,13 @@ class SubscribeModalBottom extends StatelessWidget {
                                       price: price,
                                     ))
                           },
-                          child: const Text(
-                            "Subscribe",
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w500,
+                          child: Text(
+                            languages[51].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                              textStyle: const TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
@@ -181,11 +189,14 @@ class CustomDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoAlertDialog(
-      title: const Text(
-        "Confirmation",
-        style: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w600,
+      title: Text(
+        languages[55].kh,
+        style: GoogleFonts.notoSansKhmer(
+          textStyle: TextStyle(
+            color: textDarkColor,
+            fontSize: 14.0,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       content: Padding(
@@ -202,23 +213,31 @@ class CustomDialogWidget extends StatelessWidget {
       ),
       actions: [
         CupertinoDialogAction(
+          onPressed: (() {
+            Navigator.pop(context);
+          }),
           child: Text(
-            "Cancel",
-            style: TextStyle(
+            languages[56].kh,
+            style: GoogleFonts.notoSansKhmer(
+                textStyle: TextStyle(
               color: blueColor,
               fontSize: 14.0,
               fontWeight: FontWeight.w500,
-            ),
+            )),
           ),
         ),
         CupertinoDialogAction(
+          onPressed: (() {
+            Navigator.pop(context);
+          }),
           child: Text(
-            "Confirm",
-            style: TextStyle(
+            languages[57].kh,
+            style: GoogleFonts.notoSansKhmer(
+                textStyle: TextStyle(
               color: blueColor,
               fontSize: 14.0,
               fontWeight: FontWeight.w500,
-            ),
+            )),
           ),
         )
       ],

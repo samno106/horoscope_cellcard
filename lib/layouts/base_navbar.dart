@@ -40,10 +40,13 @@ class BaseNavbar extends StatelessWidget {
               Text(
                 title,
                 style: GoogleFonts.koulen(
-                    textStyle: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w500,
-                        color: textDarkColor)),
+                  textStyle: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w500,
+                    color: textDarkColor,
+                    height: 2.5,
+                  ),
+                ),
               ),
               const SizedBox(
                 width: 10.0,
