@@ -29,7 +29,7 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'ទំព័រដើម', en: 'Home'), //22
   Languages(kh: 'គម្រោង', en: 'Premium'), //23
   //button v1
-  Languages(kh: 'ជាវ', en: 'Subscribe'), //24
+  Languages(kh: 'អាន', en: 'Read'), //24
   //horoscope
   Languages(kh: 'ហោរាសាស្ត្រ', en: 'Horoscope'), //25
   Languages(kh: 'ហោរាសាស្ត្រប្រចាំថ្ងៃ', en: 'Dialy Horoscope'), //26

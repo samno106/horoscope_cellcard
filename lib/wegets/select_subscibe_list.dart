@@ -47,7 +47,7 @@ class SelectSubscibeList extends StatelessWidget {
               children: [
                 Text(
                   languages[49].kh,
-                  style: GoogleFonts.notoSerifKhmer(
+                  style: GoogleFonts.notoSansKhmer(
                       textStyle: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,

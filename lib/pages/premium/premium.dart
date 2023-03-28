@@ -59,12 +59,13 @@ class _PremiumPageState extends State<PremiumPage> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(0.0),
-            height: MediaQuery.of(context).size.height,
+            padding: const EdgeInsets.only(bottom: 80.0, top: 10.0),
+            margin: const EdgeInsets.only(bottom: 50.0),
             width: double.infinity,
+            height: MediaQuery.of(context).size.height,
             child: ListView(
               physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
+              padding: const EdgeInsets.only(top: 20.0, bottom: 50.0),
               shrinkWrap: false,
               children: [
                 SubscribeCard(

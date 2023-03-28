@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/constants/language.dart';
 import 'package:intl/intl.dart';
 
 import '../constants/colors.dart';
@@ -108,7 +110,7 @@ class SelectedSubscribeCard extends StatelessWidget {
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6.0)),
-                    minimumSize: const Size(100.0, 35.0),
+                    minimumSize: const Size(100.0, 40.0),
                   ),
                   onPressed: () => {
                     if (isSubscribed)
@@ -129,11 +131,12 @@ class SelectedSubscribeCard extends StatelessWidget {
                       }
                   },
                   child: Text(
-                    !isSubscribed ? "Subscribe" : "Read",
-                    style: const TextStyle(
+                    !isSubscribed ? languages[51].kh : languages[24].kh,
+                    style: GoogleFonts.notoSansKhmer(
+                        textStyle: const TextStyle(
                       fontSize: 12.0,
                       fontWeight: FontWeight.w500,
-                    ),
+                    )),
                   ),
                 ),
               ],
@@ -300,12 +303,13 @@ class CustomDialogWidget extends StatelessWidget {
                       else
                         {Get.toNamed('/subscribe-completed')}
                     },
-                    child: const Text(
-                      "Subscibe",
-                      style: TextStyle(
+                    child: Text(
+                      languages[51].kh,
+                      style: GoogleFonts.notoSansKhmer(
+                          textStyle: const TextStyle(
                         fontSize: 14.0,
                         fontWeight: FontWeight.w500,
-                      ),
+                      )),
                     ),
                   )),
             )

@@ -54,13 +54,14 @@ class _HoroscopePageState extends State<HoroscopePage> {
             ),
           ),
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+            padding: const EdgeInsets.only(
+                left: 20.0, right: 20.0, bottom: 80.0, top: 10.0),
             margin: const EdgeInsets.only(bottom: 50.0),
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: GridView.builder(
-                padding: const EdgeInsets.only(top: 20.0, bottom: 80.0),
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
                 itemCount: horoscopeIcons.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
