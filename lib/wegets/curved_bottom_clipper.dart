@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 class CurvedBottomClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    final roundingHeight = size.height * 3 / 4;
+    final roundingHeight = size.height * 3 / 5;
 
     final filledRectangle =
         Rect.fromLTRB(0, 0, size.width, size.height - roundingHeight);
 
     final roundingRectangle = Rect.fromLTRB(
-        -4, size.height - roundingHeight * 2, size.width + 4, size.height);
+        -5, size.height - roundingHeight * 2, size.width + 5, size.height);
 
     final path = Path();
     path.addRect(filledRectangle);

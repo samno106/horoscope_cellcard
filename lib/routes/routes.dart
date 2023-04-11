@@ -1,8 +1,11 @@
 import 'package:get/get.dart';
 import 'package:horoscope_cellcard/layouts/bottom_navbar.dart';
+import 'package:horoscope_cellcard/middleware/auth_middleware.dart';
+import 'package:horoscope_cellcard/middleware/guest_middleware.dart';
 import 'package:horoscope_cellcard/pages/account/account.dart';
 import 'package:horoscope_cellcard/pages/auth/account_created.dart';
 import 'package:horoscope_cellcard/pages/auth/index.dart';
+import 'package:horoscope_cellcard/pages/auth/otp_login.dart';
 import 'package:horoscope_cellcard/pages/auth/signin.dart';
 import 'package:horoscope_cellcard/pages/auth/signup.dart';
 import 'package:horoscope_cellcard/pages/home/home.dart';
@@ -26,16 +29,41 @@ class AppPage {
     GetPage(name: bottomNavbar, page: () => const BottomNavbar()),
     GetPage(name: horoscope, page: () => const HoroscopePage()),
     GetPage(name: home, page: () => const HomePage()),
-    GetPage(name: premium, page: () => const PremiumPage()),
+    GetPage(
+        name: premium,
+        page: () => const PremiumPage(),
+        middlewares: [AuthMiddleware()]),
     //auth
-    GetPage(name: auth, page: () => const AuthPage()),
-    GetPage(name: signup, page: () => const SignupPage()),
-    GetPage(name: signin, page: () => const SigninPage()),
-    GetPage(name: confirmOtp, page: () => const OtpPage()),
-    GetPage(name: accountCreated, page: () => const AccountCreatedPage()),
+    GetPage(
+        name: auth,
+        page: () => const AuthPage(),
+        middlewares: [GuestMiddleware()]),
+    GetPage(
+        name: signup,
+        page: () => const SignupPage(),
+        middlewares: [GuestMiddleware()]),
+    GetPage(
+        name: signin,
+        page: () => const SigninPage(),
+        middlewares: [GuestMiddleware()]),
+    GetPage(
+        name: confirmOtp,
+        page: () => const OtpPage(),
+        middlewares: [GuestMiddleware()]),
+    GetPage(
+        name: confirmOtpLogin,
+        page: () => const OtpLoginPage(),
+        middlewares: [GuestMiddleware()]),
+    GetPage(
+        name: accountCreated,
+        page: () => const AccountCreatedPage(),
+        middlewares: [GuestMiddleware()]),
 
     //account setting
-    GetPage(name: account, page: () => const AccountPage()),
+    GetPage(
+        name: account,
+        page: () => const AccountPage(),
+        middlewares: [AuthMiddleware()]),
     GetPage(name: profile, page: () => const ProfilePage()),
     GetPage(name: mySubscribe, page: () => const MySubscribePage()),
     //subscribe action
@@ -61,6 +89,7 @@ class AppPage {
   static getsignup() => signup;
   static getsignin() => signin;
   static getConfirmOtp() => confirmOtp;
+  static getConfirmOtpLogin() => confirmOtpLogin;
   static getAccountCreated() => accountCreated;
   //account setting
   static getAccount() => account;
@@ -88,6 +117,7 @@ class AppPage {
   static String signup = "/signup";
   static String signin = "/signin";
   static String confirmOtp = "/confirm-otp";
+  static String confirmOtpLogin = "/confirm-otp-login";
   static String accountCreated = "/account-created";
   //account setting
   static String account = "/account";

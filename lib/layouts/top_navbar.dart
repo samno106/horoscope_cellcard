@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_cellcard/controllers/auth_controller.dart';
 
 import '../constants/colors.dart';
 import '../constants/navbar_property.dart';
@@ -14,12 +15,29 @@ class TopNavbar extends StatefulWidget {
 }
 
 class _TopNavbarState extends State<TopNavbar> {
+  final _authController = Get.find<AuthController>();
+
+  String fullName = "Loading...";
+
+  @override
+  void initState() {
+    super.initState();
+    getProfle();
+  }
+
+  getProfle() async {
+    await _authController.fetchAuthProfile();
+    if (_authController.isAuth == true) {
+      setState(() {
+        fullName = _authController.profile[0].fullName;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    bool auth = false;
-
     return Container(
-      color: primaryColor,
+      color: null,
       child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 15.0,
@@ -33,8 +51,8 @@ class _TopNavbarState extends State<TopNavbar> {
                 child: Row(
                   children: [
                     GestureDetector(
-                      onTap: () => {Get.toNamed('/auth')},
-                      child: auth
+                      onTap: () => {Get.toNamed('/account')},
+                      child: _authController.isAuth
                           // ignore: dead_code
                           ? CircleAvatar(
                               radius: 16,
@@ -51,10 +69,9 @@ class _TopNavbarState extends State<TopNavbar> {
                           : SvgPicture.asset(iconHeader[0]),
                     ),
                     const SizedBox(width: 10.0),
-                    auth
-                        // ignore: dead_code
+                    _authController.isAuth
                         ? Text(
-                            'Jonh Dio',
+                            fullName.toString(),
                             style: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,

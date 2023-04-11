@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_cellcard/controllers/login_controller.dart';
 
 import '../../constants/colors.dart';
 
@@ -12,6 +13,8 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
+  final loginController = Get.find<LoginController>();
+
   String logo = "/images/carousel/monkey.png";
   @override
   Widget build(BuildContext context) {
@@ -76,6 +79,7 @@ class _SigninPageState extends State<SigninPage> {
                   padding: const EdgeInsets.all(0.0),
                   child: Column(children: [
                     TextField(
+                      controller: loginController.phoneNumberController,
                       style: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
@@ -118,7 +122,7 @@ class _SigninPageState extends State<SigninPage> {
                         minimumSize:
                             Size(MediaQuery.of(context).size.width, 45),
                       ),
-                      onPressed: () => {Get.toNamed('/confirm-otp')},
+                      onPressed: () => {Get.toNamed('confirm-otp-login')},
                       child: const Text(
                         "Send Code",
                         style: TextStyle(

@@ -4,19 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:get/get.dart';
-
+import 'package:horoscope_cellcard/controllers/login_controller.dart';
 import '../../constants/colors.dart';
-import '../../controllers/register_controller.dart';
 
-class OtpPage extends StatefulWidget {
-  const OtpPage({super.key});
+class OtpLoginPage extends StatefulWidget {
+  const OtpLoginPage({super.key});
 
   @override
-  State<OtpPage> createState() => _OtpPageState();
+  State<OtpLoginPage> createState() => _OtpLoginPageState();
 }
 
-class _OtpPageState extends State<OtpPage> {
-  final registerController = Get.find<RegisterController>();
+class _OtpLoginPageState extends State<OtpLoginPage> {
+  final loginController = Get.find<LoginController>();
 
   String phoneNumber = "";
 
@@ -30,7 +29,7 @@ class _OtpPageState extends State<OtpPage> {
   void initState() {
     super.initState();
     setState(() {
-      phoneNumber = registerController.phoneNumberController.text;
+      phoneNumber = loginController.phoneNumberController.text;
     });
     resendCode();
   }
@@ -147,10 +146,7 @@ class _OtpPageState extends State<OtpPage> {
                 onPressed: _code.length < 6
                     ? null
                     : () {
-                        // Get.toNamed('/account-created');
-
-                        print(registerController.fullNameController.text);
-                        registerController.register();
+                        loginController.login();
                       },
                 child: const Text(
                   "Log In",
@@ -168,6 +164,7 @@ class _OtpPageState extends State<OtpPage> {
   void updatedCompleted(String val) {
     setState(() {
       _code = val;
+      loginController.otpCodeController.text = val;
     });
   }
 
@@ -182,7 +179,7 @@ class _OtpPageState extends State<OtpPage> {
 
   void resendCode() {
     const oneSec = Duration(seconds: 1);
-    print(registerController.isProcessing.text);
+
     _timer = Timer.periodic(oneSec, (timer) {
       if (_start == 0) {
         setState(() {

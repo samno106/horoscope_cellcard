@@ -26,19 +26,33 @@ class _HoroscopePageState extends State<HoroscopePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          const TopNavbar(),
           Container(
             padding: const EdgeInsets.all(0.0),
-            height: 110.0,
+            height: 190.0,
             child: Stack(
               children: <Widget>[
                 ClipPath(
                     clipper: CurvedBottomClipper(),
                     child: Container(
                       color: primaryColor,
-                      height: 110.0,
+                      height: 170.0,
                       width: MediaQuery.of(context).size.width,
-                      child: Column(children: [
+                      child: null,
+                    )),
+                const Positioned(
+                  top: 0.0,
+                  left: 0,
+                  right: 0,
+                  child: TopNavbar(),
+                ),
+                Positioned(
+                  top: 70.0,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
                         Text(
                           languages[21].kh,
                           style: GoogleFonts.koulen(
@@ -47,9 +61,9 @@ class _HoroscopePageState extends State<HoroscopePage> {
                             fontSize: 36,
                             fontWeight: FontWeight.w400,
                           )),
-                        ),
+                        )
                       ]),
-                    )),
+                )
               ],
             ),
           ),
@@ -59,13 +73,16 @@ class _HoroscopePageState extends State<HoroscopePage> {
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: GridView.builder(
+                shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.only(top: 20.0, bottom: 120.0),
+                padding: const EdgeInsets.only(top: 20.0),
                 itemCount: horoscopeIcons.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 4.0,
-                    mainAxisSpacing: 4.0),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 4.0,
+                  mainAxisSpacing: 4.0,
+                  mainAxisExtent: 170,
+                ),
                 itemBuilder: (BuildContext context, int index) {
                   return HoroscopeCard(
                     img: horoscopeIcons[index],

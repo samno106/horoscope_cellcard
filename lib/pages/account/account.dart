@@ -5,8 +5,11 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/constants/language.dart';
+import 'package:horoscope_cellcard/pages/auth/index.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/colors.dart';
+import '../../controllers/auth_controller.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 
 class AccountPage extends StatefulWidget {
@@ -17,6 +20,9 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+  final _authController = Get.find<AuthController>();
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -226,8 +232,11 @@ class _AccountPageState extends State<AccountPage> {
                     height: 35.0,
                     child: Center(
                       child: GestureDetector(
-                          onTap: () {
-                            Get.toNamed('/my-subscribe');
+                          onTap: () async {
+                            final SharedPreferences? prefs = await _prefs;
+                            prefs?.clear();
+                            _authController.isAuth = false;
+                            Get.toNamed('/');
                           },
                           child: Text(
                             "Log Out",

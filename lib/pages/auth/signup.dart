@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_cellcard/controllers/register_controller.dart';
 import 'package:intl/intl.dart';
 
 import '../../constants/colors.dart';
@@ -16,9 +17,7 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   String logo = "/images/carousel/monkey.png";
 
-  final TextEditingController _textFullName = TextEditingController();
-  final TextEditingController _textDOB = TextEditingController();
-  final TextEditingController _textPhoneNumber = TextEditingController();
+  final registerController = Get.find<RegisterController>();
 
   DateTime selectedDate = DateTime.now();
   final startDate = DateTime(1969, 1);
@@ -89,7 +88,7 @@ class _SignupPageState extends State<SignupPage> {
                   padding: const EdgeInsets.all(0.0),
                   child: Column(children: [
                     TextField(
-                      controller: _textFullName,
+                      controller: registerController.fullNameController,
                       style: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
@@ -118,7 +117,7 @@ class _SignupPageState extends State<SignupPage> {
                       height: 15.0,
                     ),
                     TextField(
-                      controller: _textDOB,
+                      controller: registerController.dobController,
                       onTap: () => _openDatepicker(context),
                       style: TextStyle(
                         fontSize: 14.0,
@@ -199,7 +198,7 @@ class _SignupPageState extends State<SignupPage> {
                       onChanged: (val) {
                         setState(
                           () {
-                            _genderValue = val!;
+                            registerController.genderController.text = val!;
                           },
                         );
                       },
@@ -208,7 +207,7 @@ class _SignupPageState extends State<SignupPage> {
                       height: 15.0,
                     ),
                     TextField(
-                      controller: _textPhoneNumber,
+                      controller: registerController.phoneNumberController,
                       style: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
@@ -369,7 +368,7 @@ class _SignupPageState extends State<SignupPage> {
       setState(() {
         selectedDate = dob;
         String formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
-        _textDOB.text = formattedDate;
+        registerController.dobController.text = formattedDate;
       });
     }
   }

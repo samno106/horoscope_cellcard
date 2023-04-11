@@ -26,22 +26,21 @@ class _PremiumPageState extends State<PremiumPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          PremiumNavbar(title: languages[23].kh),
           Container(
             padding: const EdgeInsets.all(0.0),
-            height: 140.0,
+            height: 190.0,
             child: Stack(
               children: <Widget>[
                 ClipPath(
                     clipper: CurvedBottomClipper(),
                     child: Container(
                       color: primaryColor,
-                      height: 110.0,
+                      height: 160.0,
                       width: MediaQuery.of(context).size.width,
                       child: null,
                     )),
                 Positioned(
-                    top: 35,
+                    top: 90.0,
                     left: MediaQuery.of(context).size.width * 0.37,
                     child: Container(
                       padding: const EdgeInsets.all(0.0),
@@ -55,6 +54,12 @@ class _PremiumPageState extends State<PremiumPage> {
                         ),
                       ),
                     )),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: PremiumNavbar(title: languages[23].kh),
+                )
               ],
             ),
           ),

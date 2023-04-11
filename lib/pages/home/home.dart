@@ -1,6 +1,8 @@
 import 'package:curved_carousel/curved_carousel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
 
@@ -19,41 +21,68 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selectedYearName = 0;
   int selectedYearContent = 0;
+  String token = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getToken();
+  }
+
+  void getToken() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      token = prefs.getString('token') ?? "";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
         children: [
-          const TopNavbar(),
           Container(
             padding: const EdgeInsets.all(0.0),
-            height: 130.0,
+            height: 190.0,
             child: Stack(
               children: <Widget>[
                 ClipPath(
                     clipper: CurvedBottomClipper(),
                     child: Container(
                       color: primaryColor,
-                      height: 100.0,
+                      height: 160.0,
                       width: MediaQuery.of(context).size.width,
-                      child: Column(children: [
-                        Text(
-                          listYearName[selectedYearName],
-                          style: GoogleFonts.notoSansKhmer(
-                              textStyle: TextStyle(
-                            color: textDarkColor,
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold,
-                          )),
-                        ),
-                      ]),
                     )),
+                const Positioned(
+                  top: 0.0,
+                  left: 0,
+                  right: 0,
+                  child: TopNavbar(),
+                ),
                 Positioned(
-                    top: 80,
+                  top: 50.0,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        listYearName[selectedYearName],
+                        style: GoogleFonts.notoSansKhmer(
+                            textStyle: TextStyle(
+                          color: textDarkColor,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                        )),
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                    top: 130,
                     left: 0,
                     right: 0,
                     child: CurvedCarousel(
@@ -76,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                       }),
                     )),
                 Positioned(
-                  top: 15,
+                  top: 70.0,
                   child: CustomPaint(
                     painter: PathPainter(drawPath()),
                   ),
@@ -86,10 +115,10 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             padding: const EdgeInsets.all(0.0),
-            height: 55,
+            height: 50,
             child: Stack(children: [
               Positioned(
-                top: 35,
+                top: 30,
                 left: MediaQuery.of(context).size.width / 2.05,
                 child: const SizedBox(
                   height: 17.0,
@@ -100,7 +129,7 @@ class _HomePageState extends State<HomePage> {
             ]),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 10.0),
+            margin: const EdgeInsets.only(top: 5.0),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: Column(
@@ -121,7 +150,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 10.0),
+            margin: const EdgeInsets.only(top: 5.0),
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 35.0),
@@ -151,7 +180,9 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(6.0)),
                       minimumSize: Size(MediaQuery.of(context).size.width, 50),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed('auth');
+                    },
                     child: Text(
                       languages[13].kh,
                       style: GoogleFonts.notoSansKhmer(
