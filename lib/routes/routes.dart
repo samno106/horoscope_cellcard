@@ -16,6 +16,7 @@ import 'package:horoscope_cellcard/pages/horoscopes/couple_horoscope.dart';
 import 'package:horoscope_cellcard/pages/horoscopes/dob_horoscope.dart';
 import 'package:horoscope_cellcard/pages/horoscopes/phone_number_horoscope.dart';
 import 'package:horoscope_cellcard/pages/horoscopes/plate_number_horoscope.dart';
+import 'package:horoscope_cellcard/pages/notification/notification.dart';
 import 'package:horoscope_cellcard/pages/premium/premium.dart';
 import 'package:horoscope_cellcard/pages/account/profile.dart';
 import 'package:horoscope_cellcard/pages/subscribe/my_subscribe.dart';
@@ -79,6 +80,7 @@ class AppPage {
     GetPage(name: plateHoroscope, page: () => const PlateNumberHoroscopePage()),
     GetPage(
         name: chCalendarHoroscope, page: () => const ChCalendarHoroscopePage()),
+    GetPage(name: notification, page: () => const NotificationPage()),
   ];
   static getbottomNavbar() => bottomNavbar;
   static gethoroscope() => horoscope;
@@ -107,6 +109,7 @@ class AppPage {
   static getBankHoroscope() => bankHoroscope;
   static getPlateHoroscope() => plateHoroscope;
   static getChCalendarHoroscope() => chCalendarHoroscope;
+  static getNotification() => notification;
 
   static String bottomNavbar = "/";
   static String horoscope = "/horoscope";
@@ -134,4 +137,5 @@ class AppPage {
   static String bankHoroscope = "/bank-horoscope";
   static String plateHoroscope = "/plate-horoscope";
   static String chCalendarHoroscope = "/chinese-horoscope";
+  static String notification = "/notification";
 }

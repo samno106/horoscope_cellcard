@@ -38,33 +38,48 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
           child: SafeArea(
               child: Column(
         children: [
-          BaseNavbar(
-            title: languages[26].kh,
-          ),
           Container(
             padding: const EdgeInsets.all(0.0),
-            height: 130.0,
+            height: 190.0,
             child: Stack(
               children: <Widget>[
                 ClipPath(
                     clipper: CurvedBottomClipper(),
                     child: Container(
                       color: primaryColor,
-                      height: 100.0,
+                      height: 160.0,
                       width: MediaQuery.of(context).size.width,
-                      child: Column(children: [
+                      child: null,
+                    )),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: BaseNavbar(
+                    title: languages[26].kh,
+                  ),
+                ),
+                Positioned(
+                  top: 70.0,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
                         Text(
                           listYearName[selectedYearName],
                           style: GoogleFonts.notoSans(
-                              textStyle: const TextStyle(
-                            fontSize: 14,
+                              textStyle: TextStyle(
+                            fontSize: 18,
+                            color: textDarkColor,
                             fontWeight: FontWeight.bold,
                           )),
-                        ),
+                        )
                       ]),
-                    )),
+                ),
                 Positioned(
-                    top: 80,
+                    top: 130.0,
                     left: 0,
                     right: 0,
                     child: CurvedCarousel(
@@ -88,7 +103,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
                       }),
                     )),
                 Positioned(
-                  top: 15,
+                  top: 70.0,
                   child: CustomPaint(
                     painter: PathPainter(drawPath()),
                   ),
@@ -101,7 +116,7 @@ class _DailyHoroscopePageState extends State<DailyHoroscopePage> {
             height: 55,
             child: Stack(children: [
               Positioned(
-                top: 35,
+                top: 30,
                 left: MediaQuery.of(context).size.width / 2.1,
                 child: const SizedBox(
                   height: 17.0,

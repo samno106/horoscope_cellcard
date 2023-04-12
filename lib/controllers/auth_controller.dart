@@ -26,6 +26,9 @@ class AuthController extends GetxController {
 
       if (token != "") {
         var header = {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers':
+              'Origin, X-Requested-With, Content-Type, Accept',
           'Content-Type': 'application/json',
           'Authorization': 'Bearer $token'
         };

@@ -36,30 +36,35 @@ class _PhoneNumberHoroscopePageState extends State<PhoneNumberHoroscopePage> {
         child: SafeArea(
           child: Column(
             children: [
-              BaseNavbar(
-                title: languages[39].kh,
-              ),
               Container(
                 padding: const EdgeInsets.all(0.0),
-                height: 215.0,
+                height: 260.0,
                 child: Stack(
                   children: <Widget>[
                     ClipPath(
                         clipper: CurvedBottomClipper(),
                         child: Container(
                           color: primaryColor,
-                          height: 100.0,
+                          height: 160.0,
                           width: MediaQuery.of(context).size.width,
                           child: null,
                         )),
                     Positioned(
-                      top: 15,
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      child: BaseNavbar(
+                        title: languages[39].kh,
+                      ),
+                    ),
+                    Positioned(
+                      top: 70,
                       child: CustomPaint(
                         painter: PathPainter(drawPath()),
                       ),
                     ),
                     const Positioned(
-                      top: 20,
+                      top: 90,
                       left: 0,
                       right: 0,
                       child: SizedBox(
@@ -71,7 +76,7 @@ class _PhoneNumberHoroscopePageState extends State<PhoneNumberHoroscopePage> {
                       ),
                     ),
                     Positioned(
-                      top: MediaQuery.of(context).size.height / 5.1,
+                      top: 220.0,
                       left: MediaQuery.of(context).size.width / 2.1,
                       child: const SizedBox(
                         height: 17.0,

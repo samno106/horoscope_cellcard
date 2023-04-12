@@ -50,30 +50,35 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
         child: SafeArea(
           child: Column(
             children: [
-              BaseNavbar(
-                title: languages[32].kh,
-              ),
               Container(
                 padding: const EdgeInsets.all(0.0),
-                height: 215.0,
+                height: 260.0,
                 child: Stack(
                   children: <Widget>[
                     ClipPath(
                         clipper: CurvedBottomClipper(),
                         child: Container(
                           color: primaryColor,
-                          height: 100.0,
+                          height: 160.0,
                           width: MediaQuery.of(context).size.width,
                           child: null,
                         )),
                     Positioned(
-                      top: 15,
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      child: BaseNavbar(
+                        title: languages[32].kh,
+                      ),
+                    ),
+                    Positioned(
+                      top: 70,
                       child: CustomPaint(
                         painter: PathPainter(drawPath()),
                       ),
                     ),
                     const Positioned(
-                      top: 20,
+                      top: 70,
                       left: 0,
                       right: 0,
                       child: SizedBox(

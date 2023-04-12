@@ -18,7 +18,12 @@ class RegisterController extends GetxController {
 
   Future<void> register() async {
     try {
-      var header = {'Content-Type': 'application/json'};
+      var header = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers':
+            'Origin, X-Requested-With, Content-Type, Accept',
+        'Content-Type': 'application/json',
+      };
       var url = Uri.parse(
           ApiEndPoints.BASE_URL + ApiEndPoints.AUTHENDPOINTS.REGISTER);
 

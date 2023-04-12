@@ -15,7 +15,12 @@ class LoginController extends GetxController {
 
   Future<void> login() async {
     try {
-      var header = {'Content-Type': 'application/json'};
+      var header = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers':
+            'Origin, X-Requested-With, Content-Type, Accept',
+      };
       var url =
           Uri.parse(ApiEndPoints.BASE_URL + ApiEndPoints.AUTHENDPOINTS.LOGIN);
 

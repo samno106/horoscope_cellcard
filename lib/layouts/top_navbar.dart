@@ -37,7 +37,7 @@ class _TopNavbarState extends State<TopNavbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: null,
+      color: primaryColor,
       child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 15.0,
@@ -82,33 +82,38 @@ class _TopNavbarState extends State<TopNavbar> {
                   ],
                 ),
               ),
-              Stack(
-                children: <Widget>[
-                  SvgPicture.asset(iconHeader[1]),
-                  Positioned(
-                    left: 3,
-                    child: Container(
-                      padding: const EdgeInsets.all(1),
-                      decoration: BoxDecoration(
-                        color: iconColor,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      constraints: const BoxConstraints(
-                        minWidth: 11,
-                        minHeight: 11,
-                      ),
-                      child: const Text(
-                        '5',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 7,
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed('notification');
+                },
+                child: Stack(
+                  children: <Widget>[
+                    SvgPicture.asset(iconHeader[1]),
+                    Positioned(
+                      left: 3,
+                      child: Container(
+                        padding: const EdgeInsets.all(1),
+                        decoration: BoxDecoration(
+                          color: iconColor,
+                          borderRadius: BorderRadius.circular(6),
                         ),
-                        textAlign: TextAlign.center,
+                        constraints: const BoxConstraints(
+                          minWidth: 11,
+                          minHeight: 11,
+                        ),
+                        child: const Text(
+                          '5',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 7,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
-                    ),
-                  )
-                ],
-              ),
+                    )
+                  ],
+                ),
+              )
             ],
           )),
     );
