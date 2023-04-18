@@ -70,4 +70,7 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'បោះបង់', en: 'Cancel'), //56
   Languages(kh: 'បញ្ជាក់', en: 'Confirm'), //57
   Languages(kh: 'ការជូនដំណឹង', en: 'Notifications'), //58
+  Languages(kh: 'គណនី', en: 'Profile'), //59
+  Languages(kh: 'កែសម្រួលគណនី', en: 'Edit Profile'), //60
+  Languages(kh: 'រក្សាទុកការផ្លាស់ប្តូរ', en: 'Save Change'), //61
 ];

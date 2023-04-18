@@ -147,9 +147,6 @@ class _OtpPageState extends State<OtpPage> {
                 onPressed: _code.length < 6
                     ? null
                     : () {
-                        // Get.toNamed('/account-created');
-
-                        print(registerController.fullNameController.text);
                         registerController.register();
                       },
                 child: const Text(

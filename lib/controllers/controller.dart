@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
-
-import 'auth_controller.dart';
+import 'package:horoscope_cellcard/controllers/user_controller.dart';
 
 class BottomNavbarController extends GetxController {
-  final _authController = Get.put(AuthController());
+  final userController = Get.put(UserController());
   int tapIndex = 1;
 
   Future? changeTabIndex(int index) {
-    if (index == 2 && !_authController.isAuth) {
+    print(userController.isAuth);
+    if (index == 2 && !userController.isAuth) {
       return Get.toNamed('auth');
     }
     tapIndex = index;

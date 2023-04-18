@@ -1,9 +1,6 @@
 import 'dart:convert';
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_cellcard/pages/auth/account_created.dart';
 import 'package:horoscope_cellcard/utils/api_endpoints.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;

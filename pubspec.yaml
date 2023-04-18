@@ -50,6 +50,7 @@ dependencies:
   url_strategy: ^0.2.0
   http: ^0.13.5
   shared_preferences: ^2.1.0
+  custom_radio_grouped_button: ^2.2.0
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:horoscope_cellcard/constants/colors.dart';
 import 'package:horoscope_cellcard/controllers/controller_bindings.dart';

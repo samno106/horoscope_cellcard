@@ -32,7 +32,7 @@ class NotifiNavbar extends StatelessWidget {
                         color: canvasColor,
                       ),
                       onPressed: () {
-                        Get.toNamed('/');
+                        Navigator.pop(context);
                       },
                     ),
                   ],

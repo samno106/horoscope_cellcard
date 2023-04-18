@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,6 +14,8 @@ class LoginController extends GetxController {
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController otpCodeController = TextEditingController();
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  var message = "";
 
   Future<void> login() async {
     try {
@@ -36,23 +40,42 @@ class LoginController extends GetxController {
         final SharedPreferences? prefs = await _prefs;
 
         await prefs?.setString('token', token);
+        await prefs?.setBool('isAuth', true);
+
         phoneNumberController.clear();
         otpCodeController.clear();
 
         Get.toNamed('/');
       } else {
-        throw jsonDecode(response.body)['message'] ?? 'Unknown Error Occured.';
+        final jsonData = jsonDecode(response.body);
+        message = jsonData['message'];
+        throw jsonData['data']['error'] ?? 'Unknown Error Occured.';
       }
     } catch (e) {
-      showDialog(
-          context: Get.context!,
-          builder: (context) {
-            return SimpleDialog(
-              title: const Text("Error"),
-              contentPadding: const EdgeInsets.all(20.0),
-              children: [Text(e.toString())],
-            );
-          });
+      Get.snackbar(
+        message,
+        e.toString(),
+        icon: const Icon(
+          FeatherIcons.alertTriangle,
+          color: Colors.white,
+          size: 26.0,
+        ),
+        snackPosition: SnackPosition.TOP,
+        backgroundColor: const Color(0XFFC72C41),
+        borderRadius: 8.0,
+        snackStyle: SnackStyle.FLOATING,
+        colorText: Colors.white,
+        margin: const EdgeInsets.all(15),
+        duration: Duration(seconds: 40),
+        isDismissible: true,
+        forwardAnimationCurve: Curves.easeOutBack,
+        boxShadows: null,
+      );
     }
+  }
+
+  void showInSnackBar(String value) {
+    ScaffoldMessenger.of(context as BuildContext)
+        .showSnackBar(SnackBar(content: new Text(value)));
   }
 }
