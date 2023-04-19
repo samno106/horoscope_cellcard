@@ -7,7 +7,7 @@ class BottomNavbarController extends GetxController {
 
   Future? changeTabIndex(int index) {
     print(userController.isAuth);
-    if (index == 2 && !userController.isAuth) {
+    if (index == 2 && !userController.isAuth.value) {
       return Get.toNamed('auth');
     }
     tapIndex = index;

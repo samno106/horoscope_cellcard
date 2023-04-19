@@ -9,7 +9,7 @@ class GuestMiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    if (userController.isAuth) {
+    if (userController.isAuth.value) {
       return const RouteSettings(name: '/');
     }
   }

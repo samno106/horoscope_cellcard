@@ -31,7 +31,7 @@ class BaseNavbar extends StatelessWidget {
                         color: canvasColor,
                       ),
                       onPressed: () {
-                        Navigator.pop(context);
+                        Get.back();
                       },
                     ),
                   ],

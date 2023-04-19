@@ -11,20 +11,28 @@ class UserController extends GetxController {
   UserModel? userModel;
   var isLoading = false.obs;
   var isSuccess = false.obs;
-  bool isAuth = false;
+  var isAuth = false.obs;
 
   TextEditingController fullNameController = TextEditingController();
   TextEditingController dobController = TextEditingController();
   TextEditingController genderController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
 
-  fetchUserData() async {
+  @override
+  void onInit() async {
+    super.onInit();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    isAuth.value = prefs.getBool('isAuth') ?? false;
+    fetchUserData();
+    print(prefs.getBool('isAuth'));
+  }
+
+  Future<void> fetchUserData() async {
     isLoading.value = true;
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       String token = "";
       token = prefs.getString('token') ?? "";
-      isAuth = prefs.getBool('isAuth') ?? false;
 
       if (token != "") {
         var header = {

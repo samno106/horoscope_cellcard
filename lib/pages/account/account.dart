@@ -246,8 +246,12 @@ class _AccountPageState extends State<AccountPage> {
                                       onTap: () async {
                                         final SharedPreferences? prefs =
                                             await _prefs;
-                                        prefs?.clear();
-                                        userController.isAuth = false;
+
+                                        setState(() {
+                                          userController.isAuth.value = false;
+                                          prefs?.clear();
+                                        });
+
                                         Get.toNamed('/');
                                       },
                                       child: Text(

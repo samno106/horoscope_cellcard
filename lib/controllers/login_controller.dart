@@ -44,7 +44,6 @@ class LoginController extends GetxController {
 
         phoneNumberController.clear();
         otpCodeController.clear();
-
         Get.toNamed('/');
       } else {
         final jsonData = jsonDecode(response.body);
@@ -66,16 +65,10 @@ class LoginController extends GetxController {
         snackStyle: SnackStyle.FLOATING,
         colorText: Colors.white,
         margin: const EdgeInsets.all(15),
-        duration: Duration(seconds: 40),
         isDismissible: true,
         forwardAnimationCurve: Curves.easeOutBack,
         boxShadows: null,
       );
     }
-  }
-
-  void showInSnackBar(String value) {
-    ScaffoldMessenger.of(context as BuildContext)
-        .showSnackBar(SnackBar(content: new Text(value)));
   }
 }
