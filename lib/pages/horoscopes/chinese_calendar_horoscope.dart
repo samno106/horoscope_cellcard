@@ -49,7 +49,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[29].kh,
-              style: GoogleFonts.notoSans(
+              style: GoogleFonts.notoSansKhmer(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[30].kh,
-              style: GoogleFonts.notoSans(
+              style: GoogleFonts.notoSansKhmer(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -108,7 +108,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[31].kh,
-              style: GoogleFonts.notoSans(
+              style: GoogleFonts.notoSansKhmer(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -193,7 +193,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                 children: [
                   Text(
                     languages[48].kh,
-                    style: GoogleFonts.notoSans(
+                    style: GoogleFonts.notoSansKhmer(
                         textStyle: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -210,10 +210,11 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                         child: SizedBox(
                           height: 40.0,
                           child: TextField(
-                            style: TextStyle(
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
-                            ),
+                            )),
                             onTap: () {
                               selectDate(context);
                             },
@@ -230,7 +231,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                               suffixIconConstraints: const BoxConstraints(
                                 maxHeight: 50.0,
                               ),
-                              hintText: "Date",
+                              hintText: languages[35].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: borderColor, width: 1.0),
@@ -251,10 +252,11 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                         child: SizedBox(
                           height: 40.0,
                           child: TextField(
-                            style: TextStyle(
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
-                            ),
+                            )),
                             onTap: () {
                               selectMonth(context);
                             },
@@ -270,7 +272,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                               ),
                               suffixIconConstraints:
                                   const BoxConstraints(maxHeight: 50.0),
-                              hintText: "Month",
+                              hintText: languages[36].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: borderColor, width: 1.0),
@@ -291,10 +293,11 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                         child: SizedBox(
                           height: 40.0,
                           child: TextField(
-                            style: TextStyle(
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
-                            ),
+                            )),
                             onTap: () {
                               selectYear(context);
                             },
@@ -310,7 +313,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                               ),
                               suffixIconConstraints:
                                   const BoxConstraints(maxHeight: 50.0),
-                              hintText: "Year",
+                              hintText: languages[37].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: borderColor, width: 1.0),
@@ -343,12 +346,13 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                               isResult = true;
                             });
                           },
-                          child: const Text(
-                            "Go",
-                            style: TextStyle(
-                              fontSize: 14.0,
+                          child: Text(
+                            languages[17].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: const TextStyle(
+                              fontSize: 12.0,
                               fontWeight: FontWeight.w500,
-                            ),
+                            )),
                           ),
                         ),
                       )
@@ -374,7 +378,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                     children: [
                       Text(
                         languages[38].kh,
-                        style: GoogleFonts.notoSans(
+                        style: GoogleFonts.notoSansKhmer(
                           textStyle: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w700,

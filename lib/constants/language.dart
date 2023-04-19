@@ -18,7 +18,7 @@ List<Languages> languages = <Languages>[
   //button
   Languages(kh: 'ស្វែងយល់បន្ថែម', en: 'Find out more'), //13
   Languages(kh: 'ចុះ​ឈ្មោះ', en: 'Sign up'), //14
-  Languages(kh: 'ចូល', en: 'Log in'), //15
+  Languages(kh: 'ចូលគណនី', en: 'Log in'), //15
   Languages(kh: 'ផ្ញើលេខកូដ', en: 'Send Code'), //16
   Languages(kh: 'យល់ព្រម', en: 'OK'), //17
   Languages(kh: 'យល់ព្រម', en: 'OK'), //18
@@ -73,4 +73,45 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'គណនី', en: 'Profile'), //59
   Languages(kh: 'កែសម្រួលគណនី', en: 'Edit Profile'), //60
   Languages(kh: 'រក្សាទុកការផ្លាស់ប្តូរ', en: 'Save Change'), //61
+  Languages(kh: 'អ្នក​មិន​បាន​ចូលគណនីនៅឡើយ', en: 'You are not logged in'), //62
+  Languages(
+      kh: 'ចូលគណនី ឬចុះឈ្មោះដើម្បីបន្ត',
+      en: 'Log in or sign up to continue'), //63
+  Languages(kh: 'ឈ្មោះពេញ', en: 'Full Name'), //64
+  Languages(kh: 'ថ្ងៃខែ​ឆ្នាំ​កំណើត', en: 'Date of Birth'), //65
+  Languages(kh: 'ភេទ', en: 'Gender'), //66
+  Languages(kh: 'លេខទូរសព្ទ', en: 'Phone Number'), //67
+  Languages(kh: 'ប្រុស', en: 'Male'), //68
+  Languages(kh: 'ស្រី', en: 'Female'), //69
+  Languages(
+      kh: 'តាមរយៈការចុះឈ្មោះ អ្នកទទួលយក',
+      en: 'By signing up you accept our'), //70
+  Languages(kh: 'លក្ខខណ្ឌរបស់យើង។', en: 'Terms & Conditions.'), //71
+  Languages(kh: 'ឬចុះឈ្មោះជាមួយ', en: 'Or sign up with'), //72
+  Languages(kh: 'ចូលគណនីជាមួយ OTP', en: 'Login with OTP'), //73
+  Languages(kh: 'ឬក៏', en: 'Or'), //74
+  Languages(
+      kh: 'បញ្ចូលលេខកូដ 6 ខ្ទង់ដែលយើងផ្ញើទៅ',
+      en: 'Enter the 6-digits code we sent to'), //75
+  Languages(kh: 'ផ្ញើលេខកូដឡើងវិញ', en: 'Resend code in'), //76
+  Languages(
+      kh: 'សូមអរគុណសម្រាប់ការចុះឈ្មោះជាមួយហោរាសាស្ត្រ',
+      en: 'Thank you for signing up with Horoscope.'), //77
+  Languages(kh: 'គណនីត្រូវបានបង្កើតឡើង!', en: 'Account has been created!'), //78
+  Languages(kh: 'ព័ត៌មានរបស់ខ្ញុំ', en: 'My Profile'), //79
+  Languages(kh: 'គម្រោងរបស់ខ្ញុំ', en: 'My Subscription'), //80
+  Languages(kh: 'ចាកចេញ', en: 'Log Out'), //81
+  Languages(
+      kh: 'បើអ្នកមិនមានការគម្រោងណាមួយទេ',
+      en: 'You do not have any subscription.'), //82
+  Languages(
+      kh: 'ជ្រើសរើស លោកគ្រូ ណាមួយខាងក្រោមដើម្បីមើលព័ត៌មានលម្អិត ឬចុះឈ្មោះដើម្បីទទួលបានសិទ្ធិពេញលេញទៅកាន់ ហោរាសាស្ត្រ របស់យើង។',
+      en: 'Select any Master below to see details or suscribe to have full access to our Horoscope.'), //83
+  Languages(kh: 'គម្រោងភ្ជាប់ដោយជោគជ័យ', en: 'Subscribed Successfully!'), //84
+  Languages(
+      kh: 'អ្នកបានភ្ជាប់គម្រោងហោរាសាស្ត្រដោយជោគជ័យ ',
+      en: 'You have successfully subscribed to '), //85
+  Languages(kh: 'របស់លោកគ្រូ ', en: 'Horoscope by Master. '), //86
+  Languages(kh: 'ជាមួយ ', en: 'with'), //87
+  Languages(kh: 'ក្នុងមួយថ្ងៃ', en: ' per day.'), //88
 ];

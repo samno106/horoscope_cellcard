@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/layouts/base_navbar.dart';
 import 'package:horoscope_cellcard/wegets/subscibe_card.dart';
 
 import '../../constants/colors.dart';
+import '../../constants/language.dart';
 import '../../constants/profile_lists.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 
@@ -18,26 +21,6 @@ class _MySubscribePageState extends State<MySubscribePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        elevation: 0,
-        title: Text(
-          "My Subscription",
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w500, color: textDarkColor),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(
-            FeatherIcons.chevronLeft,
-            size: 30.0,
-            color: canvasColor,
-          ),
-          onPressed: () {
-            Get.back();
-          },
-        ),
-      ),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
           child: SafeArea(
@@ -47,19 +30,19 @@ class _MySubscribePageState extends State<MySubscribePage> {
         children: [
           Container(
             padding: const EdgeInsets.all(0.0),
-            height: 160.0,
+            height: 190.0,
             child: Stack(
               children: <Widget>[
                 ClipPath(
                     clipper: CurvedBottomClipper(),
                     child: Container(
                       color: primaryColor,
-                      height: 120.0,
+                      height: 160.0,
                       width: MediaQuery.of(context).size.width,
                       child: null,
                     )),
                 Positioned(
-                    top: 50,
+                    top: 90,
                     left: MediaQuery.of(context).size.width * 0.37,
                     child: Container(
                       padding: const EdgeInsets.all(0.0),
@@ -73,6 +56,12 @@ class _MySubscribePageState extends State<MySubscribePage> {
                         ),
                       ),
                     )),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: BaseNavbar(title: languages[80].kh),
+                ),
               ],
             ),
           ),
@@ -81,12 +70,13 @@ class _MySubscribePageState extends State<MySubscribePage> {
           ),
           Center(
             child: Text(
-              "You do not have any subscription.",
-              style: TextStyle(
+              languages[82].kh,
+              style: GoogleFonts.notoSansKhmer(
+                  textStyle: TextStyle(
                 color: textDarkColor,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500,
-              ),
+              )),
             ),
           ),
           const SizedBox(
@@ -97,12 +87,13 @@ class _MySubscribePageState extends State<MySubscribePage> {
             child: Center(
               child: Text(
                 textAlign: TextAlign.center,
-                "Select any Master below to see details or suscribe to have full access to our Horoscope.",
-                style: TextStyle(
-                    color: textDarkColor,
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w500,
-                    height: 1.5),
+                languages[83].kh,
+                style: GoogleFonts.notoSansKhmer(
+                    textStyle: TextStyle(
+                        color: textDarkColor,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.w500,
+                        height: 1.5)),
               ),
             ),
           ),

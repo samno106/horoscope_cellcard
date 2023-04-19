@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/constants/language.dart';
 import 'package:intl/intl.dart';
 
 import '../../constants/colors.dart';
@@ -39,13 +41,13 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                   Container(
                     padding: const EdgeInsets.all(0.0),
                     child: Center(
-                      child: Text(
-                        "Subscribed Successfully!",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: textDarkColor),
-                      ),
+                      child: Text(languages[84].kh,
+                          style: GoogleFonts.notoSansKhmer(
+                            textStyle: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: textDarkColor),
+                          )),
                     ),
                   ),
                   const SizedBox(
@@ -59,18 +61,19 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "You have successfully subscribed to ",
-                            style: TextStyle(
+                            languages[85].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
                               color: textDarkGreyColor,
                               fontSize: 16.0,
                               fontWeight: FontWeight.w500,
-                            ),
+                            )),
                           ),
                           const SizedBox(
                             height: 5.0,
                           ),
                           Text(
-                            "Horoscope by Master. Long Bora ",
+                            "${languages[86].kh} Long Bora ",
                             style: TextStyle(
                               color: textDarkGreyColor,
                               fontSize: 16.0,
@@ -86,12 +89,13 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                "with",
-                                style: TextStyle(
+                                languages[87].kh,
+                                style: GoogleFonts.notoSansKhmer(
+                                    textStyle: TextStyle(
                                   color: textDarkGreyColor,
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w500,
-                                ),
+                                )),
                               ),
                               const SizedBox(
                                 width: 5.0,
@@ -110,12 +114,12 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                                 width: 5.0,
                               ),
                               Text(
-                                " per day.",
-                                style: TextStyle(
+                                languages[88].kh,
+                                style: GoogleFonts.notoSansKhmer(textStyle: TextStyle(
                                   color: textDarkGreyColor,
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w500,
-                                ),
+                                )),
                               ),
                             ],
                           ))
@@ -139,15 +143,15 @@ class _SubscribeCompletedPageState extends State<SubscribeCompletedPage> {
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6.0)),
-                    minimumSize: Size(MediaQuery.of(context).size.width, 45),
+                    minimumSize: Size(MediaQuery.of(context).size.width, 55),
                   ),
                   onPressed: () => {Get.toNamed('/')},
-                  child: const Text(
-                    "Ok",
-                    style: TextStyle(
+                  child: Text(
+                    languages[17].kh,
+                    style: GoogleFonts.notoSansKhmer(textStyle: const  TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w500,
-                    ),
+                    )),
                   ),
                 ),
               )

@@ -94,7 +94,7 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
               Text(
                 languages[46].kh,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.notoSans(
+                style: GoogleFonts.notoSansKhmer(
                     textStyle: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -113,10 +113,11 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                         });
                       },
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: GoogleFonts.notoSansKhmer(
+                          textStyle: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
-                      ),
+                      )),
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(2.0),
                         hintText: languages[41].kh,
@@ -144,7 +145,7 @@ class _PlateNumberHoroscopePageState extends State<PlateNumberHoroscopePage> {
                         children: [
                           Text(
                             languages[38].kh,
-                            style: GoogleFonts.notoSans(
+                            style: GoogleFonts.notoSansKhmer(
                               textStyle: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,

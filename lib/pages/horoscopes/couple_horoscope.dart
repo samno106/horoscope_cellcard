@@ -107,7 +107,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                       Text(
                         languages[28].kh,
                         textAlign: TextAlign.left,
-                        style: GoogleFonts.notoSans(
+                        style: GoogleFonts.notoSansKhmer(
                             textStyle: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -132,7 +132,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                             child: Text(
                               languages[33].kh,
                               textAlign: TextAlign.left,
-                              style: GoogleFonts.notoSans(
+                              style: GoogleFonts.notoSansKhmer(
                                   textStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
@@ -146,10 +146,11 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                               child: SizedBox(
                             height: 40.0,
                             child: TextField(
-                              style: TextStyle(
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
                                 fontSize: 14.0,
                                 color: canvasColor,
-                              ),
+                              )),
                               controller: _textBoyEditingController,
                               onTap: () => _openBoyDatepicker(context),
                               decoration: InputDecoration(
@@ -184,7 +185,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                             child: Text(
                               languages[34].kh,
                               textAlign: TextAlign.left,
-                              style: GoogleFonts.notoSans(
+                              style: GoogleFonts.notoSansKhmer(
                                   textStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
@@ -198,10 +199,11 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                               child: SizedBox(
                             height: 40.0,
                             child: TextField(
-                              style: TextStyle(
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
                                 fontSize: 14.0,
                                 color: canvasColor,
-                              ),
+                              )),
                               controller: _textGirlEditingController,
                               onTap: () => _openGirlDatepicker(context),
                               decoration: InputDecoration(
@@ -243,7 +245,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                         children: [
                           Text(
                             languages[38].kh,
-                            style: GoogleFonts.notoSans(
+                            style: GoogleFonts.notoSansKhmer(
                               textStyle: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
@@ -270,7 +272,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                     ),
                                     Text(
                                       listYearName[4],
-                                      style: GoogleFonts.notoSans(
+                                      style: GoogleFonts.notoSansKhmer(
                                         textStyle: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
@@ -301,7 +303,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                     ),
                                     Text(
                                       listYearName[11],
-                                      style: GoogleFonts.notoSans(
+                                      style: GoogleFonts.notoSansKhmer(
                                         textStyle: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
@@ -398,7 +400,7 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
             elevation: 0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(0.0)),
-            minimumSize: const Size(double.infinity, 45),
+            minimumSize: const Size(double.infinity, 55),
           ),
           onPressed: () {
             setState(() {
@@ -407,9 +409,9 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
           },
           child: Text(
             languages[42].kh,
-            style: GoogleFonts.notoSans(
+            style: GoogleFonts.notoSansKhmer(
                 textStyle: const TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.white)),
           ),

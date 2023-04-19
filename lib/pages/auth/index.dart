@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../constants/colors.dart';
+import '../../constants/language.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -59,21 +61,25 @@ class _AuthPageState extends State<AuthPage> {
                     SizedBox(
                       height: 35.0,
                       child: Text(
-                        "You are not logged in",
-                        style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w500,
-                            color: canvasColor),
+                        languages[62].kh,
+                        style: GoogleFonts.notoSansKhmer(
+                            textStyle: TextStyle(
+                          color: canvasColor,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
+                        )),
                       ),
                     ),
                     SizedBox(
                       height: 35.0,
                       child: Text(
-                        "Log in or sign up to continue",
-                        style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                            color: textGreyColor),
+                        languages[63].kh,
+                        style: GoogleFonts.notoSansKhmer(
+                            textStyle: TextStyle(
+                          color: textGreyColor,
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w400,
+                        )),
                       ),
                     )
                   ],
@@ -97,12 +103,14 @@ class _AuthPageState extends State<AuthPage> {
                 onPressed: () {
                   Get.toNamed('/signup');
                 },
-                child: const Text(
-                  "Sign up",
-                  style: TextStyle(
+                child: Text(
+                  languages[14].kh,
+                  style: GoogleFonts.notoSansKhmer(
+                      textStyle: const TextStyle(
+                    color: Colors.white,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
-                  ),
+                  )),
                 ),
               ),
               const SizedBox(
@@ -120,12 +128,14 @@ class _AuthPageState extends State<AuthPage> {
                 onPressed: () {
                   Get.toNamed('/signin');
                 },
-                child: const Text(
-                  "Log In",
-                  style: TextStyle(
+                child: Text(
+                  languages[15].kh,
+                  style: GoogleFonts.notoSansKhmer(
+                      textStyle: TextStyle(
+                    color: blueColor,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
-                  ),
+                  )),
                 ),
               )
             ]),

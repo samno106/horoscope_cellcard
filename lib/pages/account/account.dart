@@ -40,7 +40,7 @@ class _AccountPageState extends State<AccountPage> {
             style: GoogleFonts.koulen(
               textStyle: TextStyle(
                   fontSize: 22.0,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: textDarkColor),
             ),
           ),
@@ -173,11 +173,13 @@ class _AccountPageState extends State<AccountPage> {
                                           const SizedBox(
                                             width: 10.0,
                                           ),
-                                          const Text(
-                                            "My Profile",
-                                            style: TextStyle(
-                                                fontSize: 14.0,
-                                                fontWeight: FontWeight.w500),
+                                          Text(
+                                            languages[79].kh,
+                                            style: GoogleFonts.notoSansKhmer(
+                                                textStyle: const TextStyle(
+                                                    fontSize: 14.0,
+                                                    fontWeight:
+                                                        FontWeight.w500)),
                                           )
                                         ]),
                                       ),
@@ -216,11 +218,13 @@ class _AccountPageState extends State<AccountPage> {
                                           const SizedBox(
                                             width: 10.0,
                                           ),
-                                          const Text(
-                                            "My Subscription",
-                                            style: TextStyle(
-                                                fontSize: 14.0,
-                                                fontWeight: FontWeight.w500),
+                                          Text(
+                                            languages[80].kh,
+                                            style: GoogleFonts.notoSansKhmer(
+                                                textStyle: const TextStyle(
+                                                    fontSize: 14.0,
+                                                    fontWeight:
+                                                        FontWeight.w500)),
                                           )
                                         ]),
                                       ),
@@ -255,12 +259,12 @@ class _AccountPageState extends State<AccountPage> {
                                         Get.toNamed('/');
                                       },
                                       child: Text(
-                                        "Log Out",
-                                        style: TextStyle(
+                                        languages[81].kh,
+                                        style: GoogleFonts.notoSansKhmer(textStyle: TextStyle(
                                           color: blueColor,
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
-                                        ),
+                                        )),
                                       )),
                                 ),
                               )

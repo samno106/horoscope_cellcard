@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/constants/language.dart';
 import 'package:horoscope_cellcard/controllers/login_controller.dart';
 
 import '../../constants/colors.dart';
@@ -62,13 +64,13 @@ class _SigninPageState extends State<SigninPage> {
                         children: [
                           SizedBox(
                             height: 35.0,
-                            child: Text(
-                              "Login with OTP",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: canvasColor),
-                            ),
+                            child: Text(languages[73].kh,
+                                style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w500,
+                                      color: canvasColor),
+                                )),
                           )
                         ],
                       )
@@ -80,10 +82,11 @@ class _SigninPageState extends State<SigninPage> {
                   child: Column(children: [
                     TextField(
                       controller: loginController.phoneNumberController,
-                      style: TextStyle(
+                      style: GoogleFonts.notoSansKhmer(
+                          textStyle: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
-                      ),
+                      )),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -91,7 +94,7 @@ class _SigninPageState extends State<SigninPage> {
                           FeatherIcons.phone,
                           color: iconColor,
                         ),
-                        hintText: "Enter Phone Number",
+                        hintText: languages[40].kh,
                         enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: textGreyColor, width: 1.0),
@@ -123,12 +126,11 @@ class _SigninPageState extends State<SigninPage> {
                             Size(MediaQuery.of(context).size.width, 45),
                       ),
                       onPressed: () => {Get.toNamed('confirm-otp-login')},
-                      child: const Text(
-                        "Send Code",
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      child: Text(
+                        languages[16].kh,
+                        style: GoogleFonts.notoSansKhmer(
+                            textStyle: const TextStyle(
+                                fontSize: 14.0, fontWeight: FontWeight.w500)),
                       ),
                     ),
                     const SizedBox(
@@ -136,25 +138,35 @@ class _SigninPageState extends State<SigninPage> {
                     ),
                   ]),
                 ),
+                const SizedBox(
+                  height: 40.0,
+                ),
                 Container(
                   padding: const EdgeInsets.all(0.0),
                   child: Column(children: [
-                    const SizedBox(
-                      child: Text("Or"),
+                    SizedBox(
+                      child: Text(
+                        languages[74].kh,
+                        style: GoogleFonts.notoSansKhmer(
+                            textStyle: const TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                        )),
+                      ),
                     ),
                     const SizedBox(
-                      height: 40.0,
+                      height: 20.0,
                     ),
                     SizedBox(
                       child: TextButton(
                           onPressed: () => {Get.toNamed('/')},
                           child: Text(
-                            "SKIP",
-                            style: TextStyle(
-                              color: primaryColor,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            languages[19].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: primaryColor)),
                           )),
                     ),
                   ]),

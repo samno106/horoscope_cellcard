@@ -168,10 +168,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Name",
-                                                style: TextStyle(
-                                                    color: textDarkColor,
-                                                    fontSize: 12),
+                                                languages[64].kh,
+                                                style:
+                                                    GoogleFonts.notoSansKhmer(
+                                                        textStyle: TextStyle(
+                                                            color:
+                                                                textDarkColor,
+                                                            fontSize: 13)),
                                               ),
                                               const SizedBox(
                                                 height: 10.0,
@@ -206,10 +209,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Date of Birth",
-                                                style: TextStyle(
-                                                    color: textDarkColor,
-                                                    fontSize: 12),
+                                                languages[65].kh,
+                                                style:
+                                                    GoogleFonts.notoSansKhmer(
+                                                        textStyle: TextStyle(
+                                                            color:
+                                                                textDarkColor,
+                                                            fontSize: 13)),
                                               ),
                                               const SizedBox(
                                                 height: 10.0,
@@ -243,10 +249,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Gender",
-                                                style: TextStyle(
-                                                    color: textDarkColor,
-                                                    fontSize: 12),
+                                                languages[66].kh,
+                                                style:
+                                                    GoogleFonts.notoSansKhmer(
+                                                        textStyle: TextStyle(
+                                                            color:
+                                                                textDarkColor,
+                                                            fontSize: 13)),
                                               ),
                                               const SizedBox(
                                                 height: 10.0,
@@ -281,10 +290,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Phone Number",
-                                                style: TextStyle(
-                                                    color: textDarkColor,
-                                                    fontSize: 12),
+                                                languages[67].kh,
+                                                style:
+                                                    GoogleFonts.notoSansKhmer(
+                                                        textStyle: TextStyle(
+                                                            color:
+                                                                textDarkColor,
+                                                            fontSize: 13)),
                                               ),
                                               const SizedBox(
                                                 height: 10.0,
@@ -314,7 +326,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Container(
                                   padding: const EdgeInsets.all(20.0),
                                   width: double.infinity,
-                                  height: 380.0,
+                                  height: 390.0,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20.0),
                                     color: Colors.white,
@@ -333,10 +345,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Name",
-                                                style: TextStyle(
-                                                    color: textDarkColor,
-                                                    fontSize: 12),
+                                                languages[64].kh,
+                                                style:
+                                                    GoogleFonts.notoSansKhmer(
+                                                        textStyle: TextStyle(
+                                                            color:
+                                                                textDarkColor,
+                                                            fontSize: 13)),
                                               ),
                                               TextField(
                                                   controller: userController
@@ -381,10 +396,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Date of Birth",
-                                                style: TextStyle(
-                                                    color: textDarkColor,
-                                                    fontSize: 12),
+                                                languages[65].kh,
+                                                style:
+                                                    GoogleFonts.notoSansKhmer(
+                                                        textStyle: TextStyle(
+                                                            color:
+                                                                textDarkColor,
+                                                            fontSize: 13)),
                                               ),
                                               TextField(
                                                   controller: userController
@@ -429,10 +447,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Gender",
-                                                style: TextStyle(
-                                                    color: textDarkColor,
-                                                    fontSize: 12),
+                                                languages[66].kh,
+                                                style:
+                                                    GoogleFonts.notoSansKhmer(
+                                                        textStyle: TextStyle(
+                                                            color:
+                                                                textDarkColor,
+                                                            fontSize: 13)),
                                               ),
                                               const SizedBox(
                                                 height: 10.0,
@@ -452,24 +473,25 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     defaultSelected:
                                                         userController
                                                             .userModel!.gender,
-                                                    buttonLables: const [
-                                                      'Male',
-                                                      'Female',
+                                                    buttonLables: [
+                                                      languages[68].kh,
+                                                      languages[69].kh,
                                                     ],
                                                     buttonValues: const [
                                                       "Male",
                                                       "Female",
                                                     ],
-                                                    buttonTextStyle:
-                                                        const ButtonTextStyle(
-                                                            selectedColor:
-                                                                Colors.white,
-                                                            unSelectedColor:
-                                                                Colors.black,
-                                                            textStyle:
-                                                                TextStyle(
-                                                                    fontSize:
-                                                                        16)),
+                                                    buttonTextStyle: ButtonTextStyle(
+                                                        selectedColor:
+                                                            Colors.white,
+                                                        unSelectedColor:
+                                                            Colors.black,
+                                                        textStyle: GoogleFonts
+                                                            .notoSansKhmer(
+                                                                textStyle:
+                                                                    const TextStyle(
+                                                                        fontSize:
+                                                                            14))),
                                                     radioButtonValue: (value) {
                                                       userController
                                                               .genderController
@@ -503,10 +525,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Phone Number",
-                                                style: TextStyle(
-                                                    color: textDarkColor,
-                                                    fontSize: 12),
+                                                languages[67].kh,
+                                                style:
+                                                    GoogleFonts.notoSansKhmer(
+                                                        textStyle: TextStyle(
+                                                            color:
+                                                                textDarkColor,
+                                                            fontSize: 13)),
                                               ),
                                               TextField(
                                                   controller: userController

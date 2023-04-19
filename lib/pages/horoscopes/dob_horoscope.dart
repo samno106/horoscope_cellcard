@@ -85,7 +85,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[30].kh,
-              style: GoogleFonts.notoSans(
+              style: GoogleFonts.notoSansKhmer(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
           return AlertDialog(
             title: Text(
               languages[31].kh,
-              style: GoogleFonts.notoSans(
+              style: GoogleFonts.notoSansKhmer(
                   textStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -170,7 +170,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                         children: [
                           Text(
                             listYearName[selectedYearName],
-                            style: GoogleFonts.notoSans(
+                            style: GoogleFonts.notoSansKhmer(
                                 textStyle: TextStyle(
                               color: textDarkColor,
                               fontSize: 18,
@@ -238,7 +238,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                 children: [
                   Text(
                     languages[28].kh,
-                    style: GoogleFonts.notoSans(
+                    style: GoogleFonts.notoSansKhmer(
                         textStyle: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -255,10 +255,11 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                         child: SizedBox(
                           height: 40.0,
                           child: TextField(
-                            style: TextStyle(
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
-                            ),
+                            )),
                             onTap: () {
                               selectDate(context);
                             },
@@ -275,7 +276,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                               suffixIconConstraints: const BoxConstraints(
                                 maxHeight: 50.0,
                               ),
-                              hintText: "Date",
+                              hintText: languages[35].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: borderColor, width: 1.0),
@@ -296,10 +297,11 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                         child: SizedBox(
                           height: 40.0,
                           child: TextField(
-                            style: TextStyle(
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
-                            ),
+                            )),
                             onTap: () {
                               selectMonth(context);
                             },
@@ -315,7 +317,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                               ),
                               suffixIconConstraints:
                                   const BoxConstraints(maxHeight: 50.0),
-                              hintText: "Month",
+                              hintText: languages[36].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: borderColor, width: 1.0),
@@ -336,10 +338,11 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                         child: SizedBox(
                           height: 40.0,
                           child: TextField(
-                            style: TextStyle(
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
-                            ),
+                            )),
                             onTap: () {
                               selectYear(context);
                             },
@@ -355,7 +358,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                               ),
                               suffixIconConstraints:
                                   const BoxConstraints(maxHeight: 50.0),
-                              hintText: "Year",
+                              hintText: languages[37].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                       color: borderColor, width: 1.0),
@@ -384,12 +387,12 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                             minimumSize: const Size(40.0, 47.0),
                           ),
                           onPressed: () {},
-                          child: const Text(
-                            "Go",
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+                          child: Text(
+                            languages[17].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: const TextStyle(
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.w500)),
                           ),
                         ),
                       )

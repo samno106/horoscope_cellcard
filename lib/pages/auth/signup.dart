@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/controllers/register_controller.dart';
 import 'package:intl/intl.dart';
 
 import '../../constants/colors.dart';
+import '../../constants/language.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -70,13 +72,15 @@ class _SignupPageState extends State<SignupPage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 35.0,
+                            height: 45.0,
                             child: Text(
-                              "Sign Up",
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: canvasColor),
+                              languages[14].kh,
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                color: canvasColor,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w600,
+                              )),
                             ),
                           )
                         ],
@@ -89,10 +93,11 @@ class _SignupPageState extends State<SignupPage> {
                   child: Column(children: [
                     TextField(
                       controller: registerController.fullNameController,
-                      style: TextStyle(
+                      style: GoogleFonts.notoSansKhmer(
+                          textStyle: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
-                      ),
+                      )),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -100,7 +105,7 @@ class _SignupPageState extends State<SignupPage> {
                           CupertinoIcons.person_crop_circle,
                           color: iconColor,
                         ),
-                        hintText: "Full Name",
+                        hintText: languages[64].kh,
                         enabledBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: borderColor, width: 1.0),
@@ -119,10 +124,11 @@ class _SignupPageState extends State<SignupPage> {
                     TextField(
                       controller: registerController.dobController,
                       onTap: () => _openDatepicker(context),
-                      style: TextStyle(
+                      style: GoogleFonts.notoSansKhmer(
+                          textStyle: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
-                      ),
+                      )),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -130,7 +136,7 @@ class _SignupPageState extends State<SignupPage> {
                           FeatherIcons.calendar,
                           color: iconColor,
                         ),
-                        hintText: "Date of Birth",
+                        hintText: languages[65].kh,
                         enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: borderColor, width: 1.0),
@@ -167,7 +173,14 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       iconEnabledColor: blueColor,
                       hint: _genderValue == ""
-                          ? const Text('Gender')
+                          ? Text(
+                              languages[66].kh,
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                color: canvasColor,
+                                fontSize: 14.0,
+                              )),
+                            )
                           : Text(
                               _genderValue,
                               style: TextStyle(
@@ -177,11 +190,13 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                       isExpanded: true,
                       isDense: true,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        color: canvasColor,
+                      style: GoogleFonts.notoSansKhmer(
+                        textStyle: TextStyle(
+                          color: canvasColor,
+                          fontSize: 14.0,
+                        ),
                       ),
-                      items: ['Male', 'Female'].map(
+                      items: [languages[68].kh, languages[69].kh].map(
                         (val) {
                           return DropdownMenuItem<String>(
                             value: val,
@@ -208,10 +223,11 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     TextField(
                       controller: registerController.phoneNumberController,
-                      style: TextStyle(
+                      style: GoogleFonts.notoSansKhmer(
+                          textStyle: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
-                      ),
+                      )),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -219,7 +235,7 @@ class _SignupPageState extends State<SignupPage> {
                           FeatherIcons.phone,
                           color: iconColor,
                         ),
-                        hintText: "Phone Number",
+                        hintText: languages[67].kh,
                         enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: borderColor, width: 1.0),
@@ -251,12 +267,11 @@ class _SignupPageState extends State<SignupPage> {
                             Size(MediaQuery.of(context).size.width, 50),
                       ),
                       onPressed: () => {Get.toNamed('/confirm-otp')},
-                      child: const Text(
-                        "Send Code",
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      child: Text(
+                        languages[16].kh,
+                        style: GoogleFonts.notoSansKhmer(
+                            textStyle: const TextStyle(
+                                fontSize: 14.0, fontWeight: FontWeight.w500)),
                       ),
                     ),
                     const SizedBox(
@@ -268,18 +283,20 @@ class _SignupPageState extends State<SignupPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "By signing up you accept our ",
-                              style: TextStyle(
-                                  fontSize: 11.0,
-                                  fontWeight: FontWeight.w400,
-                                  color: textGreyColor),
+                              languages[70].kh,
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                      fontSize: 11.0,
+                                      fontWeight: FontWeight.w400,
+                                      color: textGreyColor)),
                             ),
                             Text(
-                              "Terms & Conditions.",
-                              style: TextStyle(
-                                  fontSize: 11.0,
-                                  fontWeight: FontWeight.w400,
-                                  color: primaryColor),
+                              languages[71].kh,
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                      fontSize: 11.0,
+                                      fontWeight: FontWeight.w400,
+                                      color: primaryColor)),
                             )
                           ]),
                     )
@@ -299,7 +316,13 @@ class _SignupPageState extends State<SignupPage> {
                         const SizedBox(
                           width: 5,
                         ),
-                        const Text("Or sign up with"),
+                        Text(
+                          languages[72].kh,
+                          style: GoogleFonts.notoSansKhmer(
+                              textStyle: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                          )),
+                        ),
                         const SizedBox(
                           width: 5,
                         ),
@@ -340,12 +363,12 @@ class _SignupPageState extends State<SignupPage> {
                       child: TextButton(
                           onPressed: () => {Get.toNamed('/')},
                           child: Text(
-                            "SKIP",
-                            style: TextStyle(
-                              color: primaryColor,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            languages[19].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: primaryColor)),
                           )),
                     ),
                   ]),

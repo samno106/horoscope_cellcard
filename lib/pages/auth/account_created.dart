@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/constants/language.dart';
 
 import '../../constants/colors.dart';
 
@@ -39,11 +41,12 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                     padding: const EdgeInsets.all(0.0),
                     child: Center(
                       child: Text(
-                        "Account has been created!",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: textDarkColor),
+                        languages[78].kh,
+                        style: GoogleFonts.notoSansKhmer(
+                            textStyle: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: textDarkColor)),
                       ),
                     ),
                   ),
@@ -54,14 +57,14 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                     padding: const EdgeInsets.all(0.0),
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: Center(
-                      child: Text(
-                        "Thank you for signing up with Horoscope.",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: textDarkColor),
-                      ),
+                      child: Text(languages[77].kh,
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.notoSansKhmer(
+                            textStyle: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: textDarkColor),
+                          )),
                     ),
                   ),
                   const SizedBox(
@@ -77,17 +80,18 @@ class _AccountCreatedPageState extends State<AccountCreatedPage> {
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0.0)),
-                  minimumSize: const Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity, 60),
                 ),
                 onPressed: () {
                   Get.toNamed('/');
                 },
-                child: const Text(
-                  "OK",
-                  style: TextStyle(
+                child: Text(
+                  languages[17].kh,
+                  style: GoogleFonts.notoSansKhmer(
+                      textStyle: const TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
-                  ),
+                  )),
                 ),
               ),
             ],

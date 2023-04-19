@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/constants/language.dart';
 import 'package:horoscope_cellcard/controllers/login_controller.dart';
 import '../../constants/colors.dart';
 
@@ -71,11 +73,12 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
                         padding: const EdgeInsets.all(0.0),
                         child: Center(
                           child: Text(
-                            "Enter the 6-digits code we sent to",
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: textDarkColor),
+                            languages[75].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: textDarkColor)),
                           ),
                         ),
                       ),
@@ -121,11 +124,12 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
                         height: 20,
                       ),
                       Text(
-                        "Resend code in $_start",
-                        style: TextStyle(
+                        '${languages[76].kh} $_start s',
+                        style: GoogleFonts.notoSansKhmer(
+                            textStyle: TextStyle(
                           color: textDarkColor,
-                          fontSize: 12.0,
-                        ),
+                          fontSize: 14.0,
+                        )),
                       ),
                     ]),
               ),
@@ -141,19 +145,20 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0.0)),
-                  minimumSize: const Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity, 60),
                 ),
                 onPressed: _code.length < 6
                     ? null
                     : () {
                         loginController.login();
                       },
-                child: const Text(
-                  "Log In",
-                  style: TextStyle(
+                child: Text(
+                  languages[15].kh,
+                  style: GoogleFonts.notoSansKhmer(
+                      textStyle: const TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
-                  ),
+                  )),
                 ),
               ),
             ],
