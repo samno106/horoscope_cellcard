@@ -18,7 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final userController = Get.find<UserController>();
   int selectedYearName = 0;
   int selectedYearContent = 0;
 

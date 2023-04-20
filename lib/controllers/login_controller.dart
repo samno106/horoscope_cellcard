@@ -4,6 +4,8 @@ import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
+import 'package:horoscope_cellcard/controllers/user_controller.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:http/http.dart' as http;
@@ -11,6 +13,7 @@ import 'package:http/http.dart' as http;
 import '../utils/api_endpoints.dart';
 
 class LoginController extends GetxController {
+  final userController = Get.put(UserController());
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController otpCodeController = TextEditingController();
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
@@ -44,6 +47,7 @@ class LoginController extends GetxController {
 
         phoneNumberController.clear();
         otpCodeController.clear();
+        userController.isAuth.value = true;
         Get.toNamed('/');
       } else {
         final jsonData = jsonDecode(response.body);

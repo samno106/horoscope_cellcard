@@ -19,13 +19,12 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  final userController = Get.find<UserController>();
+  final userController = Get.put(UserController());
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   @override
   void initState() {
     super.initState();
-    userController.fetchUserData();
   }
 
   @override
@@ -118,7 +117,7 @@ class _AccountPageState extends State<AccountPage> {
                       ),
                       Center(
                         child: Text(
-                          userController.userModel[0].fullName ?? "",
+                          userController.userModel[0].fullName,
                           style: TextStyle(
                             color: textDarkColor,
                             fontSize: 16.0,
@@ -131,7 +130,7 @@ class _AccountPageState extends State<AccountPage> {
                       ),
                       Center(
                         child: Text(
-                          userController.userModel[0].phoneNumber ?? "",
+                          userController.userModel[0].phoneNumber,
                           style: TextStyle(
                             color: textDarkColor,
                             fontSize: 12.0,
@@ -250,11 +249,9 @@ class _AccountPageState extends State<AccountPage> {
                                       onTap: () async {
                                         final SharedPreferences? prefs =
                                             await _prefs;
+                                        userController.isAuth.value = false;
 
-                                        setState(() {
-                                          // userController.isAuth.value = false;
-                                          prefs?.clear();
-                                        });
+                                        prefs?.clear();
 
                                         Get.toNamed('/');
                                       },

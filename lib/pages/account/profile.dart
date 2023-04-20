@@ -18,12 +18,11 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final userController = Get.find<UserController>();
+  final userController = Get.put(UserController());
 
   @override
   void initState() {
     super.initState();
-    userController.fetchUserData();
   }
 
   onEdit() {
@@ -593,9 +592,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               BorderRadius.circular(6.0)),
                                     ),
                                     child: Text(
-                                      !userController.isLoading.value
-                                          ? languages[61].kh
-                                          : "Loading...",
+                                      languages[61].kh,
                                       style: GoogleFonts.koulen(
                                         textStyle: const TextStyle(
                                           color: Colors.white,

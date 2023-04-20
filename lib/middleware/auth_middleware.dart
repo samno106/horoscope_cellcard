@@ -5,6 +5,7 @@ import '../controllers/user_controller.dart';
 
 class AuthMiddleware extends GetMiddleware {
   final userController = Get.put(UserController());
+
   @override
   int? get priority => 2;
 

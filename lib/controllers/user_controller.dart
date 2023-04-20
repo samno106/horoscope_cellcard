@@ -27,9 +27,9 @@ class UserController extends GetxController {
     print(prefs.getBool('isAuth'));
   }
 
-  fetchUserData() async {
-    isLoading(true);
+  Future<void> fetchUserData() async {
     try {
+      isLoading(true);
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       String? token = "";
       token = prefs.getString('token');
@@ -62,22 +62,28 @@ class UserController extends GetxController {
                 createdAt: result.createdAt),
           );
 
+          fullNameController.text = userModel[0].fullName;
+          dobController.text = userModel[0].dob;
+          genderController.text = userModel[0].gender;
+          phoneNumberController.text = userModel[0].phoneNumber;
           isLoading(false);
         }
       }
     } catch (e) {
       print(e);
+      isLoading(false);
     } finally {
       isLoading(false);
     }
   }
 
-  updateUserData() async {
+  Future<void> updateUserData() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     String token = "";
     token = prefs.getString('token') ?? "";
-    isLoading.value = true;
+
     try {
+      isLoading(true);
       var header = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers':
@@ -99,13 +105,26 @@ class UserController extends GetxController {
           await http.post(url, body: jsonEncode(body), headers: header);
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-
         UserModel result = UserModel.fromJson(json['data']);
-        fullNameController.text = result.fullName ?? "";
-        dobController.text = result.dob ?? "";
-        genderController.text = result.gender ?? "";
-        phoneNumberController.text = result.phoneNumber ?? "";
+        userModel.add(
+          UserModel(
+              id: result.id,
+              fullName: result.fullName,
+              dob: result.dob,
+              gender: result.gender,
+              phoneNumber: result.phoneNumber,
+              isActive: result.isActive,
+              isSubscribe: result.isSubscribe,
+              createdAt: result.createdAt),
+        );
+
+        fullNameController.text = result.fullName;
+        dobController.text = result.dob;
+        genderController.text = result.gender;
+        phoneNumberController.text = result.phoneNumber;
+
         fetchUserData();
+        print(userModel[0].fullName);
         isSuccess(false);
         isLoading(false);
       } else {
@@ -123,8 +142,8 @@ class UserController extends GetxController {
             );
           });
     } finally {
-      isLoading(false);
-      isSuccess(false);
+      // isLoading(false);
+      // isSuccess(false);
     }
   }
 }

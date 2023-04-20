@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:horoscope_cellcard/controllers/user_controller.dart';
-
 import '../constants/colors.dart';
 import '../constants/navbar_property.dart';
 
@@ -15,12 +14,11 @@ class TopNavbar extends StatefulWidget {
 }
 
 class _TopNavbarState extends State<TopNavbar> {
-  final userController = Get.find<UserController>();
-  String token = "";
+  final userController = Get.put(UserController());
+
   @override
   void initState() {
     super.initState();
-    userController.fetchUserData();
   }
 
   @override
@@ -61,7 +59,7 @@ class _TopNavbarState extends State<TopNavbar> {
                             const SizedBox(width: 10.0),
                             userController.isAuth.value
                                 ? Text(
-                                    userController.userModel[0].fullName ?? "",
+                                    userController.userModel[0].fullName,
                                     style: TextStyle(
                                       fontSize: 14.0,
                                       color: canvasColor,
