@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:horoscope_cellcard/controllers/user_controller.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/colors.dart';
 import '../constants/navbar_property.dart';
@@ -62,7 +61,7 @@ class _TopNavbarState extends State<TopNavbar> {
                             const SizedBox(width: 10.0),
                             userController.isAuth.value
                                 ? Text(
-                                    userController.userModel!.fullName,
+                                    userController.userModel[0].fullName ?? "",
                                     style: TextStyle(
                                       fontSize: 14.0,
                                       color: canvasColor,

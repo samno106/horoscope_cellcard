@@ -180,8 +180,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 height: 10.0,
                                               ),
                                               Text(
-                                                userController
-                                                    .userModel!.fullName,
+                                                userController.userModel[0]
+                                                        .fullName ??
+                                                    "",
                                                 style: TextStyle(
                                                   color: textDarkColor,
                                                   fontSize: 14,
@@ -221,7 +222,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 height: 10.0,
                                               ),
                                               Text(
-                                                userController.userModel!.dob,
+                                                userController
+                                                        .userModel[0].dob ??
+                                                    "",
                                                 style: TextStyle(
                                                   color: textDarkColor,
                                                   fontSize: 14,
@@ -262,7 +265,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                               ),
                                               Text(
                                                 userController
-                                                    .userModel!.gender,
+                                                        .userModel[0].gender ??
+                                                    "",
                                                 style: TextStyle(
                                                   color: textDarkColor,
                                                   fontSize: 14,
@@ -302,8 +306,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 height: 10.0,
                                               ),
                                               Text(
-                                                userController
-                                                    .userModel!.phoneNumber,
+                                                userController.userModel[0]
+                                                        .phoneNumber ??
+                                                    "",
                                                 style: TextStyle(
                                                   color: textDarkColor,
                                                   fontSize: 14,
@@ -472,7 +477,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                             .canvasColor,
                                                     defaultSelected:
                                                         userController
-                                                            .userModel!.gender,
+                                                                .userModel[0]
+                                                                .gender ??
+                                                            "",
                                                     buttonLables: [
                                                       languages[68].kh,
                                                       languages[69].kh,

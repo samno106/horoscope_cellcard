@@ -8,10 +8,10 @@ import 'package:http/http.dart' as http;
 import '../utils/api_endpoints.dart';
 
 class UserController extends GetxController {
-  UserModel? userModel;
-  var isLoading = false.obs;
-  var isSuccess = false.obs;
-  var isAuth = false.obs;
+  var userModel = <UserModel>[].obs;
+  RxBool isLoading = false.obs;
+  RxBool isSuccess = false.obs;
+  RxBool isAuth = false.obs;
 
   TextEditingController fullNameController = TextEditingController();
   TextEditingController dobController = TextEditingController();
@@ -22,17 +22,17 @@ class UserController extends GetxController {
   void onInit() async {
     super.onInit();
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    isAuth.value = prefs.getBool('isAuth') ?? false;
+    isAuth(prefs.getBool('isAuth') ?? false);
     fetchUserData();
     print(prefs.getBool('isAuth'));
   }
 
-  Future<void> fetchUserData() async {
-    isLoading.value = true;
+  fetchUserData() async {
+    isLoading(true);
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      String token = "";
-      token = prefs.getString('token') ?? "";
+      String? token = "";
+      token = prefs.getString('token');
 
       if (token != "") {
         var header = {
@@ -48,19 +48,27 @@ class UserController extends GetxController {
 
         if (response.statusCode == 200) {
           var json = jsonDecode(response.body);
-          userModel = UserModel.fromJson(json['data']);
-          fullNameController.text = userModel!.fullName;
-          dobController.text = userModel!.dob;
-          genderController.text = userModel!.gender;
-          phoneNumberController.text = userModel!.phoneNumber;
-          isLoading.value = false;
-          print(userModel?.fullName);
+          UserModel result = UserModel.fromJson(json['data']);
+
+          userModel.add(
+            UserModel(
+                id: result.id,
+                fullName: result.fullName,
+                dob: result.dob,
+                gender: result.gender,
+                phoneNumber: result.phoneNumber,
+                isActive: result.isActive,
+                isSubscribe: result.isSubscribe,
+                createdAt: result.createdAt),
+          );
+
+          isLoading(false);
         }
       }
     } catch (e) {
       print(e);
     } finally {
-      isLoading.value = false;
+      isLoading(false);
     }
   }
 
@@ -91,14 +99,15 @@ class UserController extends GetxController {
           await http.post(url, body: jsonEncode(body), headers: header);
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-        userModel = UserModel.fromJson(json['data']);
-        fullNameController.text = userModel!.fullName;
-        dobController.text = userModel!.dob;
-        genderController.text = userModel!.gender;
-        phoneNumberController.text = userModel!.phoneNumber;
+
+        UserModel result = UserModel.fromJson(json['data']);
+        fullNameController.text = result.fullName ?? "";
+        dobController.text = result.dob ?? "";
+        genderController.text = result.gender ?? "";
+        phoneNumberController.text = result.phoneNumber ?? "";
         fetchUserData();
-        isSuccess.value = false;
-        isLoading.value = false;
+        isSuccess(false);
+        isLoading(false);
       } else {
         throw jsonDecode(response.body)['message'] ?? 'Unknown Error Occured.';
       }
@@ -114,8 +123,8 @@ class UserController extends GetxController {
             );
           });
     } finally {
-      isLoading.value = false;
-      isSuccess.value = false;
+      isLoading(false);
+      isSuccess(false);
     }
   }
 }

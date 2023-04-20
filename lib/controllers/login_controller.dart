@@ -39,7 +39,7 @@ class LoginController extends GetxController {
         var token = json['data']['token'];
         final SharedPreferences? prefs = await _prefs;
 
-        await prefs?.setString('token', token);
+        await prefs?.setString('token', token ?? "");
         await prefs?.setBool('isAuth', true);
 
         phoneNumberController.clear();

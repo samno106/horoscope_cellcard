@@ -118,7 +118,7 @@ class _AccountPageState extends State<AccountPage> {
                       ),
                       Center(
                         child: Text(
-                          userController.userModel!.fullName,
+                          userController.userModel[0].fullName ?? "",
                           style: TextStyle(
                             color: textDarkColor,
                             fontSize: 16.0,
@@ -131,7 +131,7 @@ class _AccountPageState extends State<AccountPage> {
                       ),
                       Center(
                         child: Text(
-                          userController.userModel!.phoneNumber,
+                          userController.userModel[0].phoneNumber ?? "",
                           style: TextStyle(
                             color: textDarkColor,
                             fontSize: 12.0,
@@ -252,7 +252,7 @@ class _AccountPageState extends State<AccountPage> {
                                             await _prefs;
 
                                         setState(() {
-                                          userController.isAuth.value = false;
+                                          // userController.isAuth.value = false;
                                           prefs?.clear();
                                         });
 
@@ -260,7 +260,8 @@ class _AccountPageState extends State<AccountPage> {
                                       },
                                       child: Text(
                                         languages[81].kh,
-                                        style: GoogleFonts.notoSansKhmer(textStyle: TextStyle(
+                                        style: GoogleFonts.notoSansKhmer(
+                                            textStyle: TextStyle(
                                           color: blueColor,
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
