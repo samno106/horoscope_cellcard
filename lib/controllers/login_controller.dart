@@ -1,26 +1,34 @@
 import 'dart:convert';
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_cellcard/controllers/user_controller.dart';
-
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:horoscope_cellcard/models/user_model.dart';
+import 'package:horoscope_cellcard/utils/shared_prefs.dart';
 
 import 'package:http/http.dart' as http;
 
 import '../utils/api_endpoints.dart';
 
 class LoginController extends GetxController {
-  final userController = Get.put(UserController());
-  TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController otpCodeController = TextEditingController();
-  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  late TextEditingController phoneNumberController, otpCodeController;
 
-  var message = "";
+  late String message = "";
 
-  Future<void> login() async {
+  @override
+  void onInit() {
+    super.onInit();
+    phoneNumberController = TextEditingController();
+    otpCodeController = TextEditingController();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    phoneNumberController.dispose();
+    otpCodeController.dispose();
+  }
+
+  login() async {
     try {
       var header = {
         'Content-Type': 'application/json',
@@ -35,19 +43,13 @@ class LoginController extends GetxController {
         'code': otpCodeController.text,
         'phone_number': phoneNumberController.text
       };
+
       http.Response response =
           await http.post(url, body: jsonEncode(body), headers: header);
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-        var token = json['data']['token'];
-        final SharedPreferences? prefs = await _prefs;
 
-        await prefs?.setString('token', token ?? "");
-        await prefs?.setBool('isAuth', true);
-
-        phoneNumberController.clear();
-        otpCodeController.clear();
-        userController.isAuth.value = true;
+        await SharedPrefs().storeUser(jsonEncode(json['data']));
         Get.toNamed('/');
       } else {
         final jsonData = jsonDecode(response.body);

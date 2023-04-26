@@ -1,14 +1,13 @@
 import 'package:get/get.dart';
-import 'package:horoscope_cellcard/controllers/user_controller.dart';
+import '../utils/shared_prefs.dart';
 
 class BottomNavbarController extends GetxController {
-  final userController = Get.put(UserController());
   int tapIndex = 1;
 
-  Future? changeTabIndex(int index) {
-    print(userController.isAuth);
-    if (index == 2 && !userController.isAuth.value) {
-      return Get.toNamed('auth');
+  changeTabIndex(int index) async {
+    var user = await SharedPrefs().getUser();
+    if (index == 2 && user == null) {
+      return Get.offAllNamed('auth');
     }
     tapIndex = index;
     update();
