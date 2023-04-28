@@ -5,7 +5,8 @@ class ApiEndPoints {
 
 class _AuthEndPoints {
   final String REGISTER = "subscriber-register";
-  final String LOGIN = "subscribe-login";
+  final String LOGIN = "subscribe-login-send-otp";
+  final String CONFIRM_OTP = "subscribe-login-confirm-otp";
   final String PROFILE = "subscriber/profile";
   final String UPDATE_PROFILE = "subscriber/update";
 }

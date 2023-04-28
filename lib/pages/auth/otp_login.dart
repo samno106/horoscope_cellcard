@@ -150,7 +150,7 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
                 onPressed: _code.length < 6
                     ? null
                     : () {
-                        loginController.login();
+                        loginController.confirmOtp();
                       },
                 child: Text(
                   languages[15].kh,

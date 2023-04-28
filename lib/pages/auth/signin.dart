@@ -125,7 +125,7 @@ class _SigninPageState extends State<SigninPage> {
                         minimumSize:
                             Size(MediaQuery.of(context).size.width, 45),
                       ),
-                      onPressed: () => {Get.toNamed('confirm-otp-login')},
+                      onPressed: () => {loginController.loginSendOtp()},
                       child: Text(
                         languages[16].kh,
                         style: GoogleFonts.notoSansKhmer(
