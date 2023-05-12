@@ -136,8 +136,14 @@ class _OtpPageState extends State<OtpPage> {
                               )),
                             )
                           : TextButton(
-                              onPressed: () =>
-                                  {registerController.registerSendOtp()},
+                              onPressed: () => {
+                                    registerController.registerSendOtp(),
+                                    setState(() {
+                                      _start = 40;
+                                      resend = false;
+                                    }),
+                                    resendCode()
+                                  },
                               child: Text(
                                 languages[90].kh,
                                 style: GoogleFonts.notoSansKhmer(

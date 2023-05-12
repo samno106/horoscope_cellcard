@@ -1,7 +1,10 @@
 import 'package:curved_carousel/curved_carousel.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:horoscope_cellcard/wegets/snackbar_alert.dart';
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
 import '../../constants/horoscope_property.dart';
@@ -9,6 +12,7 @@ import '../../constants/language.dart';
 import '../../controllers/user_controller.dart';
 import '../../layouts/top_navbar.dart';
 import '../../services/get_user_loged_service.dart';
+import '../../utils/shared_prefs.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/path_painter.dart';
 import '../../wegets/select_subscibe_list.dart';
@@ -25,6 +29,10 @@ class _HomePageState extends State<HomePage> {
 
   int selectedYearName = 0;
   int selectedYearContent = 0;
+
+  // void showAlert() async {
+  //   await SnackbarAlert().successAlert(languages[91].kh, languages[92].kh);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -172,8 +180,9 @@ class _HomePageState extends State<HomePage> {
                         minimumSize:
                             Size(MediaQuery.of(context).size.width, 50),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         if (_sigenedInUser.isLoggedIn == false) {
+                          await SharedPrefs().setloginRedirectRoute('home');
                           Get.toNamed('auth');
                         } else {
                           showModalBottomSheet(

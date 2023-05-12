@@ -139,6 +139,10 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
                               : TextButton(
                                   onPressed: () => {
                                         loginController.loginSendOtp(),
+                                        setState(() {
+                                          _start = 40;
+                                          resend = false;
+                                        }),
                                         resendCode()
                                       },
                                   child: Text(

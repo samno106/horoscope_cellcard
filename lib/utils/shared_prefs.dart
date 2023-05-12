@@ -42,4 +42,15 @@ class SharedPrefs {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.remove("auth");
   }
+
+  setloginRedirectRoute(route) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("redirectRoute", route ?? 'account');
+  }
+
+  getloginRedirectRoute() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var res = prefs.getString("redirectRoute");
+    return res;
+  }
 }

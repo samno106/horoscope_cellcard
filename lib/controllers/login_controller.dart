@@ -7,8 +7,10 @@ import 'package:horoscope_cellcard/utils/shared_prefs.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../constants/language.dart';
 import '../services/get_user_loged_service.dart';
 import '../utils/api_endpoints.dart';
+import '../wegets/snackbar_alert.dart';
 
 class LoginController extends GetxController {
   late TextEditingController phoneNumberController, otpCodeController;
@@ -103,10 +105,20 @@ class LoginController extends GetxController {
         final json = jsonDecode(response.body);
 
         await SharedPrefs().storeUser(jsonEncode(json['data']));
-
         _sigenedInUser.isUserSignedIn();
 
-        Get.toNamed('/');
+        var redirect = await SharedPrefs().getloginRedirectRoute();
+
+        phoneNumberController.clear();
+        otpCodeController.clear();
+
+        if (redirect == 'home') {
+          Get.toNamed('/');
+        } else {
+          Get.toNamed('/account');
+        }
+
+        await SnackbarAlert().successAlert(languages[91].kh, languages[92].kh);
       } else {
         final jsonData = jsonDecode(response.body);
         message = jsonData['message'];
