@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -87,6 +88,11 @@ class _SigninPageState extends State<SigninPage> {
                         fontSize: 14.0,
                         color: canvasColor,
                       )),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        LengthLimitingTextInputFormatter(9),
+                      ],
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,

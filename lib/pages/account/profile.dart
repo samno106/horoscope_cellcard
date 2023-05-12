@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ import 'package:horoscope_cellcard/constants/language.dart';
 
 import '../../constants/colors.dart';
 import '../../controllers/user_controller.dart';
+import '../../utils/shared_prefs.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -18,7 +21,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final userController = Get.find<UserController>();
+  final userController = Get.put(UserController());
 
   @override
   void initState() {
@@ -149,7 +152,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Container(
                                   padding: const EdgeInsets.all(20.0),
                                   width: double.infinity,
-                                  height: 325.0,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.4,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20.0),
                                     color: Colors.white,
@@ -180,9 +184,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 height: 10.0,
                                               ),
                                               Text(
-                                                userController.userModel[0]
-                                                        .fullName ??
-                                                    "",
+                                                userController
+                                                    .userModel[0].fullName,
                                                 style: TextStyle(
                                                   color: textDarkColor,
                                                   fontSize: 14,
@@ -222,9 +225,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 height: 10.0,
                                               ),
                                               Text(
-                                                userController
-                                                        .userModel[0].dob ??
-                                                    "",
+                                                userController.userModel[0].dob,
                                                 style: TextStyle(
                                                   color: textDarkColor,
                                                   fontSize: 14,
@@ -265,8 +266,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               ),
                                               Text(
                                                 userController
-                                                        .userModel[0].gender ??
-                                                    "",
+                                                    .userModel[0].gender,
                                                 style: TextStyle(
                                                   color: textDarkColor,
                                                   fontSize: 14,
@@ -306,9 +306,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 height: 10.0,
                                               ),
                                               Text(
-                                                userController.userModel[0]
-                                                        .phoneNumber ??
-                                                    "",
+                                                userController
+                                                    .userModel[0].phoneNumber,
                                                 style: TextStyle(
                                                   color: textDarkColor,
                                                   fontSize: 14,
@@ -331,7 +330,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Container(
                                   padding: const EdgeInsets.all(20.0),
                                   width: double.infinity,
-                                  height: 390.0,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.5,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20.0),
                                     color: Colors.white,
@@ -477,16 +477,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                                             .canvasColor,
                                                     defaultSelected:
                                                         userController
-                                                                .userModel[0]
-                                                                .gender ??
-                                                            "",
+                                                            .userModel[0]
+                                                            .gender,
                                                     buttonLables: [
                                                       languages[68].kh,
                                                       languages[69].kh,
                                                     ],
                                                     buttonValues: const [
-                                                      "Male",
-                                                      "Female",
+                                                      "male",
+                                                      "female",
                                                     ],
                                                     buttonTextStyle: ButtonTextStyle(
                                                         selectedColor:
@@ -593,9 +592,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               BorderRadius.circular(6.0)),
                                     ),
                                     child: Text(
-                                      !userController.isLoading.value
-                                          ? languages[61].kh
-                                          : "Loading...",
+                                      languages[61].kh,
                                       style: GoogleFonts.koulen(
                                         textStyle: const TextStyle(
                                           color: Colors.white,

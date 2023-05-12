@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:curved_carousel/curved_carousel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -28,108 +29,6 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
   Duration position = const Duration();
 
   bool playing = false;
-
-  //show date
-  String showDate = '';
-  // DateTime _selectedDate = DateTime.now();
-
-  //show month
-  String showMonth = '';
-  // DateTime _selectedMonth = DateTime.now();
-
-  //show year
-  String showYear = '';
-  DateTime _selectedYear = DateTime.now();
-
-  selectDate(context) async {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-              languages[29].kh,
-              style: GoogleFonts.notoSans(
-                  textStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              )),
-            ),
-            content: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
-              height: MediaQuery.of(context).size.height * 0.7,
-              child: GridView.builder(
-                  itemCount: 31,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      crossAxisSpacing: 4.0,
-                      mainAxisSpacing: 4.0),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 10.0),
-                      child: Text(
-                        (index + 1).toString(),
-                        style: TextStyle(color: textDarkColor, fontSize: 18.0),
-                      ),
-                    );
-                  }),
-            ),
-          );
-        });
-  }
-
-  selectMonth(context) async {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-              languages[30].kh,
-              style: GoogleFonts.notoSansKhmer(
-                  textStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              )),
-            ),
-            content: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
-              height: MediaQuery.of(context).size.height * 0.7,
-              child: null,
-            ),
-          );
-        });
-  }
-
-  selectYear(context) async {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-              languages[31].kh,
-              style: GoogleFonts.notoSansKhmer(
-                  textStyle: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              )),
-            ),
-            content: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: MediaQuery.of(context).size.height * 0.7,
-                child: YearPicker(
-                    firstDate: DateTime(1600, 1),
-                    lastDate: DateTime(DateTime.now().year),
-                    selectedDate: _selectedYear,
-                    onChanged: (DateTime dateTime) {
-                      setState(() {
-                        _selectedYear = dateTime;
-                        showYear = "${dateTime.year}";
-                      });
-                      Navigator.pop(context);
-                    })),
-          );
-        });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -253,29 +152,21 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                     children: [
                       Expanded(
                         child: SizedBox(
-                          height: 40.0,
+                          height: 45.0,
                           child: TextField(
                             style: GoogleFonts.notoSansKhmer(
                                 textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
                             )),
-                            onTap: () {
-                              selectDate(context);
-                            },
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                              LengthLimitingTextInputFormatter(2),
+                            ],
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10.0, vertical: 5.0),
                               filled: true,
                               fillColor: Colors.white,
-                              suffixIcon: Icon(
-                                FeatherIcons.chevronDown,
-                                color: primaryColor,
-                                size: 20.0,
-                              ),
-                              suffixIconConstraints: const BoxConstraints(
-                                maxHeight: 50.0,
-                              ),
                               hintText: languages[35].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -291,73 +182,58 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                         ),
                       ),
                       const SizedBox(
-                        width: 8.0,
+                        width: 10.0,
                       ),
                       Expanded(
                         child: SizedBox(
-                          height: 40.0,
-                          child: TextField(
-                            style: GoogleFonts.notoSansKhmer(
-                                textStyle: TextStyle(
-                              fontSize: 14.0,
-                              color: canvasColor,
-                            )),
-                            onTap: () {
-                              selectMonth(context);
-                            },
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10.0, vertical: 5.0),
-                              filled: true,
-                              fillColor: Colors.white,
-                              suffixIcon: Icon(
-                                FeatherIcons.chevronDown,
-                                color: primaryColor,
-                                size: 20.0,
-                              ),
-                              suffixIconConstraints:
-                                  const BoxConstraints(maxHeight: 50.0),
-                              hintText: languages[36].kh,
-                              enabledBorder: OutlineInputBorder(
+                            height: 45.0,
+                            child: TextField(
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                fontSize: 14.0,
+                                color: canvasColor,
+                              )),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(2),
+                              ],
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                hintText: languages[36].kh,
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: borderColor, width: 1.0),
+                                    borderRadius: BorderRadius.circular(6.0)),
+                                focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: borderColor, width: 1.0),
-                                  borderRadius: BorderRadius.circular(6.0)),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primaryColor, width: 1.0),
-                                borderRadius: BorderRadius.circular(6.0),
+                                      color: primaryColor, width: 1.0),
+                                  borderRadius: BorderRadius.circular(6.0),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
+                            )),
                       ),
                       const SizedBox(
-                        width: 8.0,
+                        width: 10.0,
                       ),
                       Expanded(
                         child: SizedBox(
-                          height: 40.0,
+                          height: 45.0,
                           child: TextField(
                             style: GoogleFonts.notoSansKhmer(
                                 textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
                             )),
-                            onTap: () {
-                              selectYear(context);
-                            },
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                              LengthLimitingTextInputFormatter(4),
+                            ],
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10.0, vertical: 5.0),
                               filled: true,
                               fillColor: Colors.white,
-                              suffixIcon: Icon(
-                                FeatherIcons.chevronDown,
-                                color: primaryColor,
-                                size: 20.0,
-                              ),
-                              suffixIconConstraints:
-                                  const BoxConstraints(maxHeight: 50.0),
                               hintText: languages[37].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -373,7 +249,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                         ),
                       ),
                       const SizedBox(
-                        width: 8.0,
+                        width: 10.0,
                       ),
                       Expanded(
                         child: ElevatedButton(
@@ -384,9 +260,10 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(6.0)),
-                            minimumSize: const Size(40.0, 47.0),
+                            minimumSize:
+                                Size(MediaQuery.of(context).size.width, 52),
                           ),
-                          onPressed: () {},
+                          onPressed: () => {},
                           child: Text(
                             languages[17].kh,
                             style: GoogleFonts.notoSansKhmer(

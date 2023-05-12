@@ -114,4 +114,6 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'របស់លោកគ្រូ ', en: 'Horoscope by Master. '), //86
   Languages(kh: 'ជាមួយ ', en: 'with'), //87
   Languages(kh: 'ក្នុងមួយថ្ងៃ', en: ' per day.'), //88
+  Languages(kh: 'ថ្ងៃទី / ខែ / ឆ្នាំ', en: 'dd/mm/yyy'), //89
+  Languages(kh: 'ផ្ញើលេខកូដម្ដងទៀត', en: 'Resend'), //90
 ];

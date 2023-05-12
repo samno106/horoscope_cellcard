@@ -26,7 +26,8 @@ class _OtpPageState extends State<OtpPage> {
   String _code = '';
 
   late Timer _timer;
-  int _start = 60;
+  int _start = 40;
+  bool resend = false;
 
   @override
   void initState() {
@@ -115,7 +116,8 @@ class _OtpPageState extends State<OtpPage> {
                         digitsOnly: true,
                         autofocus: true,
                         onCompleted: (String value) {
-                          updatedCompleted(value);
+                          registerController.otpCodeController.text = value;
+                          _code = value;
                         },
                         onEditing: (bool value) {
                           updatedEditing(value);
@@ -124,14 +126,28 @@ class _OtpPageState extends State<OtpPage> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        '${languages[76].kh} $_start s',
-                        style: GoogleFonts.notoSansKhmer(
-                            textStyle: TextStyle(
-                          color: textDarkColor,
-                          fontSize: 14.0,
-                        )),
-                      ),
+                      resend == false
+                          ? Text(
+                              '${languages[76].kh} 0:$_start s',
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                color: textDarkColor,
+                                fontSize: 14.0,
+                              )),
+                            )
+                          : TextButton(
+                              onPressed: () =>
+                                  {registerController.registerSendOtp()},
+                              child: Text(
+                                languages[90].kh,
+                                style: GoogleFonts.notoSansKhmer(
+                                    textStyle: TextStyle(
+                                  color: primaryColor,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline,
+                                )),
+                              )),
                     ]),
               ),
               const SizedBox(
@@ -151,7 +167,7 @@ class _OtpPageState extends State<OtpPage> {
                 onPressed: _code.length < 6
                     ? null
                     : () {
-                        registerController.register();
+                        registerController.registerConfirmOtp();
                       },
                 child: Text(
                   languages[15].kh,
@@ -189,6 +205,7 @@ class _OtpPageState extends State<OtpPage> {
       if (_start == 0) {
         setState(() {
           _start = 0;
+          resend = true;
           _timer.cancel();
         });
       } else {

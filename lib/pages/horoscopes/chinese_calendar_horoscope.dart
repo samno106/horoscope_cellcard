@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -208,29 +209,21 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                     children: [
                       Expanded(
                         child: SizedBox(
-                          height: 40.0,
+                          height: 45.0,
                           child: TextField(
                             style: GoogleFonts.notoSansKhmer(
                                 textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
                             )),
-                            onTap: () {
-                              selectDate(context);
-                            },
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                              LengthLimitingTextInputFormatter(2),
+                            ],
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10.0, vertical: 5.0),
                               filled: true,
                               fillColor: Colors.white,
-                              suffixIcon: Icon(
-                                FeatherIcons.chevronDown,
-                                color: primaryColor,
-                                size: 20.0,
-                              ),
-                              suffixIconConstraints: const BoxConstraints(
-                                maxHeight: 50.0,
-                              ),
                               hintText: languages[35].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -246,73 +239,58 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                         ),
                       ),
                       const SizedBox(
-                        width: 8.0,
+                        width: 10.0,
                       ),
                       Expanded(
                         child: SizedBox(
-                          height: 40.0,
-                          child: TextField(
-                            style: GoogleFonts.notoSansKhmer(
-                                textStyle: TextStyle(
-                              fontSize: 14.0,
-                              color: canvasColor,
-                            )),
-                            onTap: () {
-                              selectMonth(context);
-                            },
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10.0, vertical: 5.0),
-                              filled: true,
-                              fillColor: Colors.white,
-                              suffixIcon: Icon(
-                                FeatherIcons.chevronDown,
-                                color: primaryColor,
-                                size: 20.0,
-                              ),
-                              suffixIconConstraints:
-                                  const BoxConstraints(maxHeight: 50.0),
-                              hintText: languages[36].kh,
-                              enabledBorder: OutlineInputBorder(
+                            height: 45.0,
+                            child: TextField(
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                fontSize: 14.0,
+                                color: canvasColor,
+                              )),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(2),
+                              ],
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                hintText: languages[36].kh,
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: borderColor, width: 1.0),
+                                    borderRadius: BorderRadius.circular(6.0)),
+                                focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: borderColor, width: 1.0),
-                                  borderRadius: BorderRadius.circular(6.0)),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: primaryColor, width: 1.0),
-                                borderRadius: BorderRadius.circular(6.0),
+                                      color: primaryColor, width: 1.0),
+                                  borderRadius: BorderRadius.circular(6.0),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
+                            )),
                       ),
                       const SizedBox(
-                        width: 8.0,
+                        width: 10.0,
                       ),
                       Expanded(
                         child: SizedBox(
-                          height: 40.0,
+                          height: 45.0,
                           child: TextField(
                             style: GoogleFonts.notoSansKhmer(
                                 textStyle: TextStyle(
                               fontSize: 14.0,
                               color: canvasColor,
                             )),
-                            onTap: () {
-                              selectYear(context);
-                            },
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                              LengthLimitingTextInputFormatter(4),
+                            ],
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10.0, vertical: 5.0),
                               filled: true,
                               fillColor: Colors.white,
-                              suffixIcon: Icon(
-                                FeatherIcons.chevronDown,
-                                color: primaryColor,
-                                size: 20.0,
-                              ),
-                              suffixIconConstraints:
-                                  const BoxConstraints(maxHeight: 50.0),
                               hintText: languages[37].kh,
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -328,7 +306,7 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                         ),
                       ),
                       const SizedBox(
-                        width: 8.0,
+                        width: 10.0,
                       ),
                       Expanded(
                         child: ElevatedButton(
@@ -339,20 +317,16 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(6.0)),
-                            minimumSize: const Size(40.0, 47.0),
+                            minimumSize:
+                                Size(MediaQuery.of(context).size.width, 52),
                           ),
-                          onPressed: () {
-                            setState(() {
-                              isResult = true;
-                            });
-                          },
+                          onPressed: () => {},
                           child: Text(
                             languages[17].kh,
                             style: GoogleFonts.notoSansKhmer(
                                 textStyle: const TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w500,
-                            )),
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.w500)),
                           ),
                         ),
                       )

@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +12,7 @@ import '../../constants/colors.dart';
 
 import '../../constants/language.dart';
 import '../../layouts/base_navbar.dart';
+import '../../utils/dob_text_formatter.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/path_painter.dart';
 
@@ -151,15 +153,18 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                 fontSize: 14.0,
                                 color: canvasColor,
                               )),
-                              controller: _textBoyEditingController,
-                              onTap: () => _openBoyDatepicker(context),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(8),
+                                DobTextFormatter()
+                              ],
                               decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 10.0, vertical: 5.0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText:
-                                    '${languages[35].kh} / ${languages[36].kh} / ${languages[37].kh}',
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 10.0, vertical: 5.0),
+                                hintText: languages[89].kh,
                                 enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color: borderColor, width: 1.0),
@@ -204,15 +209,18 @@ class _CoupleHoroscopePageState extends State<CoupleHoroscopePage> {
                                 fontSize: 14.0,
                                 color: canvasColor,
                               )),
-                              controller: _textGirlEditingController,
-                              onTap: () => _openGirlDatepicker(context),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(8),
+                                DobTextFormatter()
+                              ],
                               decoration: InputDecoration(
-                                contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 10.0, vertical: 5.0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText:
-                                    '${languages[35].kh} / ${languages[36].kh} / ${languages[37].kh}',
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 10.0, vertical: 5.0),
+                                hintText: languages[89].kh,
                                 enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color: borderColor, width: 1.0),

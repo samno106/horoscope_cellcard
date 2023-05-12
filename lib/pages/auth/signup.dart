@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +11,7 @@ import 'package:intl/intl.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/language.dart';
+import '../../utils/dob_text_formatter.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -21,11 +25,23 @@ class _SignupPageState extends State<SignupPage> {
 
   final registerController = Get.find<RegisterController>();
 
-  DateTime selectedDate = DateTime.now();
-  final startDate = DateTime(1969, 1);
-  final lasttDate = DateTime.now();
+  FocusNode focusNode = FocusNode();
+  String hintText = languages[65].kh;
 
   String _genderValue = "";
+
+  @override
+  void initState() {
+    super.initState();
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        hintText = languages[89].kh;
+      } else {
+        hintText = languages[65].kh;
+      }
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,12 +139,18 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     TextField(
                       controller: registerController.dobController,
-                      onTap: () => _openDatepicker(context),
                       style: GoogleFonts.notoSansKhmer(
                           textStyle: TextStyle(
                         fontSize: 14.0,
                         color: canvasColor,
                       )),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        LengthLimitingTextInputFormatter(8),
+                        DobTextFormatter()
+                      ],
+                      focusNode: focusNode,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -136,7 +158,8 @@ class _SignupPageState extends State<SignupPage> {
                           FeatherIcons.calendar,
                           color: iconColor,
                         ),
-                        hintText: languages[65].kh,
+                        hintText: hintText,
+                        // hintText: languages[65].kh,
                         enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(color: borderColor, width: 1.0),
@@ -266,7 +289,7 @@ class _SignupPageState extends State<SignupPage> {
                         minimumSize:
                             Size(MediaQuery.of(context).size.width, 50),
                       ),
-                      onPressed: () => {Get.toNamed('/confirm-otp')},
+                      onPressed: () => {registerController.registerSendOtp()},
                       child: Text(
                         languages[16].kh,
                         style: GoogleFonts.notoSansKhmer(
@@ -377,22 +400,5 @@ class _SignupPageState extends State<SignupPage> {
             )),
       )),
     );
-  }
-
-  _openDatepicker(BuildContext context) async {
-    final DateTime? dob = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: startDate,
-      lastDate: lasttDate,
-    );
-
-    if (dob != null) {
-      setState(() {
-        selectedDate = dob;
-        String formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
-        registerController.dobController.text = formattedDate;
-      });
-    }
   }
 }

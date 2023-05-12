@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -118,6 +119,11 @@ class _PhoneNumberHoroscopePageState extends State<PhoneNumberHoroscopePage> {
                         fontSize: 14.0,
                         color: canvasColor,
                       )),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        LengthLimitingTextInputFormatter(9),
+                      ],
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(2.0),
                         hintText: languages[41].kh,

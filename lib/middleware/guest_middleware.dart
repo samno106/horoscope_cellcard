@@ -1,15 +1,19 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/user_controller.dart';
+import '../services/get_user_loged_service.dart';
+import '../utils/shared_prefs.dart';
 
 class GuestMiddleware extends GetMiddleware {
-  final userController = Get.put(UserController());
+  var _sigenedInUser = Get.put(GetUserLogedService());
+
   @override
   int? get priority => 1;
 
   @override
   RouteSettings? redirect(String? route) {
-    if (userController.isAuth.value) {
+    if (_sigenedInUser.isLoggedIn == true) {
       return const RouteSettings(name: '/');
     }
   }

@@ -2,18 +2,32 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:horoscope_cellcard/models/user_model.dart';
+import 'package:horoscope_cellcard/utils/shared_prefs.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../services/get_user_loged_service.dart';
 import '../utils/api_endpoints.dart';
 
 class LoginController extends GetxController {
-  TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController otpCodeController = TextEditingController();
-  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  late TextEditingController phoneNumberController, otpCodeController;
 
   var message = 'Unknown Error Occured.';
+
+  @override
+  void onInit() {
+    super.onInit();
+    phoneNumberController = TextEditingController();
+    otpCodeController = TextEditingController();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    phoneNumberController.dispose();
+    otpCodeController.dispose();
+  }
 
   Future<void> loginSendOtp() async {
     try {
@@ -66,6 +80,8 @@ class LoginController extends GetxController {
   }
 
   Future<void> confirmOtp() async {
+    var _sigenedInUser = Get.put(GetUserLogedService());
+
     try {
       var header = {
         'Content-Type': 'application/json',
@@ -74,24 +90,22 @@ class LoginController extends GetxController {
             'Origin, X-Requested-With, Content-Type, Accept',
       };
       var url = Uri.parse(
-          ApiEndPoints.BASE_URL + ApiEndPoints.AUTHENDPOINTS.CONFIRM_OTP);
+          ApiEndPoints.BASE_URL + ApiEndPoints.AUTHENDPOINTS.LOGIN_CONFIRM_OTP);
 
       Map body = {
         'phone_number': phoneNumberController.text,
         'otp_code': otpCodeController.text
       };
+
       http.Response response =
           await http.post(url, body: jsonEncode(body), headers: header);
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-        var token = json['data']['token'];
-        final SharedPreferences? prefs = await _prefs;
 
-        await prefs?.setString('token', token ?? "");
-        await prefs?.setBool('isAuth', true);
+        await SharedPrefs().storeUser(jsonEncode(json['data']));
 
-        phoneNumberController.clear();
-        otpCodeController.clear();
+        _sigenedInUser.isUserSignedIn();
+
         Get.toNamed('/');
       } else {
         final jsonData = jsonDecode(response.body);

@@ -4,11 +4,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
+import '../../constants/horoscope_property.dart';
 import '../../constants/language.dart';
 import '../../controllers/user_controller.dart';
 import '../../layouts/top_navbar.dart';
+import '../../services/get_user_loged_service.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 import '../../wegets/path_painter.dart';
+import '../../wegets/select_subscibe_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,7 +21,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final userController = Get.find<UserController>();
+  var _sigenedInUser = Get.put(GetUserLogedService());
+
   int selectedYearName = 0;
   int selectedYearContent = 0;
 
@@ -169,7 +173,25 @@ class _HomePageState extends State<HomePage> {
                             Size(MediaQuery.of(context).size.width, 50),
                       ),
                       onPressed: () {
-                        Get.toNamed('auth');
+                        if (_sigenedInUser.isLoggedIn == false) {
+                          Get.toNamed('auth');
+                        } else {
+                          showModalBottomSheet(
+                              isScrollControlled: true,
+                              context: context,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20.0),
+                                  topRight: Radius.circular(20.0),
+                                ),
+                              ),
+                              backgroundColor: Colors.white,
+                              builder: ((context) {
+                                return SelectSubscibeList(
+                                  route: horoscopeRoute[0],
+                                );
+                              }));
+                        }
                       },
                       child: Text(
                         languages[13].kh,

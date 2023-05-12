@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -112,6 +113,11 @@ class _BankNumberHoroscopePageState extends State<BankNumberHoroscopePage> {
                           isResult = true;
                         });
                       },
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        LengthLimitingTextInputFormatter(26),
+                      ],
                       textAlign: TextAlign.center,
                       style: GoogleFonts.notoSansKhmer(
                           textStyle: TextStyle(
