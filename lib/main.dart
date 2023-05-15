@@ -10,7 +10,7 @@ void main() {
   setPathUrlStrategy();
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialBinding: ControllerBindings(),
+    // initialBinding: ControllerBindings(),
     initialRoute: AppPage.getbottomNavbar(),
     defaultTransition: Transition.native,
     getPages: AppPage.routes,

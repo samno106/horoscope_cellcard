@@ -23,7 +23,7 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   String logo = "/images/carousel/monkey.png";
 
-  final registerController = Get.find<RegisterController>();
+  final registerController = Get.put(RegisterController());
 
   FocusNode focusNode = FocusNode();
   String hintText = languages[65].kh;

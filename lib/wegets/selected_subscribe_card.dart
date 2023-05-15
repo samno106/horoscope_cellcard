@@ -8,20 +8,29 @@ import 'package:intl/intl.dart';
 
 import '../constants/colors.dart';
 
-class SelectedSubscribeCard extends StatelessWidget {
+class SelectedSubscribeCard extends StatefulWidget {
+  final String name, img, contents, route;
+  final int id;
+  final double price;
+  final bool isSubscribed;
+
   const SelectedSubscribeCard(
-      {Key? key,
+      {required this.id,
       required this.name,
       required this.img,
       required this.price,
       required this.contents,
       required this.isSubscribed,
-      required this.route})
-      : super(key: key);
-  final String name, img, contents, route;
-  final double price;
-  final bool isSubscribed;
+      required this.route,
+      super.key});
 
+  @override
+  State<SelectedSubscribeCard> createState() => _SelectedSubscribeCardState();
+}
+
+class _SelectedSubscribeCardState extends State<SelectedSubscribeCard> {
+  late RxBool iscolop = false.obs;
+  late RxBool isOpen = true.obs;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,7 +54,7 @@ class SelectedSubscribeCard extends StatelessWidget {
                 fit: BoxFit.cover,
                 width: 68.0,
                 height: 68.0,
-                image: NetworkImage(img),
+                image: NetworkImage(widget.img),
               ),
             ),
           ),
@@ -58,7 +67,7 @@ class SelectedSubscribeCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  name,
+                  widget.name,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14.0,
@@ -79,17 +88,42 @@ class SelectedSubscribeCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Flexible(
-                        child: Text(
-                          contents,
-                          style: const TextStyle(fontSize: 12.0),
-                          textAlign: TextAlign.left,
-                          softWrap: true,
-                        ),
+                        child: Column(children: [
+                          Visibility(
+                              visible: isOpen.value,
+                              maintainAnimation: true,
+                              maintainState: true,
+                              child: Text(
+                                widget.contents.length > 100
+                                    ? widget.contents.substring(0, 100) + '...'
+                                    : widget.contents,
+                                style: const TextStyle(fontSize: 12.0),
+                                textAlign: TextAlign.left,
+                                softWrap: true,
+                              )),
+                          Visibility(
+                              visible: iscolop.value,
+                              maintainAnimation: true,
+                              maintainState: true,
+                              child: Text(
+                                widget.contents,
+                                style: const TextStyle(fontSize: 12.0),
+                                textAlign: TextAlign.left,
+                                softWrap: true,
+                              ))
+                        ]),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            iscolop.value = !iscolop.value;
+                            isOpen.value = !isOpen.value;
+                          });
+                        },
                         icon: Icon(
-                          FeatherIcons.chevronsDown,
+                          iscolop.value == false
+                              ? FeatherIcons.chevronDown
+                              : FeatherIcons.chevronUp,
                           size: 18.0,
                           color: blueColor,
                         ),
@@ -103,7 +137,7 @@ class SelectedSubscribeCard extends StatelessWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: isSubscribed == false
+                    backgroundColor: widget.isSubscribed == false
                         ? buttonPrimaryColor
                         : primaryColor,
                     shadowColor: blueColor,
@@ -113,10 +147,10 @@ class SelectedSubscribeCard extends StatelessWidget {
                     minimumSize: const Size(100.0, 40.0),
                   ),
                   onPressed: () => {
-                    if (isSubscribed)
+                    if (widget.isSubscribed)
                       {
                         Navigator.of(context).pop(),
-                        Get.toNamed(route),
+                        Get.toNamed(widget.route),
                       }
                     else
                       {
@@ -124,14 +158,14 @@ class SelectedSubscribeCard extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: (context) => CustomDialogWidget(
-                            name: name,
-                            price: price,
+                            name: widget.name,
+                            price: widget.price,
                           ),
                         ),
                       }
                   },
                   child: Text(
-                    !isSubscribed ? languages[51].kh : languages[24].kh,
+                    !widget.isSubscribed ? languages[51].kh : languages[24].kh,
                     style: GoogleFonts.notoSansKhmer(
                         textStyle: const TextStyle(
                       fontSize: 12.0,
@@ -185,13 +219,14 @@ class CustomDialogWidget extends StatelessWidget {
                 ],
               ),
             ),
-            const Text(
-              "Subscribe to",
+            Text(
+              languages[93].kh,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14.0,
+              style: GoogleFonts.notoSansKhmer(
+                  textStyle: const TextStyle(
+                fontSize: 16.0,
                 fontWeight: FontWeight.w600,
-              ),
+              )),
             ),
             const SizedBox(
               height: 5.0,
@@ -199,10 +234,11 @@ class CustomDialogWidget extends StatelessWidget {
             Text(
               name,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 14.0,
+              style: GoogleFonts.notoSansKhmer(
+                  textStyle: const TextStyle(
+                fontSize: 18.0,
                 fontWeight: FontWeight.w600,
-              ),
+              )),
             ),
             const SizedBox(
               height: 30.0,
@@ -233,13 +269,14 @@ class CustomDialogWidget extends StatelessWidget {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    const Text(
-                      "per day",
+                    Text(
+                      languages[88].kh,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: GoogleFonts.notoSansKhmer(
+                          textStyle: const TextStyle(
                         fontSize: 14.0,
                         fontWeight: FontWeight.w500,
-                      ),
+                      )),
                     ),
                   ],
                 ),
@@ -261,13 +298,14 @@ class CustomDialogWidget extends StatelessWidget {
                     const SizedBox(
                       width: 10.0,
                     ),
-                    const Text(
-                      "Auto renewal everyday",
+                    Text(
+                      languages[54].kh,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: GoogleFonts.notoSansKhmer(
+                          textStyle: const TextStyle(
                         fontSize: 14.0,
                         fontWeight: FontWeight.w500,
-                      ),
+                      )),
                     ),
                   ],
                 ),
@@ -293,10 +331,9 @@ class CustomDialogWidget extends StatelessWidget {
                           Navigator.of(context).pop(),
                           showDialog(
                             context: context,
-                            builder: (context) => const ConfirmDialogWidget(
-                              title: "Inactive Account!",
-                              content:
-                                  "Your account is inactive. Please top-up to subscribe.",
+                            builder: (context) => ConfirmDialogWidget(
+                              title: languages[94].kh,
+                              content: languages[95].kh,
                             ),
                           ),
                         }
@@ -328,40 +365,70 @@ class ConfirmDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoAlertDialog(
-      title: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w600,
-        ),
+    return Dialog(
+      elevation: 0,
+      backgroundColor: const Color(0xffffffff),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
       ),
-      content: Padding(
-        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 15.0),
-        child: Text(
-          content,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: textDarkGreyColor,
-            fontSize: 14.0,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
-      actions: [
-        CupertinoDialogAction(
-          isDefaultAction: true,
-          onPressed: () => {Navigator.of(context).pop()},
-          child: Text(
-            "Ok",
-            style: TextStyle(
-              color: blueColor,
-              fontSize: 14.0,
-              fontWeight: FontWeight.w500,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15.0),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 35.0, right: 35.0, top: 20.0),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.notoSansKhmer(
+                  textStyle: const TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.w600,
+              )),
             ),
           ),
-        ),
-      ],
+          const SizedBox(
+            height: 15.0,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 35.0),
+            child: Text(
+              content,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.notoSansKhmer(
+                  textStyle: TextStyle(
+                fontSize: 16.0,
+                color: textDarkGreyColor,
+                fontWeight: FontWeight.w500,
+              )),
+            ),
+          ),
+          const SizedBox(
+            height: 35.0,
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Divider(color: blueColor),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: TextButton(
+              onPressed: () => {Navigator.of(context).pop()},
+              child: Text(
+                languages[20].kh,
+                style: GoogleFonts.notoSansKhmer(
+                  textStyle: const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+          )
+        ]),
+      ),
     );
   }
 }

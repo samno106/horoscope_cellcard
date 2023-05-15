@@ -29,7 +29,8 @@ class _AuthPageState extends State<AuthPage> {
             color: canvasColor,
           ),
           onPressed: () {
-            Get.back();
+            print('Go Back');
+            Get.toNamed('/');
           },
         ),
       ),

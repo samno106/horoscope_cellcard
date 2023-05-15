@@ -67,29 +67,32 @@ class SelectSubscibeList extends StatelessWidget {
             shrinkWrap: false,
             children: [
               SelectedSubscribeCard(
-                name: "Master Khit Samno",
+                id: 1,
+                name: "ឡុង បូរ៉ា",
                 img: profiles[0],
                 price: 1.5,
                 contents:
-                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
+                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enimLorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enimLorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim",
                 isSubscribed: true,
                 route: route,
               ),
               SelectedSubscribeCard(
-                name: "Master Khit Samno",
+                id: 2,
+                name: "ឡុង បូរ៉ា",
                 img: profiles[1],
                 price: 0.50,
                 contents:
-                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
+                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim My 11",
                 isSubscribed: false,
                 route: route,
               ),
               SelectedSubscribeCard(
-                name: "Master Khit Samno",
+                id: 3,
+                name: "ឡុង បូរ៉ា",
                 img: profiles[0],
                 price: 2.40,
                 contents:
-                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim... ",
+                    "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim My 12 ",
                 isSubscribed: false,
                 route: route,
               ),

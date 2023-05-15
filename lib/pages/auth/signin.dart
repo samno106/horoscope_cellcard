@@ -16,7 +16,7 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
-  final loginController = Get.find<LoginController>();
+  final loginController = Get.put(LoginController());
 
   String logo = "/images/carousel/monkey.png";
   @override

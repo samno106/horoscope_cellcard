@@ -18,7 +18,7 @@ class OtpPage extends StatefulWidget {
 }
 
 class _OtpPageState extends State<OtpPage> {
-  final registerController = Get.find<RegisterController>();
+  final registerController = Get.put(RegisterController());
 
   String phoneNumber = "";
 

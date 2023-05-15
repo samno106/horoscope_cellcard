@@ -17,7 +17,7 @@ class OtpLoginPage extends StatefulWidget {
 }
 
 class _OtpLoginPageState extends State<OtpLoginPage> {
-  final loginController = Get.find<LoginController>();
+  final loginController = Get.put(LoginController());
 
   String phoneNumber = "";
 

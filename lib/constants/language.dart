@@ -119,4 +119,12 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'ជោគជ័យ', en: 'Success'), //91
   Languages(
       kh: 'អ្នកបានចូលដោយជោគជ័យ!', en: 'You have successfully logged in!'), //92
+  Languages(
+      kh: 'ភ្ជាប់គម្រោងជាមូយលោកគ្រូហោរាសាស្ត្រ',
+      en: 'Subscribe to master'), //93
+  Languages(
+      kh: 'គណនីអ្នកប្រើប្រាស់មិនត្រឹមត្រូវ!', en: 'Inactive Account!'), //94
+  Languages(
+      kh: 'គណនីរបស់អ្នកអសកម្ម។ សូមបញ្ចូលទឹកប្រាក់ដើម្បីជាវ។',
+      en: 'Your account is inactive. Please top-up to subscribe.'), //95
 ];

@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   int selectedYearContent = 0;
 
   // void showAlert() async {
-  //   await SnackbarAlert().successAlert(languages[91].kh, languages[92].kh);
+  //   await SnackbarAlert().erorrAlert(languages[91].kh, languages[92].kh);
   // }
 
   @override
@@ -210,6 +210,8 @@ class _HomePageState extends State<HomePage> {
                         )),
                       ),
                     ),
+                    // TextButton(
+                    //     onPressed: () => {showAlert()}, child: Text("Alsert"))
                   ],
                 ),
               ),
