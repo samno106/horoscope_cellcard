@@ -39,10 +39,10 @@ class NotifiNavbar extends StatelessWidget {
                 ),
               ),
               Text(
-                title,
-                style: GoogleFonts.koulen(
+                '$title (5)',
+                style: GoogleFonts.notoSansKhmer(
                     textStyle: TextStyle(
-                        fontSize: 18.0,
+                        fontSize: 20.0,
                         fontWeight: FontWeight.w500,
                         color: textDarkColor)),
               ),

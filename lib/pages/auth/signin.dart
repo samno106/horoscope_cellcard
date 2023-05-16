@@ -17,8 +17,15 @@ class SigninPage extends StatefulWidget {
 
 class _SigninPageState extends State<SigninPage> {
   final loginController = Get.put(LoginController());
-
+  bool validate = false;
   String logo = "/images/carousel/monkey.png";
+
+  @override
+  void dispose() {
+    loginController.phoneNumberController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,9 +66,11 @@ class _SigninPageState extends State<SigninPage> {
                   width: MediaQuery.of(context).size.width,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
                             height: 35.0,
@@ -93,6 +102,15 @@ class _SigninPageState extends State<SigninPage> {
                         FilteringTextInputFormatter.digitsOnly,
                         LengthLimitingTextInputFormatter(9),
                       ],
+                      onChanged: (text) => {
+                        text.isEmpty
+                            ? setState(() {
+                                validate = true;
+                              })
+                            : setState(() {
+                                validate = false;
+                              })
+                      },
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -102,12 +120,14 @@ class _SigninPageState extends State<SigninPage> {
                         ),
                         hintText: languages[40].kh,
                         enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: textGreyColor, width: 1.0),
+                            borderSide: BorderSide(
+                                color: validate ? redColor : textGreyColor,
+                                width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: primaryColor, width: 1.0),
+                          borderSide: BorderSide(
+                              color: validate ? redColor : primaryColor,
+                              width: 1.0),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                       ),
@@ -115,34 +135,63 @@ class _SigninPageState extends State<SigninPage> {
                   ]),
                 ),
                 const SizedBox(
+                  height: 5.0,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Text(
+                    validate ? 'លេខទូរស័ព្ទមិនអាចទទេបានទេ' : '',
+                    textAlign: TextAlign.start,
+                    style: GoogleFonts.notoSansKhmer(
+                        textStyle: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w500,
+                            color: redColor)),
+                  ),
+                ),
+                const SizedBox(
                   height: 30.0,
                 ),
                 Container(
                   padding: const EdgeInsets.all(0.0),
-                  child: Column(children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: buttonPrimaryColor,
-                        shadowColor: blueColor,
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6.0)),
-                        minimumSize:
-                            Size(MediaQuery.of(context).size.width, 45),
-                      ),
-                      onPressed: () => {loginController.loginSendOtp()},
-                      child: Text(
-                        languages[16].kh,
-                        style: GoogleFonts.notoSansKhmer(
-                            textStyle: const TextStyle(
-                                fontSize: 14.0, fontWeight: FontWeight.w500)),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 25.0,
-                    ),
-                  ]),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: buttonPrimaryColor,
+                            shadowColor: blueColor,
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6.0)),
+                            minimumSize:
+                                Size(MediaQuery.of(context).size.width, 45),
+                          ),
+                          onPressed: () => {
+                            if (loginController
+                                .phoneNumberController.text.isEmpty)
+                              {
+                                setState(() {
+                                  validate = true;
+                                })
+                              }
+                            else
+                              {loginController.loginSendOtp()}
+                          },
+                          child: Text(
+                            languages[16].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: const TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w500)),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 25.0,
+                        ),
+                      ]),
                 ),
                 const SizedBox(
                   height: 40.0,

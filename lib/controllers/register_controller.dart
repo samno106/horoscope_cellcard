@@ -6,7 +6,9 @@ import 'package:horoscope_cellcard/utils/api_endpoints.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
+import '../constants/language.dart';
 import '../utils/shared_prefs.dart';
+import '../wegets/snackbar_alert.dart';
 
 class RegisterController extends GetxController {
   late TextEditingController fullNameController,
@@ -17,7 +19,7 @@ class RegisterController extends GetxController {
       isProcessing;
 
   final Future<SharedPreferences> prefs = SharedPreferences.getInstance();
-  var message = 'Unknown Error Occured.';
+  var message = languages[96].kh;
 
   @override
   void onInit() {
@@ -76,24 +78,7 @@ class RegisterController extends GetxController {
         throw message;
       }
     } catch (e) {
-      Get.snackbar(
-        "Oh snap!",
-        e.toString(),
-        icon: const Icon(
-          FeatherIcons.alertTriangle,
-          color: Colors.white,
-          size: 26.0,
-        ),
-        snackPosition: SnackPosition.TOP,
-        backgroundColor: const Color(0XFFC72C41),
-        borderRadius: 8.0,
-        snackStyle: SnackStyle.FLOATING,
-        colorText: Colors.white,
-        margin: const EdgeInsets.all(15),
-        isDismissible: true,
-        forwardAnimationCurve: Curves.easeOutBack,
-        boxShadows: null,
-      );
+      SnackbarAlert().erorrAlert(message, languages[97].kh);
     }
   }
 
@@ -137,24 +122,7 @@ class RegisterController extends GetxController {
         throw message;
       }
     } catch (e) {
-      Get.snackbar(
-        "Oh snap!",
-        message,
-        icon: const Icon(
-          FeatherIcons.alertTriangle,
-          color: Colors.white,
-          size: 26.0,
-        ),
-        snackPosition: SnackPosition.TOP,
-        backgroundColor: const Color(0XFFC72C41),
-        borderRadius: 8.0,
-        snackStyle: SnackStyle.FLOATING,
-        colorText: Colors.white,
-        margin: const EdgeInsets.all(15),
-        isDismissible: true,
-        forwardAnimationCurve: Curves.easeOutBack,
-        boxShadows: null,
-      );
+      SnackbarAlert().erorrAlert(message, languages[97].kh);
     }
   }
 }

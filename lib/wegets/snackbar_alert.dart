@@ -61,8 +61,8 @@ class SnackbarAlert {
       titleText: Text(
         title,
         style: GoogleFonts.notoSansKhmer(
-          textStyle: const TextStyle(
-            color: Colors.redAccent,
+          textStyle: TextStyle(
+            color: redColor,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
           ),
@@ -71,16 +71,16 @@ class SnackbarAlert {
       messageText: Text(
         message,
         style: GoogleFonts.notoSansKhmer(
-          textStyle: const TextStyle(
-            color: Colors.redAccent,
+          textStyle: TextStyle(
+            color: textDarkGreyColor,
             fontSize: 14.0,
             fontWeight: FontWeight.w500,
           ),
         ),
       ),
-      icon: const Icon(
+      icon: Icon(
         FeatherIcons.alertCircle,
-        color: Colors.redAccent,
+        color: redColor,
         size: 28.0,
       ),
       snackPosition: SnackPosition.TOP,

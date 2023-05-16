@@ -24,6 +24,10 @@ class _SignupPageState extends State<SignupPage> {
   String logo = "/images/carousel/monkey.png";
 
   final registerController = Get.put(RegisterController());
+  bool validateName = false;
+  bool validateDob = false;
+  bool validateGender = false;
+  bool validatePhone = false;
 
   FocusNode focusNode = FocusNode();
   String hintText = languages[65].kh;
@@ -114,6 +118,15 @@ class _SignupPageState extends State<SignupPage> {
                         fontSize: 14.0,
                         color: canvasColor,
                       )),
+                      onChanged: (text) => {
+                        text.isEmpty
+                            ? setState(() {
+                                validateName = true;
+                              })
+                            : setState(() {
+                                validateName = false;
+                              })
+                      },
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -123,17 +136,38 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         hintText: languages[64].kh,
                         enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: borderColor, width: 1.0),
+                          borderSide: BorderSide(
+                              color: validateName ? redColor : borderColor,
+                              width: 1.0),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: primaryColor, width: 1.0),
+                          borderSide: BorderSide(
+                              color: validateName ? redColor : primaryColor,
+                              width: 1.0),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    validateName
+                        ? SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: Text(
+                              'ឈ្មោះមិនអាចទទេបានទេ',
+                              textAlign: TextAlign.start,
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500,
+                                      color: redColor)),
+                            ),
+                          )
+                        : SizedBox(
+                            height: 1.0,
+                          ),
                     const SizedBox(
                       height: 15.0,
                     ),
@@ -144,6 +178,15 @@ class _SignupPageState extends State<SignupPage> {
                         fontSize: 14.0,
                         color: canvasColor,
                       )),
+                      onChanged: (text) => {
+                        text.isEmpty
+                            ? setState(() {
+                                validateDob = true;
+                              })
+                            : setState(() {
+                                validateDob = false;
+                              })
+                      },
                       keyboardType: TextInputType.number,
                       inputFormatters: [
                         FilteringTextInputFormatter.digitsOnly,
@@ -159,18 +202,38 @@ class _SignupPageState extends State<SignupPage> {
                           color: iconColor,
                         ),
                         hintText: hintText,
-                        // hintText: languages[65].kh,
                         enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: borderColor, width: 1.0),
+                            borderSide: BorderSide(
+                                color: validateDob ? redColor : borderColor,
+                                width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: primaryColor, width: 1.0),
+                          borderSide: BorderSide(
+                              color: validateDob ? redColor : primaryColor,
+                              width: 1.0),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    validateDob
+                        ? SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: Text(
+                              'ថ្ងៃខែ​ឆ្នាំ​កំណើតមិនអាចទទេបានទេ',
+                              textAlign: TextAlign.start,
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500,
+                                      color: redColor)),
+                            ),
+                          )
+                        : SizedBox(
+                            height: 1.0,
+                          ),
                     const SizedBox(
                       height: 15.0,
                     ),
@@ -185,12 +248,14 @@ class _SignupPageState extends State<SignupPage> {
                           color: iconColor,
                         ),
                         enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: borderColor, width: 1.0),
+                            borderSide: BorderSide(
+                                color: validateGender ? redColor : borderColor,
+                                width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: primaryColor, width: 1.0),
+                          borderSide: BorderSide(
+                              color: validateGender ? redColor : primaryColor,
+                              width: 1.0),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                       ),
@@ -237,10 +302,30 @@ class _SignupPageState extends State<SignupPage> {
                         setState(
                           () {
                             registerController.genderController.text = val!;
+                            validateGender = false;
                           },
                         );
                       },
                     ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    validateGender
+                        ? SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: Text(
+                              'ភេទមិនអាចទទេបានទេ',
+                              textAlign: TextAlign.start,
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500,
+                                      color: redColor)),
+                            ),
+                          )
+                        : SizedBox(
+                            height: 1.0,
+                          ),
                     const SizedBox(
                       height: 15.0,
                     ),
@@ -251,6 +336,15 @@ class _SignupPageState extends State<SignupPage> {
                         fontSize: 14.0,
                         color: canvasColor,
                       )),
+                      onChanged: (text) => {
+                        text.isEmpty
+                            ? setState(() {
+                                validatePhone = true;
+                              })
+                            : setState(() {
+                                validatePhone = false;
+                              })
+                      },
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -260,18 +354,39 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         hintText: languages[67].kh,
                         enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: borderColor, width: 1.0),
+                            borderSide: BorderSide(
+                                color: validatePhone ? redColor : borderColor,
+                                width: 1.0),
                             borderRadius: BorderRadius.circular(6.0)),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: primaryColor, width: 1.0),
+                          borderSide: BorderSide(
+                              color: validatePhone ? redColor : primaryColor,
+                              width: 1.0),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                       ),
                     ),
                   ]),
                 ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                validatePhone
+                    ? SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          'លេខទូរសព្ទមិនអាចទទេបានទេ',
+                          textAlign: TextAlign.start,
+                          style: GoogleFonts.notoSansKhmer(
+                              textStyle: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w500,
+                                  color: redColor)),
+                        ),
+                      )
+                    : SizedBox(
+                        height: 1.0,
+                      ),
                 const SizedBox(
                   height: 30.0,
                 ),
@@ -289,7 +404,24 @@ class _SignupPageState extends State<SignupPage> {
                         minimumSize:
                             Size(MediaQuery.of(context).size.width, 50),
                       ),
-                      onPressed: () => {registerController.registerSendOtp()},
+                      onPressed: () => {
+                        if (registerController
+                                .fullNameController.text.isEmpty ||
+                            registerController.dobController.text.isEmpty ||
+                            registerController.genderController.text.isEmpty ||
+                            registerController
+                                .phoneNumberController.text.isEmpty)
+                          {
+                            setState(() {
+                              validatePhone = true;
+                              validateName = true;
+                              validateDob = true;
+                              validateGender = true;
+                            })
+                          }
+                        else
+                          {registerController.registerSendOtp()}
+                      },
                       child: Text(
                         languages[16].kh,
                         style: GoogleFonts.notoSansKhmer(

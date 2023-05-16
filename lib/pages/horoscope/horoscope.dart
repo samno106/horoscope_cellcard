@@ -24,11 +24,11 @@ class _HoroscopePageState extends State<HoroscopePage> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             padding: const EdgeInsets.all(0.0),
-            height: 190.0,
+            height: MediaQuery.of(context).size.height * 0.2,
             child: Stack(
               children: <Widget>[
                 ClipPath(
@@ -91,6 +91,9 @@ class _HoroscopePageState extends State<HoroscopePage> {
                   );
                 }),
           ),
+          const SizedBox(
+            height: 50.0,
+          )
         ],
       )),
     );

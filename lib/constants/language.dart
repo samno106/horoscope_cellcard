@@ -69,7 +69,7 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'ការបញ្ជាក់', en: 'Confirmation'), //55
   Languages(kh: 'បោះបង់', en: 'Cancel'), //56
   Languages(kh: 'បញ្ជាក់', en: 'Confirm'), //57
-  Languages(kh: 'ការជូនដំណឹង', en: 'Notifications'), //58
+  Languages(kh: 'សារជូនដំណឹង', en: 'Notifications'), //58
   Languages(kh: 'គណនី', en: 'Profile'), //59
   Languages(kh: 'កែសម្រួលគណនី', en: 'Edit Profile'), //60
   Languages(kh: 'រក្សាទុកការផ្លាស់ប្តូរ', en: 'Save Change'), //61
@@ -127,4 +127,6 @@ List<Languages> languages = <Languages>[
   Languages(
       kh: 'គណនីរបស់អ្នកអសកម្ម។ សូមបញ្ចូលទឹកប្រាក់ដើម្បីជាវ។',
       en: 'Your account is inactive. Please top-up to subscribe.'), //95
+  Languages(kh: 'មានបញ្ហាបច្ចេកទេស', en: 'Unknown Error Occured.'), //96
+  Languages(kh: 'សូមព្យាយាមម្ដងទៀត', en: 'Please try again'), //97
 ];

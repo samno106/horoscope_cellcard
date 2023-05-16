@@ -39,9 +39,9 @@ class BaseNavbar extends StatelessWidget {
               ),
               Text(
                 title,
-                style: GoogleFonts.koulen(
+                style: GoogleFonts.notoSansKhmer(
                   textStyle: TextStyle(
-                    fontSize: 18.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                     color: textDarkColor,
                     height: 2.5,

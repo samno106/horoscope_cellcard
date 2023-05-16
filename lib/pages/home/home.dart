@@ -210,6 +210,7 @@ class _HomePageState extends State<HomePage> {
                         )),
                       ),
                     ),
+
                     // TextButton(
                     //     onPressed: () => {showAlert()}, child: Text("Alsert"))
                   ],
@@ -217,7 +218,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(
-              height: 50.0,
+              height: 60.0,
             )
           ],
         ),

@@ -15,7 +15,7 @@ import '../wegets/snackbar_alert.dart';
 class LoginController extends GetxController {
   late TextEditingController phoneNumberController, otpCodeController;
 
-  var message = 'Unknown Error Occured.';
+  var message = languages[96].kh;
 
   @override
   void onInit() {
@@ -60,24 +60,7 @@ class LoginController extends GetxController {
         throw message;
       }
     } catch (e) {
-      Get.snackbar(
-        message,
-        e.toString(),
-        icon: const Icon(
-          FeatherIcons.alertTriangle,
-          color: Colors.white,
-          size: 26.0,
-        ),
-        snackPosition: SnackPosition.TOP,
-        backgroundColor: const Color(0XFFC72C41),
-        borderRadius: 8.0,
-        snackStyle: SnackStyle.FLOATING,
-        colorText: Colors.white,
-        margin: const EdgeInsets.all(15),
-        isDismissible: true,
-        forwardAnimationCurve: Curves.easeOutBack,
-        boxShadows: null,
-      );
+      SnackbarAlert().erorrAlert(message, languages[97].kh);
     }
   }
 
@@ -125,24 +108,7 @@ class LoginController extends GetxController {
         throw jsonData['data']['error'] ?? 'Unknown Error Occured.';
       }
     } catch (e) {
-      Get.snackbar(
-        message,
-        e.toString(),
-        icon: const Icon(
-          FeatherIcons.alertTriangle,
-          color: Colors.white,
-          size: 26.0,
-        ),
-        snackPosition: SnackPosition.TOP,
-        backgroundColor: const Color(0XFFC72C41),
-        borderRadius: 8.0,
-        snackStyle: SnackStyle.FLOATING,
-        colorText: Colors.white,
-        margin: const EdgeInsets.all(15),
-        isDismissible: true,
-        forwardAnimationCurve: Curves.easeOutBack,
-        boxShadows: null,
-      );
+      SnackbarAlert().erorrAlert(message, languages[97].kh);
     }
   }
 }

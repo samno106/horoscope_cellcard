@@ -16,3 +16,4 @@ Color grayColor = const Color.fromARGB(203, 255, 255, 255);
 Color lightBlueColor = const Color.fromARGB(255, 220, 243, 255);
 Color lightBlueBorderColor = const Color.fromARGB(255, 119, 210, 255);
 Color borderColor = const Color(0XFFC9CCD0);
+Color redColor = const Color(0XFFF45050);
