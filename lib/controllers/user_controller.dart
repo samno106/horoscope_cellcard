@@ -5,8 +5,10 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:horoscope_cellcard/models/user_model.dart';
 import 'package:http/http.dart' as http;
+import '../constants/language.dart';
 import '../utils/api_endpoints.dart';
 import '../utils/shared_prefs.dart';
+import '../wegets/snackbar_alert.dart';
 
 class UserController extends GetxController {
   var userModel = <UserModel>[].obs;
@@ -51,8 +53,8 @@ class UserController extends GetxController {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer $token'
       };
-      var url = Uri.parse(
-          ApiEndPoints.BASE_URL + ApiEndPoints.PROFILEENDPOINTS.PROFILE);
+      var url =
+          Uri.parse(BaseUrl.BASE_URL + ApiEndPoints.PROFILEENDPOINTS.PROFILE);
 
       http.Response response = await http.post(url, headers: header);
 
@@ -81,24 +83,7 @@ class UserController extends GetxController {
         isLoading(false);
       }
     } catch (e) {
-      Get.snackbar(
-        message,
-        e.toString(),
-        icon: const Icon(
-          FeatherIcons.alertTriangle,
-          color: Colors.white,
-          size: 26.0,
-        ),
-        snackPosition: SnackPosition.TOP,
-        backgroundColor: const Color(0XFFC72C41),
-        borderRadius: 8.0,
-        snackStyle: SnackStyle.FLOATING,
-        colorText: Colors.white,
-        margin: const EdgeInsets.all(15),
-        isDismissible: true,
-        forwardAnimationCurve: Curves.easeOutBack,
-        boxShadows: null,
-      );
+      SnackbarAlert().erorrAlert(message, languages[97].kh);
       isLoading(false);
     }
   }
@@ -117,7 +102,7 @@ class UserController extends GetxController {
         'Authorization': 'Bearer $token'
       };
       var url = Uri.parse(
-          ApiEndPoints.BASE_URL + ApiEndPoints.PROFILEENDPOINTS.UPDATE_PROFILE);
+          BaseUrl.BASE_URL + ApiEndPoints.PROFILEENDPOINTS.UPDATE_PROFILE);
 
       Map body = {
         'full_name': fullNameController.text,

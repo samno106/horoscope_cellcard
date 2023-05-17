@@ -51,8 +51,8 @@ class RegisterController extends GetxController {
             'Origin, X-Requested-With, Content-Type, Accept',
         'Content-Type': 'application/json',
       };
-      var url = Uri.parse(
-          ApiEndPoints.BASE_URL + ApiEndPoints.AUTHENDPOINTS.REGISTER);
+      var url =
+          Uri.parse(BaseUrl.BASE_URL + ApiEndPoints.AUTHENDPOINTS.REGISTER);
 
       Map body = {
         'full_name': fullNameController.text,
@@ -90,8 +90,8 @@ class RegisterController extends GetxController {
         'Access-Control-Allow-Headers':
             'Origin, X-Requested-With, Content-Type, Accept',
       };
-      var url = Uri.parse(ApiEndPoints.BASE_URL +
-          ApiEndPoints.AUTHENDPOINTS.REGISTER_CONFIRM_OTP);
+      var url = Uri.parse(
+          BaseUrl.BASE_URL + ApiEndPoints.AUTHENDPOINTS.REGISTER_CONFIRM_OTP);
 
       Map body = {
         'full_name': fullNameController.text,

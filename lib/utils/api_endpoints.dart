@@ -1,7 +1,12 @@
-class ApiEndPoints {
+class BaseUrl {
   static final String BASE_URL = "http://localhost:8000/api/v1/";
+  static final String IMAGE_URL = "http://localhost:8000/";
+}
+
+class ApiEndPoints {
   static _AuthEndPoints AUTHENDPOINTS = _AuthEndPoints();
   static _ProfileEndPoints PROFILEENDPOINTS = _ProfileEndPoints();
+  static _MasterEndPoints MASTERENDPOINTS = _MasterEndPoints();
 }
 
 class _AuthEndPoints {
@@ -14,4 +19,11 @@ class _AuthEndPoints {
 class _ProfileEndPoints {
   final String PROFILE = "subscriber/profile";
   final String UPDATE_PROFILE = "subscriber/update";
+}
+
+class _MasterEndPoints {
+  final String MASTER_ALL = "masters/all";
+  final String MASTER_FIND_BY_ID = "masters/findById";
+  final String MASTER_FIND_BY_SUBSCRIBER = "masters/Subscriber";
+  final String MASTER_FIND_BY_NAME = "masters/listBySubscriber";
 }

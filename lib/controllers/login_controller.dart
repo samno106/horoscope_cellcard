@@ -39,8 +39,7 @@ class LoginController extends GetxController {
         'Access-Control-Allow-Headers':
             'Origin, X-Requested-With, Content-Type, Accept',
       };
-      var url =
-          Uri.parse(ApiEndPoints.BASE_URL + ApiEndPoints.AUTHENDPOINTS.LOGIN);
+      var url = Uri.parse(BaseUrl.BASE_URL + ApiEndPoints.AUTHENDPOINTS.LOGIN);
 
       Map body = {'phone_number': phoneNumberController.text};
 
@@ -75,7 +74,7 @@ class LoginController extends GetxController {
             'Origin, X-Requested-With, Content-Type, Accept',
       };
       var url = Uri.parse(
-          ApiEndPoints.BASE_URL + ApiEndPoints.AUTHENDPOINTS.LOGIN_CONFIRM_OTP);
+          BaseUrl.BASE_URL + ApiEndPoints.AUTHENDPOINTS.LOGIN_CONFIRM_OTP);
 
       Map body = {
         'phone_number': phoneNumberController.text,
