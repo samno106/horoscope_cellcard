@@ -27,6 +27,8 @@ class MasterController extends GetxController {
       var masters = await MasterService.fetchMasters();
       if (masters != null) {
         masterList.value = masters;
+        print(isLoading.value);
+        isLoading(false);
       } else {
         message = languages[97].kh;
         throw languages[96].kh ?? 'Unknown Error Occured.';

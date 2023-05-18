@@ -33,11 +33,14 @@ class LoginController extends GetxController {
 
   Future<void> loginSendOtp() async {
     try {
+      String apiKey = await SharedPrefs().getApiKey();
+
       var header = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers':
             'Origin, X-Requested-With, Content-Type, Accept',
+        'ApiKey': apiKey
       };
       var url = Uri.parse(BaseUrl.BASE_URL + ApiEndPoints.AUTHENDPOINTS.LOGIN);
 
@@ -67,11 +70,14 @@ class LoginController extends GetxController {
     var _sigenedInUser = Get.put(GetUserLogedService());
 
     try {
+      String apiKey = await SharedPrefs().getApiKey();
+
       var header = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers':
             'Origin, X-Requested-With, Content-Type, Accept',
+        'ApiKey': apiKey
       };
       var url = Uri.parse(
           BaseUrl.BASE_URL + ApiEndPoints.AUTHENDPOINTS.LOGIN_CONFIRM_OTP);

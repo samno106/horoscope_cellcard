@@ -8,14 +8,15 @@ import '../utils/shared_prefs.dart';
 
 class MasterService {
   static Future<List<MasterModel>> fetchMasters() async {
-    // String token = await SharedPrefs().getAuth();
-
+    String token = await SharedPrefs().getAuth();
+    String apiKey = await SharedPrefs().getApiKey();
     var header = {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers':
           'Origin, X-Requested-With, Content-Type, Accept',
       'Content-Type': 'application/json',
-      // 'Authorization': 'Bearer $token'
+      'ApiKey': apiKey,
+      'Authorization': 'Bearer $token',
     };
     var url =
         Uri.parse(BaseUrl.BASE_URL + ApiEndPoints.MASTERENDPOINTS.MASTER_ALL);
@@ -25,7 +26,7 @@ class MasterService {
     if (response.statusCode == 200) {
       final jsonRes = jsonDecode(response.body);
       var json = jsonEncode(jsonRes['data']);
-      print(json.toString());
+
       return masterModelFromJson(json.toString());
     }
     return [];

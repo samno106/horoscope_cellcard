@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:horoscope_cellcard/constants/colors.dart';
@@ -18,5 +19,6 @@ void main() {
     theme: ThemeData(
       primaryColor: primaryColor,
     ),
+    builder: EasyLoading.init(),
   ));
 }

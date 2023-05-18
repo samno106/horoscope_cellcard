@@ -8,12 +8,17 @@ import 'package:intl/intl.dart';
 import '../constants/colors.dart';
 
 class SubscribeCard extends StatelessWidget {
-  const SubscribeCard(
-      {Key? key, required this.img, required this.name, required this.price})
-      : super(key: key);
+  const SubscribeCard({
+    Key? key,
+    required this.img,
+    required this.name,
+    required this.price,
+    required this.isSubscribed,
+  }) : super(key: key);
 
   final String img, name;
   final double price;
+  final bool isSubscribed;
 
   @override
   Widget build(BuildContext context) {
@@ -154,25 +159,32 @@ class SubscribeCard extends StatelessWidget {
                                 minimumSize: const Size(80.0, 40.0),
                               ),
                               onPressed: () => {
-                                showModalBottomSheet(
-                                    context: context,
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(20.0),
-                                        topRight: Radius.circular(20.0),
-                                      ),
-                                    ),
-                                    backgroundColor: Colors.white,
-                                    builder: ((context) {
-                                      return SubscribeModalBottom(
-                                        img: img,
-                                        name: name,
-                                        price: price,
-                                      );
-                                    }))
+                                if (isSubscribed)
+                                  {}
+                                else
+                                  {
+                                    showModalBottomSheet(
+                                        context: context,
+                                        shape: const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(20.0),
+                                            topRight: Radius.circular(20.0),
+                                          ),
+                                        ),
+                                        backgroundColor: Colors.white,
+                                        builder: ((context) {
+                                          return SubscribeModalBottom(
+                                            img: img,
+                                            name: name,
+                                            price: price,
+                                          );
+                                        }))
+                                  }
                               },
                               child: Text(
-                                languages[51].kh,
+                                isSubscribed
+                                    ? languages[52].kh
+                                    : languages[51].kh,
                                 style: GoogleFonts.notoSansKhmer(
                                   textStyle: const TextStyle(
                                     fontSize: 14.0,

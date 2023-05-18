@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:horoscope_cellcard/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -52,5 +53,11 @@ class SharedPrefs {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var res = prefs.getString("redirectRoute");
     return res;
+  }
+
+  getApiKey() async {
+    await dotenv.load();
+    var apiKey = dotenv.get('API_KEY');
+    return apiKey;
   }
 }

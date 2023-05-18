@@ -110,11 +110,13 @@ class _MySubscribePageState extends State<MySubscribePage> {
                   img: profiles[0],
                   name: "Master. Khit Samno",
                   price: 0.50,
+                  isSubscribed: false,
                 ),
                 SubscribeCard(
                   img: profiles[1],
                   name: "Master. Vanna Noue",
                   price: 0.25,
+                  isSubscribed: false,
                 ),
               ],
             ),
