@@ -29,3 +29,13 @@ const List<String> horoscopeRoute = <String>[
   "/plate-horoscope",
   "/chinese-horoscope"
 ];
+
+const List<String> horoscopeCode = <String>[
+  "daily-horoscope",
+  "dob-horoscope",
+  "love-horoscope",
+  "phone-horoscope",
+  "bank-acct-horoscope",
+  "plate-number-horoscope",
+  "ch-365-calendar-horoscope"
+];

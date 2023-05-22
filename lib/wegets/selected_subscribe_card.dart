@@ -188,7 +188,7 @@ class CustomDialogWidget extends StatelessWidget {
 
   final String name;
   final double price;
-  final bool isSuccess = true;
+  final bool isSuccess = false;
 
   @override
   Widget build(BuildContext context) {

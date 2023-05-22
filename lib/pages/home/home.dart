@@ -30,200 +30,200 @@ class _HomePageState extends State<HomePage> {
   int selectedYearName = 0;
   int selectedYearContent = 0;
 
-  // void showAlert() async {
-  //   await SnackbarAlert().erorrAlert(languages[91].kh, languages[92].kh);
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(0.0),
-              height: 190.0,
-              child: Stack(
-                children: <Widget>[
-                  ClipPath(
-                      clipper: CurvedBottomClipper(),
-                      child: Container(
-                        color: primaryColor,
-                        height: 160.0,
-                        width: MediaQuery.of(context).size.width,
-                      )),
-                  const Positioned(
-                    top: 0.0,
-                    left: 0,
-                    right: 0,
-                    child: TopNavbar(),
+      body: SafeArea(
+        child: Container(
+          width: double.maxFinite,
+          height: double.maxFinite,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(0.0),
+                  height: 190.0,
+                  child: Stack(
+                    children: <Widget>[
+                      ClipPath(
+                          clipper: CurvedBottomClipper(),
+                          child: Container(
+                            color: primaryColor,
+                            height: 160.0,
+                            width: MediaQuery.of(context).size.width,
+                          )),
+                      const Positioned(
+                        top: 0.0,
+                        left: 0,
+                        right: 0,
+                        child: TopNavbar(),
+                      ),
+                      Positioned(
+                        top: 50.0,
+                        left: 0,
+                        right: 0,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              listYearName[selectedYearName],
+                              style: GoogleFonts.notoSansKhmer(
+                                  textStyle: TextStyle(
+                                color: textDarkColor,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold,
+                              )),
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                          top: 130,
+                          left: 0,
+                          right: 0,
+                          child: CurvedCarousel(
+                            itemBuilder: (_, i) {
+                              return SizedBox(
+                                height: 50.0,
+                                width: 50.0,
+                                child:
+                                    Image(image: AssetImage(carouselList[i])),
+                              );
+                            },
+                            itemCount: 12,
+                            middleItemScaleRatio: 2,
+                            disableInfiniteScrolling: false,
+                            curveScale: 10,
+                            onChangeEnd: ((index, automatic) {
+                              setState(() {
+                                selectedYearName = index;
+                                selectedYearContent = index;
+                              });
+                            }),
+                          )),
+                      Positioned(
+                        top: 70.0,
+                        child: CustomPaint(
+                          painter: PathPainter(drawPath()),
+                        ),
+                      ),
+                    ],
                   ),
-                  Positioned(
-                    top: 50.0,
-                    left: 0,
-                    right: 0,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(0.0),
+                  height: 50,
+                  child: Stack(children: [
+                    Positioned(
+                      top: 30,
+                      left: MediaQuery.of(context).size.width / 2.05,
+                      child: const SizedBox(
+                        height: 17.0,
+                        width: 21.0,
+                        child: Image(
+                            image: AssetImage('/images/vector/vector.png')),
+                      ),
+                    ),
+                  ]),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 5.0),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          listYearName[selectedYearName],
+                          languages[12].kh,
                           style: GoogleFonts.notoSansKhmer(
                               textStyle: TextStyle(
                             color: textDarkColor,
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
                           )),
-                        )
+                        ),
+                        const Image(
+                            image: AssetImage('/images/vector/line1.png'))
                       ],
                     ),
                   ),
-                  Positioned(
-                      top: 130,
-                      left: 0,
-                      right: 0,
-                      child: CurvedCarousel(
-                        itemBuilder: (_, i) {
-                          return SizedBox(
-                            height: 50.0,
-                            width: 50.0,
-                            child: Image(image: AssetImage(carouselList[i])),
-                          );
-                        },
-                        itemCount: 12,
-                        middleItemScaleRatio: 2,
-                        disableInfiniteScrolling: false,
-                        curveScale: 10,
-                        onChangeEnd: ((index, automatic) {
-                          setState(() {
-                            selectedYearName = index;
-                            selectedYearContent = index;
-                          });
-                        }),
-                      )),
-                  Positioned(
-                    top: 70.0,
-                    child: CustomPaint(
-                      painter: PathPainter(drawPath()),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 5.0),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 35.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          listYearContent[selectedYearContent],
+                          style: GoogleFonts.notoSansKhmer(
+                              textStyle: TextStyle(
+                            height: 2.0,
+                            color: textDarkGreyColor,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                          )),
+                        ),
+                        const SizedBox(
+                          height: 40.0,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: buttonPrimaryColor,
+                            shadowColor: buttonPrimaryColor,
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6.0)),
+                            minimumSize:
+                                Size(MediaQuery.of(context).size.width, 50),
+                          ),
+                          onPressed: () async {
+                            if (_sigenedInUser.isLoggedIn == false) {
+                              await SharedPrefs().setloginRedirectRoute('home');
+                              Get.toNamed('auth');
+                            } else {
+                              showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  context: context,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20.0),
+                                      topRight: Radius.circular(20.0),
+                                    ),
+                                  ),
+                                  backgroundColor: Colors.white,
+                                  builder: ((context) {
+                                    return SelectSubscibeList(
+                                      route: horoscopeRoute[0],
+                                    );
+                                  }));
+                            }
+                          },
+                          child: Text(
+                            languages[13].kh,
+                            style: GoogleFonts.notoSansKhmer(
+                                textStyle: const TextStyle(
+                              fontSize: 14,
+                            )),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(0.0),
-              height: 50,
-              child: Stack(children: [
-                Positioned(
-                  top: 30,
-                  left: MediaQuery.of(context).size.width / 2.05,
-                  child: const SizedBox(
-                    height: 17.0,
-                    width: 21.0,
-                    child:
-                        Image(image: AssetImage('/images/vector/vector.png')),
-                  ),
                 ),
-              ]),
+                const SizedBox(
+                  height: 60.0,
+                )
+              ],
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 5.0),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      languages[12].kh,
-                      style: GoogleFonts.notoSansKhmer(
-                          textStyle: TextStyle(
-                        color: textDarkColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      )),
-                    ),
-                    const Image(image: AssetImage('/images/vector/line1.png'))
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 5.0),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 10.0, horizontal: 35.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      listYearContent[selectedYearContent],
-                      style: GoogleFonts.notoSansKhmer(
-                          textStyle: TextStyle(
-                        height: 2.0,
-                        color: textDarkGreyColor,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
-                      )),
-                    ),
-                    const SizedBox(
-                      height: 40.0,
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: buttonPrimaryColor,
-                        shadowColor: buttonPrimaryColor,
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6.0)),
-                        minimumSize:
-                            Size(MediaQuery.of(context).size.width, 50),
-                      ),
-                      onPressed: () async {
-                        if (_sigenedInUser.isLoggedIn == false) {
-                          await SharedPrefs().setloginRedirectRoute('home');
-                          Get.toNamed('auth');
-                        } else {
-                          showModalBottomSheet(
-                              isScrollControlled: true,
-                              context: context,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20.0),
-                                  topRight: Radius.circular(20.0),
-                                ),
-                              ),
-                              backgroundColor: Colors.white,
-                              builder: ((context) {
-                                return SelectSubscibeList(
-                                  route: horoscopeRoute[0],
-                                );
-                              }));
-                        }
-                      },
-                      child: Text(
-                        languages[13].kh,
-                        style: GoogleFonts.notoSansKhmer(
-                            textStyle: const TextStyle(
-                          fontSize: 14,
-                        )),
-                      ),
-                    ),
-
-                    // TextButton(
-                    //     onPressed: () => {showAlert()}, child: Text("Alsert"))
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 60.0,
-            )
-          ],
+          ),
         ),
       ),
-    ));
+    );
   }
 
   Path drawPath() {

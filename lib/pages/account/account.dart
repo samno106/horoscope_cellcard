@@ -69,7 +69,7 @@ class _AccountPageState extends State<AccountPage> {
             color: canvasColor,
           ),
           onPressed: () {
-            Get.back();
+            Get.toNamed('/');
           },
         ),
       ),
@@ -260,7 +260,7 @@ class _AccountPageState extends State<AccountPage> {
                           child: GestureDetector(
                               onTap: () async {
                                 await SharedPrefs().removeUser();
-                                _sigenedInUser.isUserSignedIn();
+                                // _sigenedInUser.isUserSignedIn();
                                 Get.toNamed('/');
                               },
                               child: Text(

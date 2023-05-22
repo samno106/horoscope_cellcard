@@ -129,4 +129,7 @@ List<Languages> languages = <Languages>[
       en: 'Your account is inactive. Please top-up to subscribe.'), //95
   Languages(kh: 'មានបញ្ហាបច្ចេកទេស', en: 'Unknown Error Occured.'), //96
   Languages(kh: 'សូមព្យាយាមម្ដងទៀត', en: 'Please try again'), //97
+  Languages(
+      kh: 'អ្នកបានភ្ជាប់គម្រោងហោរាសាស្ត្ររបស់លោកគ្រូ ',
+      en: 'You are subscribing to Horoscope by ') //98
 ];

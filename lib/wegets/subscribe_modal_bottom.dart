@@ -155,9 +155,10 @@ class SubscribeModalBottom extends StatelessWidget {
                           onPressed: () => {
                             showDialog(
                                 context: context,
-                                builder: (context) => CustomDialogWidget(
-                                      name: name,
-                                      price: price,
+                                builder: (context) => ConfirmDialogWidget(
+                                      title: languages[55].kh,
+                                      content:
+                                          "${languages[98].kh} $name ${languages[87].kh} ${NumberFormat.simpleCurrency(locale: 'en-US', decimalDigits: 2).format(price)} ${languages[88].kh}",
                                     ))
                           },
                           child: Text(
@@ -241,6 +242,134 @@ class CustomDialogWidget extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class ConfirmDialogWidget extends StatelessWidget {
+  const ConfirmDialogWidget(
+      {super.key, required this.title, required this.content});
+
+  final String title, content;
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      elevation: 0,
+      backgroundColor: const Color(0xffffffff),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 15.0),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 35.0, right: 35.0, top: 15.0),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.notoSansKhmer(
+                  textStyle: const TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.w600,
+              )),
+            ),
+          ),
+          const SizedBox(
+            height: 15.0,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 35.0),
+            child: Text(
+              content,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.notoSansKhmer(
+                  textStyle: TextStyle(
+                fontSize: 16.0,
+                color: textDarkGreyColor,
+                fontWeight: FontWeight.w500,
+              )),
+            ),
+          ),
+          const SizedBox(
+            height: 35.0,
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Divider(color: blueColor),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          Container(
+            padding: const EdgeInsets.all(0.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 45.0,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.white,
+                        shadowColor: Colors.white,
+                        elevation: 0,
+                        side: BorderSide(width: 0.5, color: blueColor),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(8.0),
+                          ),
+                        ),
+                      ),
+                      onPressed: () => {Navigator.of(context).pop()},
+                      child: Text(
+                        languages[56].kh,
+                        style: GoogleFonts.notoSansKhmer(
+                          textStyle: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                              color: blueColor),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: SizedBox(
+                    height: 45.0,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.white,
+                        shadowColor: Colors.white,
+                        elevation: 0,
+                        side: BorderSide(width: 0.5, color: blueColor),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(8.0),
+                          ),
+                        ),
+                      ),
+                      onPressed: () => {Navigator.of(context).pop()},
+                      child: Text(
+                        languages[57].kh,
+                        style: GoogleFonts.notoSansKhmer(
+                          textStyle: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                              color: blueColor),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ]),
+      ),
     );
   }
 }

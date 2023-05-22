@@ -44,13 +44,14 @@ class UserController extends GetxController {
   fetchUserData() async {
     try {
       String token = await SharedPrefs().getAuth();
-
+      String apiKey = await SharedPrefs().getApiKey();
       isLoading(true);
       var header = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers':
             'Origin, X-Requested-With, Content-Type, Accept',
         'Content-Type': 'application/json',
+        'ApiKey': apiKey,
         'Authorization': 'Bearer $token'
       };
       var url =

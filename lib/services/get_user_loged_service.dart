@@ -13,7 +13,6 @@ class GetUserLogedService extends GetxController {
 
   isUserSignedIn() async {
     var auth = await SharedPrefs().getUserLoged();
-    print('auth====> $auth');
     isLoggedIn = auth;
     return isLoggedIn;
   }

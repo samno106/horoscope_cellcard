@@ -22,11 +22,6 @@ class _SelectSubscibeListState extends State<SelectSubscibeList> {
   final MasterController masterController = Get.put(MasterController());
 
   @override
-  void initState() {
-    masterController.getAll();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Obx(() => Container(
           padding: const EdgeInsets.all(0.0),
@@ -88,7 +83,7 @@ class _SelectSubscibeListState extends State<SelectSubscibeList> {
                           itemBuilder: (context, index) {
                             return SelectedSubscribeCard(
                               id: masterController.masterList[index].id,
-                              name: masterController.masterList[index].enName,
+                              name: masterController.masterList[index].khName,
                               img: masterController.masterList[index].profile,
                               price: masterController.masterList[index].feeUsd,
                               contents:

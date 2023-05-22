@@ -6,10 +6,14 @@ import 'package:horoscope_cellcard/wegets/select_subscibe_list.dart';
 
 class HoroscopeCard extends StatelessWidget {
   const HoroscopeCard(
-      {Key? key, required this.img, required this.name, required this.route})
+      {Key? key,
+      required this.img,
+      required this.name,
+      required this.code,
+      required this.route})
       : super(key: key);
 
-  final String img, name, route;
+  final String img, name, code, route;
 
   @override
   Widget build(BuildContext context) {

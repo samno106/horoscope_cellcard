@@ -6,8 +6,8 @@ class BottomNavbarController extends GetxController {
 
   changeTabIndex(int index) async {
     var user = await SharedPrefs().getUser();
-    if (index == 2 && user == null) {
-      return Get.offAllNamed('auth');
+    if (index == 0 && user == null || index == 2 && user == null) {
+      return Get.toNamed('auth');
     }
     tapIndex = index;
     update();

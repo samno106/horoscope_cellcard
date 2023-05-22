@@ -15,6 +15,7 @@ import '../wegets/snackbar_alert.dart';
 class LoginController extends GetxController {
   late TextEditingController phoneNumberController, otpCodeController;
 
+  RxBool isLoading = false.obs;
   var message = languages[96].kh;
 
   @override
@@ -31,7 +32,8 @@ class LoginController extends GetxController {
     otpCodeController.dispose();
   }
 
-  Future<void> loginSendOtp() async {
+  void loginSendOtp() async {
+    isLoading(true);
     try {
       String apiKey = await SharedPrefs().getApiKey();
 
@@ -51,24 +53,26 @@ class LoginController extends GetxController {
 
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-
+        isLoading(false);
         var returncode = json['returncode'];
         if (returncode == "00") {
           Get.toNamed('confirm-otp-login');
         }
       } else {
+        isLoading(false);
         final jsonData = jsonDecode(response.body);
         message = jsonData['message'];
         throw message;
       }
     } catch (e) {
+      isLoading(false);
       SnackbarAlert().erorrAlert(message, languages[97].kh);
     }
   }
 
-  Future<void> confirmOtp() async {
+  void confirmOtp() async {
     var _sigenedInUser = Get.put(GetUserLogedService());
-
+    isLoading(true);
     try {
       String apiKey = await SharedPrefs().getApiKey();
 
@@ -99,20 +103,22 @@ class LoginController extends GetxController {
 
         phoneNumberController.clear();
         otpCodeController.clear();
-
+        isLoading(false);
         if (redirect == 'home') {
-          Get.toNamed('/');
+          Get.offAllNamed('/');
         } else {
-          Get.toNamed('/account');
+          Get.offAllNamed('/account');
         }
 
         await SnackbarAlert().successAlert(languages[91].kh, languages[92].kh);
       } else {
+        isLoading(false);
         final jsonData = jsonDecode(response.body);
-        message = jsonData['message'];
-        throw jsonData['data']['error'] ?? 'Unknown Error Occured.';
+        // message = jsonData['message'];
+        throw jsonData['message'] ?? 'Unknown Error Occured.';
       }
     } catch (e) {
+      isLoading(false);
       SnackbarAlert().erorrAlert(message, languages[97].kh);
     }
   }
