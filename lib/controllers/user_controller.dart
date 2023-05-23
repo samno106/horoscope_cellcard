@@ -132,8 +132,6 @@ class UserController extends GetxController {
           ),
         );
 
-        print(json['data']);
-
         ever(userModel, (callback) => fetchUserData());
 
         fullNameController.text = result.fullName;

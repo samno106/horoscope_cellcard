@@ -7,6 +7,7 @@ class ApiEndPoints {
   static _AuthEndPoints AUTHENDPOINTS = _AuthEndPoints();
   static _ProfileEndPoints PROFILEENDPOINTS = _ProfileEndPoints();
   static _MasterEndPoints MASTERENDPOINTS = _MasterEndPoints();
+  static _MySubscribeEndPoints MYSUBSCRIBEENDPOINTS = _MySubscribeEndPoints();
 }
 
 class _AuthEndPoints {
@@ -26,4 +27,8 @@ class _MasterEndPoints {
   final String MASTER_FIND_BY_ID = "masters/findById";
   final String MASTER_FIND_BY_SUBSCRIBER = "masters/Subscriber";
   final String MASTER_FIND_BY_NAME = "masters/listBySubscriber";
+}
+
+class _MySubscribeEndPoints {
+  final String GET_BY_SUBSCRIBER = "subscription/getBySubscriber";
 }

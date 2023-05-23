@@ -82,14 +82,19 @@ class _SelectSubscibeListState extends State<SelectSubscibeList> {
                           itemCount: masterController.masterList.length ?? 0,
                           itemBuilder: (context, index) {
                             return SelectedSubscribeCard(
-                              id: masterController.masterList[index].id,
-                              name: masterController.masterList[index].khName,
-                              img: masterController.masterList[index].profile,
-                              price: masterController.masterList[index].feeUsd,
+                              id: masterController.masterList[index].id ?? 0,
+                              name: masterController.masterList[index].khName ??
+                                  '',
+                              img: masterController.masterList[index].profile ??
+                                  '',
+                              price:
+                                  masterController.masterList[index].feeUsd ??
+                                      0.0,
                               contents:
                                   "Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim Lorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enimLorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enimLorem ipsum dolor sit amet consectetur. At blandit senectus suspendisse massa enim",
                               isSubscribed: masterController
-                                  .masterList[index].isSubscribed,
+                                      .masterList[index].isSubscribed ??
+                                  false,
                               route: widget.route,
                             );
                           }),

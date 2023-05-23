@@ -1,32 +1,28 @@
-import 'dart:convert';
-
-import 'package:get/state_manager.dart';
-import 'package:horoscope_cellcard/models/master_model.dart';
-import 'package:horoscope_cellcard/services/master_service.dart';
+import 'package:get/get.dart';
 
 import '../constants/language.dart';
-import '../utils/api_endpoints.dart';
-import 'package:http/http.dart' as http;
-
+import '../models/my_subscribe_model.dart';
+import '../services/my_subscribe_service.dart';
 import '../wegets/snackbar_alert.dart';
 
-class MasterController extends GetxController {
-  var masterList = <MasterModel>[].obs;
+class MySubscriberController extends GetxController {
+  var mySubscriberLists = <MySubscribeModel>[].obs;
   RxBool isLoading = false.obs;
   late String message = "";
 
   @override
   void onInit() async {
-    getAll();
     super.onInit();
+    getAll();
   }
 
   void getAll() async {
     try {
       isLoading(true);
-      var masters = await MasterService.fetchMasters();
-      if (masters.length > 0) {
-        masterList.value = masters;
+      var mySubscribes = await MySubscribeService.fetchData();
+      if (mySubscribes != null) {
+        mySubscriberLists.value = mySubscribes;
+        print(mySubscriberLists.length ?? 0);
         isLoading(false);
       } else {
         message = languages[97].kh;

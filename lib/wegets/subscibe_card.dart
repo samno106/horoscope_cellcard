@@ -39,7 +39,7 @@ class SubscribeCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(15), // Image border
+            borderRadius: BorderRadius.circular(15),
             child: Image(
               fit: BoxFit.cover,
               width: 100.0,

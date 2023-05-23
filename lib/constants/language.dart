@@ -131,5 +131,8 @@ List<Languages> languages = <Languages>[
   Languages(kh: 'សូមព្យាយាមម្ដងទៀត', en: 'Please try again'), //97
   Languages(
       kh: 'អ្នកបានភ្ជាប់គម្រោងហោរាសាស្ត្ររបស់លោកគ្រូ ',
-      en: 'You are subscribing to Horoscope by ') //98
+      en: 'You are subscribing to Horoscope by '), //98
+  Languages(
+      kh: 'អ្នកបានភ្ជាប់គម្រោងហោរាសាស្ត្រជាមួយលោកគ្រូ',
+      en: 'Your are curently subscribed to'), //99
 ];

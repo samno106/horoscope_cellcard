@@ -13,8 +13,6 @@ class AuthMiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    print(_sigenedInUser.isLoggedIn);
-
     if (_sigenedInUser.isLoggedIn == false) {
       return const RouteSettings(name: 'auth');
     }

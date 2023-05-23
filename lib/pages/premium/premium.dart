@@ -81,12 +81,18 @@ class _PremiumPageState extends State<PremiumPage> {
                           shrinkWrap: false,
                           itemBuilder: (context, index) {
                             return SubscribeCard(
-                                img: masterController.masterList[index].profile,
-                                name: masterController.masterList[index].khName,
+                                img: masterController
+                                        .masterList[index].profile ??
+                                    '',
+                                name:
+                                    masterController.masterList[index].khName ??
+                                        '',
                                 price:
-                                    masterController.masterList[index].feeUsd,
+                                    masterController.masterList[index].feeUsd ??
+                                        0.0,
                                 isSubscribed: masterController
-                                    .masterList[index].isSubscribed);
+                                        .masterList[index].isSubscribed ??
+                                    false);
                           }),
                     )
                   : Center(
