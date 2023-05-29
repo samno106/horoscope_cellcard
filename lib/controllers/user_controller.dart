@@ -150,7 +150,7 @@ class UserController extends GetxController {
             size: 26.0,
           ),
           snackPosition: SnackPosition.TOP,
-          backgroundColor: Color.fromARGB(255, 0, 201, 124),
+          backgroundColor: const Color.fromARGB(255, 0, 201, 124),
           borderRadius: 8.0,
           snackStyle: SnackStyle.FLOATING,
           colorText: Colors.white,

@@ -1,12 +1,8 @@
-import 'dart:convert';
-
 import 'package:get/state_manager.dart';
 import 'package:horoscope_cellcard/models/master_model.dart';
 import 'package:horoscope_cellcard/services/master_service.dart';
 
 import '../constants/language.dart';
-import '../utils/api_endpoints.dart';
-import 'package:http/http.dart' as http;
 
 import '../wegets/snackbar_alert.dart';
 
@@ -24,8 +20,9 @@ class MasterController extends GetxController {
   void getAll() async {
     try {
       isLoading(true);
+
       var masters = await MasterService.fetchMasters();
-      if (masters.length > 0) {
+      if (masters.isNotEmpty) {
         masterList.value = masters;
         isLoading(false);
       } else {

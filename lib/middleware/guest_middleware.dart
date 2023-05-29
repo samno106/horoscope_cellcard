@@ -1,12 +1,10 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../services/get_user_loged_service.dart';
-import '../utils/shared_prefs.dart';
 
 class GuestMiddleware extends GetMiddleware {
-  var _sigenedInUser = Get.put(GetUserLogedService());
+  final _sigenedInUser = Get.put(GetUserLogedService());
 
   @override
   int? get priority => 1;
@@ -16,5 +14,6 @@ class GuestMiddleware extends GetMiddleware {
     if (_sigenedInUser.isLoggedIn == true) {
       return const RouteSettings(name: '/');
     }
+    return null;
   }
 }

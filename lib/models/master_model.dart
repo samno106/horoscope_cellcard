@@ -37,7 +37,7 @@ class MasterModel {
         enName: json["en_name"],
         feeKhr: json["fee_khr"],
         feeUsd: json["fee_usd"]?.toDouble(),
-        profile: BaseUrl.IMAGE_URL + '' + json["profile"],
+        profile: BaseUrl.IMAGE_URL + json["profile"],
         status: json["status"],
         isSubscribed: json["isSubscribed"],
         createdAt: DateTime.parse(json["created_at"]),

@@ -27,6 +27,8 @@ class MasterService {
       final jsonRes = jsonDecode(response.body);
       var json = jsonEncode(jsonRes['data']);
 
+      print("My json" + jsonRes['data']);
+
       return masterModelFromJson(json.toString());
     }
     return [];

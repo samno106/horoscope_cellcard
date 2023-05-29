@@ -1,15 +1,11 @@
 import 'package:curved_carousel/curved_carousel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:horoscope_cellcard/wegets/snackbar_alert.dart';
 import '../../constants/carousel_property.dart';
 import '../../constants/colors.dart';
 import '../../constants/horoscope_property.dart';
 import '../../constants/language.dart';
-import '../../controllers/user_controller.dart';
 import '../../layouts/top_navbar.dart';
 import '../../services/get_user_loged_service.dart';
 import '../../utils/shared_prefs.dart';
@@ -25,7 +21,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var _sigenedInUser = Get.put(GetUserLogedService());
+  final _sigenedInUser = Get.put(GetUserLogedService());
 
   int selectedYearName = 0;
   int selectedYearContent = 0;
@@ -34,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: double.maxFinite,
           height: double.maxFinite,
           child: SingleChildScrollView(

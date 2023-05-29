@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/controllers/register_controller.dart';
-import 'package:intl/intl.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/language.dart';
@@ -32,7 +30,7 @@ class _SignupPageState extends State<SignupPage> {
   FocusNode focusNode = FocusNode();
   String hintText = languages[65].kh;
 
-  String _genderValue = "";
+  final String _genderValue = "";
 
   @override
   void initState() {
@@ -149,7 +147,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5.0,
                     ),
                     validateName
@@ -165,7 +163,7 @@ class _SignupPageState extends State<SignupPage> {
                                       color: redColor)),
                             ),
                           )
-                        : SizedBox(
+                        : const SizedBox(
                             height: 1.0,
                           ),
                     const SizedBox(
@@ -215,7 +213,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5.0,
                     ),
                     validateDob
@@ -231,7 +229,7 @@ class _SignupPageState extends State<SignupPage> {
                                       color: redColor)),
                             ),
                           )
-                        : SizedBox(
+                        : const SizedBox(
                             height: 1.0,
                           ),
                     const SizedBox(
@@ -307,7 +305,7 @@ class _SignupPageState extends State<SignupPage> {
                         );
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5.0,
                     ),
                     validateGender
@@ -323,7 +321,7 @@ class _SignupPageState extends State<SignupPage> {
                                       color: redColor)),
                             ),
                           )
-                        : SizedBox(
+                        : const SizedBox(
                             height: 1.0,
                           ),
                     const SizedBox(
@@ -368,7 +366,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ]),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 validatePhone
@@ -384,7 +382,7 @@ class _SignupPageState extends State<SignupPage> {
                                   color: redColor)),
                         ),
                       )
-                    : SizedBox(
+                    : const SizedBox(
                         height: 1.0,
                       ),
                 const SizedBox(

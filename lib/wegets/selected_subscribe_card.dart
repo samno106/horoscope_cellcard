@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
@@ -95,7 +94,7 @@ class _SelectedSubscribeCardState extends State<SelectedSubscribeCard> {
                               maintainState: true,
                               child: Text(
                                 widget.contents.length > 100
-                                    ? widget.contents.substring(0, 100) + '...'
+                                    ? '${widget.contents.substring(0, 100)}...'
                                     : widget.contents,
                                 style: const TextStyle(fontSize: 12.0),
                                 textAlign: TextAlign.left,

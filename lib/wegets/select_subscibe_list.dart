@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,11 +7,10 @@ import 'package:horoscope_cellcard/controllers/master_controller.dart';
 import 'package:horoscope_cellcard/wegets/selected_subscribe_card.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import '../constants/colors.dart';
-import '../constants/profile_lists.dart';
 
 class SelectSubscibeList extends StatefulWidget {
   final String route;
-  SelectSubscibeList({Key? key, required this.route}) : super(key: key);
+  const SelectSubscibeList({Key? key, required this.route}) : super(key: key);
 
   @override
   State<SelectSubscibeList> createState() => _SelectSubscibeListState();
@@ -101,7 +99,7 @@ class _SelectSubscibeListState extends State<SelectSubscibeList> {
                     )
                   : Center(
                       child: Container(
-                      margin: EdgeInsets.only(top: 180.0),
+                      margin: const EdgeInsets.only(top: 180.0),
                       child: LoadingAnimationWidget.fallingDot(
                         color: primaryColor,
                         size: 70,

@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,7 +9,6 @@ import 'package:horoscope_cellcard/constants/language.dart';
 
 import '../../constants/colors.dart';
 import '../../controllers/user_controller.dart';
-import '../../utils/shared_prefs.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 
 class ProfilePage extends StatefulWidget {

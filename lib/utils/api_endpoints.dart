@@ -1,6 +1,6 @@
 class BaseUrl {
-  static final String BASE_URL = "http://localhost:8000/api/v1/";
-  static final String IMAGE_URL = "http://localhost:8000/";
+  static const String BASE_URL = "http://localhost:8000/api/v1/";
+  static const String IMAGE_URL = "http://localhost:8000/";
 }
 
 class ApiEndPoints {

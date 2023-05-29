@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/constants/language.dart';
 import 'package:horoscope_cellcard/controllers/login_controller.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../constants/colors.dart';
 
@@ -19,6 +20,13 @@ class _SigninPageState extends State<SigninPage> {
   final loginController = Get.put(LoginController());
   bool validate = false;
   String logo = "/images/carousel/monkey.png";
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   loginController.phoneNumberController.dispose();
+  //   loginController.otpCodeController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +49,7 @@ class _SigninPageState extends State<SigninPage> {
         backgroundColor: backgroundColor,
         body: SafeArea(
           child: SingleChildScrollView(
-            child: Container(
+            child: SizedBox(
               width: double.maxFinite,
               height: double.maxFinite,
               child: Stack(
@@ -234,18 +242,12 @@ class _SigninPageState extends State<SigninPage> {
                         ],
                       )),
                   loginController.isLoading.value
-                      ? Positioned(
-                          top: 0,
-                          left: 0,
+                      ? Center(
                           child: Container(
-                            color: Color.fromARGB(75, 50, 50, 50),
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height,
-                            child: Center(
-                              child: CircularProgressIndicator(
-                                color: blueColor,
-                                backgroundColor: Colors.lightBlue,
-                              ),
+                            margin: const EdgeInsets.only(top: 180.0),
+                            child: LoadingAnimationWidget.hexagonDots(
+                              color: primaryColor,
+                              size: 0,
                             ),
                           ),
                         )

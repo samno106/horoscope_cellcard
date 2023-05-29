@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_cellcard/models/user_model.dart';
 import 'package:horoscope_cellcard/utils/shared_prefs.dart';
 
 import 'package:http/http.dart' as http;
@@ -13,7 +11,8 @@ import '../utils/api_endpoints.dart';
 import '../wegets/snackbar_alert.dart';
 
 class LoginController extends GetxController {
-  late TextEditingController phoneNumberController, otpCodeController;
+  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController otpCodeController = TextEditingController();
 
   RxBool isLoading = false.obs;
   var message = languages[96].kh;
@@ -21,8 +20,6 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    phoneNumberController = TextEditingController();
-    otpCodeController = TextEditingController();
   }
 
   @override
@@ -71,7 +68,7 @@ class LoginController extends GetxController {
   }
 
   void confirmOtp() async {
-    var _sigenedInUser = Get.put(GetUserLogedService());
+    var sigenedInUser = Get.put(GetUserLogedService());
     isLoading(true);
     try {
       String apiKey = await SharedPrefs().getApiKey();
@@ -97,7 +94,7 @@ class LoginController extends GetxController {
         final json = jsonDecode(response.body);
 
         await SharedPrefs().storeUser(jsonEncode(json['data']));
-        _sigenedInUser.isUserSignedIn();
+        sigenedInUser.isUserSignedIn();
 
         var redirect = await SharedPrefs().getloginRedirectRoute();
 

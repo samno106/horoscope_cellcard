@@ -5,7 +5,6 @@ import 'package:horoscope_cellcard/wegets/notification_card.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/language.dart';
-import '../../layouts/premium_navbar.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 
 class NotificationPage extends StatefulWidget {

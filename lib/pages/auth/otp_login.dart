@@ -198,18 +198,12 @@ class _OtpLoginPageState extends State<OtpLoginPage> {
               ),
             ),
             loginController.isLoading.value
-                ? Positioned(
-                    top: 0,
-                    left: 0,
+                ? Center(
                     child: Container(
-                      color: Color.fromARGB(75, 50, 50, 50),
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      child: Center(
-                        child: CircularProgressIndicator(
-                          color: blueColor,
-                          backgroundColor: Colors.lightBlue,
-                        ),
+                      margin: const EdgeInsets.only(top: 180.0),
+                      child: LoadingAnimationWidget.hexagonDots(
+                        color: primaryColor,
+                        size: 0,
                       ),
                     ),
                   )

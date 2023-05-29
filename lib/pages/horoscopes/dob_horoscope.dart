@@ -333,7 +333,7 @@ class _DobHoroscopePageState extends State<DobHoroscopePage> {
                     max: duration.inSeconds.toDouble(),
                     onChanged: (double value) => {
                       setState(() =>
-                          {audioPlayer.seek(Duration(seconds: value.toInt()))})
+                          audioPlayer.seek(Duration(seconds: value.toInt())))
                     },
                   ),
                 ),

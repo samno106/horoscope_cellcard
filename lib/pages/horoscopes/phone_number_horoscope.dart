@@ -202,10 +202,9 @@ class _PhoneNumberHoroscopePageState extends State<PhoneNumberHoroscopePage> {
                                     value: position.inSeconds.toDouble(),
                                     max: duration.inSeconds.toDouble(),
                                     onChanged: (double value) => {
-                                      setState(() => {
-                                            audioPlayer.seek(Duration(
+                                      setState(() => audioPlayer.seek(Duration(
                                                 seconds: value.toInt()))
-                                          })
+                                          )
                                     },
                                   ),
                                 ),

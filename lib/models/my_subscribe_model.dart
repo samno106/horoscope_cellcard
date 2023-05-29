@@ -105,7 +105,7 @@ class Masters {
         feeKhr: json["fee_khr"],
         feeUsd: json["fee_usd"]?.toDouble(),
         status: json["status"],
-        profile: BaseUrl.IMAGE_URL + '' + json["profile"],
+        profile: BaseUrl.IMAGE_URL + json["profile"],
         createdAt: json["created_at"] == null
             ? null
             : DateTime.parse(json["created_at"]),

@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:horoscope_cellcard/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
@@ -20,7 +19,6 @@ class SharedPrefs {
   getUserLoged() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var auth = prefs.getString("auth");
-    print('MY AUTH===> $auth');
     if (auth == null) {
       return false;
     }
@@ -32,7 +30,7 @@ class SharedPrefs {
     var auth = prefs.getString("auth");
     var token;
     if (auth != null) {
-      var result = jsonDecode(auth!);
+      var result = jsonDecode(auth);
       token = result['accessToken'];
     }
 

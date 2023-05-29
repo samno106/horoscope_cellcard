@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/controllers/master_controller.dart';
-import 'package:horoscope_cellcard/layouts/base_navbar.dart';
 import 'package:horoscope_cellcard/layouts/my_profile_navbar.dart';
 import 'package:horoscope_cellcard/wegets/subscibe_card.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/language.dart';
-import '../../controllers/my_subscribe_controller.dart';
 import '../../wegets/curved_bottom_clipper.dart';
 
 class MySubscribePage extends StatefulWidget {

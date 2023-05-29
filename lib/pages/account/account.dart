@@ -7,10 +7,8 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:horoscope_cellcard/constants/language.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/colors.dart';
-import '../../controllers/user_controller.dart';
 import '../../services/get_user_loged_service.dart';
 import '../../utils/shared_prefs.dart';
 import '../../wegets/curved_bottom_clipper.dart';
@@ -23,7 +21,7 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  var _sigenedInUser = Get.put(GetUserLogedService());
+  final _sigenedInUser = Get.put(GetUserLogedService());
 
   String? full_name;
   String? phone_number;
@@ -260,8 +258,8 @@ class _AccountPageState extends State<AccountPage> {
                           child: GestureDetector(
                               onTap: () async {
                                 await SharedPrefs().removeUser();
-                                // _sigenedInUser.isUserSignedIn();
-                                Get.toNamed('/');
+                                _sigenedInUser.isUserSignedIn();
+                                Get.offAllNamed('/');
                               },
                               child: Text(
                                 languages[81].kh,

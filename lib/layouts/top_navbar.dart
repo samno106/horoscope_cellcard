@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:horoscope_cellcard/controllers/user_controller.dart';
 import 'package:horoscope_cellcard/utils/shared_prefs.dart';
 import '../constants/colors.dart';
 import '../constants/navbar_property.dart';

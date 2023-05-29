@@ -401,10 +401,9 @@ class _ChCalendarHoroscopePageState extends State<ChCalendarHoroscopePage> {
                                 value: position.inSeconds.toDouble(),
                                 max: duration.inSeconds.toDouble(),
                                 onChanged: (double value) => {
-                                  setState(() => {
-                                        audioPlayer.seek(
+                                  setState(() => audioPlayer.seek(
                                             Duration(seconds: value.toInt()))
-                                      })
+                                      )
                                 },
                               ),
                             ),
